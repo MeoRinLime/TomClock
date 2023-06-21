@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>MainIcon.png</file>
+        <file>resourse/images/Icons/Main_Color/tomato1.png</file>
+    </qresource>
+</RCC>

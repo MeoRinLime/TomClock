@@ -11,24 +11,116 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>TomClock</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuTomClock">
-    <property name="title">
-     <string>TomClock</string>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resourse/images/Icons/MainIcon.png</normaloff>
+    <normalon>../resourse/images/Icons/MainIcon.png</normalon>../resourse/images/Icons/MainIcon.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="functionList" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>491</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-color: rgb(225, 225, 225);
+border:2px groove gray;
+border-radius:10px;
+padding:2px 4px;
+border-style: outset;
+}
+
+QPushButton:hover{
+background-color:rgb(229, 241, 251); 
+color: black;
+}
+
+QPushButton:pressed{
+background-color:rgb(204, 228, 247);
+border-style: inset;
+}
+</string>
+    </property>
+    <widget class="QPushButton" name="historyRecord">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>211</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>方正铭石体 简</family>
+       <pointsize>40</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>历史数据</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="achievement">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>20</y>
+       <width>211</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>方正铭石体 简</family>
+       <pointsize>40</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>成就</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="start">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>150</y>
+      <width>471</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
-   <addaction name="menuTomClock"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

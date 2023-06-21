@@ -9,13 +9,28 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/achievementwindow.cpp \
+    src/createmissionwindow.cpp \
+    src/historywindow.cpp \
+    src/missionlistwindow.cpp \
+    src/runwindow.cpp \
     src\main.cpp \
     src\mainwindow.cpp
 
 HEADERS += \
+    src/achievementwindow.h \
+    src/createmissionwindow.h \
+    src/historywindow.h \
+    src/missionlistwindow.h \
+    src/runwindow.h \
     src\mainwindow.h
 
 FORMS += \
+    screenUi/achievementwindow.ui \
+    screenUi/createmissionwindow.ui \
+    screenUi/historywindow.ui \
+    screenUi/missionlistwindow.ui \
+    screenUi/runwindow.ui \
     screenUi\mainwindow.ui
 
 TRANSLATIONS += \
@@ -27,3 +42,6 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
