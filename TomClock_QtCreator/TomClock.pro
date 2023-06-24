@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,20 +9,30 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/achievement.cpp \
     src/achievementwindow.cpp \
     src/createmissionwindow.cpp \
+    src/history.cpp \
     src/historywindow.cpp \
+    src/mission.cpp \
     src/missionlistwindow.cpp \
     src/runwindow.cpp \
+    src/tomclock.cpp \
+    src/tomclockdatabase.cpp \
     src\main.cpp \
     src\mainwindow.cpp
 
 HEADERS += \
+    src/achievement.h \
     src/achievementwindow.h \
     src/createmissionwindow.h \
+    src/history.h \
     src/historywindow.h \
+    src/mission.h \
     src/missionlistwindow.h \
     src/runwindow.h \
+    src/tomclock.h \
+    src/tomclockdatabase.h \
     src\mainwindow.h
 
 FORMS += \
