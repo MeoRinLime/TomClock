@@ -9,14 +9,21 @@ class History
 {
 public:
     History();
-    QDate getDate() const;
-    void setDate(const QDate &newDate);
-    QString getName() const;
-    void setName(const QString &newName);
-    int getNumOfTomato() const;
-    void setNumOfTomato(int newNumOfTomato);
-    QTime getTotalTime() const;
-    void setTotalTime(const QTime &newTotalTime);
+    QDate getDate() const;//获取日期
+
+    void setDate(const QDate &newDate);//设置日期
+
+    QString getName() const;//获取姓名
+
+    void setName(const QString &newName);//设置姓名
+
+    int getNumOfTomato() const;//获取番茄数
+
+    void setNumOfTomato(int newNumOfTomato);//设置番茄数
+
+    QTime getTotalTime() const;//获取总时长
+
+    void setTotalTime(const QTime &newTotalTime);//设置总时长
 
 private:
     QDate date;

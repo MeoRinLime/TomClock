@@ -1,3 +1,4 @@
+release/achievement.o
 release/achievementwindow.o
 release/createmissionwindow.o
 release/history.o
@@ -5,6 +6,8 @@ release/historywindow.o
 release/mission.o
 release/missionlistwindow.o
 release/runwindow.o
+release/tomclock.o
+release/tomclockdatabase.o
 release/main.o
 release/mainwindow.o
 release/qrc_res.o

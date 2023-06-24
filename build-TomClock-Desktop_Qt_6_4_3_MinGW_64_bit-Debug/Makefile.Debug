@@ -13,13 +13,13 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
+DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I../TomClock_QtCreator -I. -I../../../qt/6.4.3/mingw_64/include -I../../../qt/6.4.3/mingw_64/include/QtWidgets -I../../../qt/6.4.3/mingw_64/include/QtGui -I../../../qt/6.4.3/mingw_64/include/QtCore -Idebug -I. -I/include -I../../../qt/6.4.3/mingw_64/mkspecs/win32-g++ 
+INCPATH       = -I../TomClock_QtCreator -I. -I../../../qt/6.4.3/mingw_64/include -I../../../qt/6.4.3/mingw_64/include/QtWidgets -I../../../qt/6.4.3/mingw_64/include/QtGui -I../../../qt/6.4.3/mingw_64/include/QtSql -I../../../qt/6.4.3/mingw_64/include/QtCore -Idebug -I. -I/include -I../../../qt/6.4.3/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        D:\qt\6.4.3\mingw_64\lib\libQt6Widgets.a D:\qt\6.4.3\mingw_64\lib\libQt6Gui.a D:\qt\6.4.3\mingw_64\lib\libQt6Core.a -lmingw32 D:\qt\6.4.3\mingw_64\lib\libQt6EntryPoint.a -lshell32  
+LIBS        =        D:\qt\6.4.3\mingw_64\lib\libQt6Widgets.a D:\qt\6.4.3\mingw_64\lib\libQt6Gui.a D:\qt\6.4.3\mingw_64\lib\libQt6Sql.a D:\qt\6.4.3\mingw_64\lib\libQt6Core.a -lmingw32 D:\qt\6.4.3\mingw_64\lib\libQt6EntryPoint.a -lshell32  
 QMAKE         = D:\qt\6.4.3\mingw_64\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -50,13 +50,16 @@ OBJECTS_DIR   = debug
 
 ####### Files
 
-SOURCES       = ..\TomClock_QtCreator\src\achievementwindow.cpp \
+SOURCES       = ..\TomClock_QtCreator\src\achievement.cpp \
+		..\TomClock_QtCreator\src\achievementwindow.cpp \
 		..\TomClock_QtCreator\src\createmissionwindow.cpp \
 		..\TomClock_QtCreator\src\history.cpp \
 		..\TomClock_QtCreator\src\historywindow.cpp \
 		..\TomClock_QtCreator\src\mission.cpp \
 		..\TomClock_QtCreator\src\missionlistwindow.cpp \
 		..\TomClock_QtCreator\src\runwindow.cpp \
+		..\TomClock_QtCreator\src\tomclock.cpp \
+		..\TomClock_QtCreator\src\tomclockdatabase.cpp \
 		..\TomClock_QtCreator\src\main.cpp \
 		..\TomClock_QtCreator\src\mainwindow.cpp debug\qrc_res.cpp \
 		debug\qrc_qmake_qmake_qm_files.cpp \
@@ -66,13 +69,16 @@ SOURCES       = ..\TomClock_QtCreator\src\achievementwindow.cpp \
 		debug\moc_missionlistwindow.cpp \
 		debug\moc_runwindow.cpp \
 		debug\moc_mainwindow.cpp
-OBJECTS       = debug/achievementwindow.o \
+OBJECTS       = debug/achievement.o \
+		debug/achievementwindow.o \
 		debug/createmissionwindow.o \
 		debug/history.o \
 		debug/historywindow.o \
 		debug/mission.o \
 		debug/missionlistwindow.o \
 		debug/runwindow.o \
+		debug/tomclock.o \
+		debug/tomclockdatabase.o \
 		debug/main.o \
 		debug/mainwindow.o \
 		debug/qrc_res.o \
@@ -84,20 +90,26 @@ OBJECTS       = debug/achievementwindow.o \
 		debug/moc_runwindow.o \
 		debug/moc_mainwindow.o
 
-DIST          =  ..\TomClock_QtCreator\src\achievementwindow.h \
+DIST          =  ..\TomClock_QtCreator\src\achievement.h \
+		..\TomClock_QtCreator\src\achievementwindow.h \
 		..\TomClock_QtCreator\src\createmissionwindow.h \
 		..\TomClock_QtCreator\src\history.h \
 		..\TomClock_QtCreator\src\historywindow.h \
 		..\TomClock_QtCreator\src\mission.h \
 		..\TomClock_QtCreator\src\missionlistwindow.h \
 		..\TomClock_QtCreator\src\runwindow.h \
-		..\TomClock_QtCreator\src\mainwindow.h ..\TomClock_QtCreator\src\achievementwindow.cpp \
+		..\TomClock_QtCreator\src\tomclock.h \
+		..\TomClock_QtCreator\src\tomclockdatabase.h \
+		..\TomClock_QtCreator\src\mainwindow.h ..\TomClock_QtCreator\src\achievement.cpp \
+		..\TomClock_QtCreator\src\achievementwindow.cpp \
 		..\TomClock_QtCreator\src\createmissionwindow.cpp \
 		..\TomClock_QtCreator\src\history.cpp \
 		..\TomClock_QtCreator\src\historywindow.cpp \
 		..\TomClock_QtCreator\src\mission.cpp \
 		..\TomClock_QtCreator\src\missionlistwindow.cpp \
 		..\TomClock_QtCreator\src\runwindow.cpp \
+		..\TomClock_QtCreator\src\tomclock.cpp \
+		..\TomClock_QtCreator\src\tomclockdatabase.cpp \
 		..\TomClock_QtCreator\src\main.cpp \
 		..\TomClock_QtCreator\src\mainwindow.cpp
 QMAKE_TARGET  = TomClock
@@ -110,7 +122,7 @@ DESTDIR_TARGET = debug\TomClock.exe
 first: all
 all: Makefile.Debug  debug/TomClock.exe
 
-debug/TomClock.exe: D:/qt/6.4.3/mingw_64/lib/libQt6Widgets.a D:/qt/6.4.3/mingw_64/lib/libQt6Gui.a D:/qt/6.4.3/mingw_64/lib/libQt6Core.a D:/qt/6.4.3/mingw_64/lib/libQt6EntryPoint.a ui_achievementwindow.h ui_createmissionwindow.h ui_historywindow.h ui_missionlistwindow.h ui_runwindow.h ui_mainwindow.h $(OBJECTS) 
+debug/TomClock.exe: D:/qt/6.4.3/mingw_64/lib/libQt6Widgets.a D:/qt/6.4.3/mingw_64/lib/libQt6Gui.a D:/qt/6.4.3/mingw_64/lib/libQt6Sql.a D:/qt/6.4.3/mingw_64/lib/libQt6Core.a D:/qt/6.4.3/mingw_64/lib/libQt6EntryPoint.a ui_achievementwindow.h ui_createmissionwindow.h ui_historywindow.h ui_missionlistwindow.h ui_runwindow.h ui_mainwindow.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) @debug\object_script.TomClock.Debug $(LIBS)
 
 qmake: FORCE
@@ -119,10 +131,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) TomClock.zip $(SOURCES) $(DIST) ..\TomClock_QtCreator\TomClock.pro ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\spec_pre.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\device_config.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\sanitize.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\gcc-base.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\g++-base.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\windows-vulkan.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\g++-win32.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\windows-desktop.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\qconfig.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_ext_freetype.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_ext_libpng.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_core.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_help.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssettings.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_linguist.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_network.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_png_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_tools_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qt_functions.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qt_config.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\win32-g++\qmake.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\exclusive_builds.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\toolchain.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\default_pre.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\default_pre.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\resolve_config.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\default_post.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\build_pass.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\lrelease.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qml_debug.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\entrypoint.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\precompile_header.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\warn_on.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qt.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\resources_functions.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\resources.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\moc.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\opengl.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\uic.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qmake_use.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\file_copies.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\windows.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\testcase_targets.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\exceptions.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\yacc.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\lex.prf ..\TomClock_QtCreator\TomClock.pro ..\TomClock_QtCreator\res.qrc debug\qmake_qmake_qm_files.qrc ..\..\..\qt\6.4.3\mingw_64\lib\Qt6Widgets.prl ..\..\..\qt\6.4.3\mingw_64\lib\Qt6Gui.prl ..\..\..\qt\6.4.3\mingw_64\lib\Qt6Core.prl ..\..\..\qt\6.4.3\mingw_64\lib\Qt6EntryPoint.prl ..\TomClock_QtCreator\src\lang\TomClock_zh_CN.ts ..\TomClock_QtCreator\src\lang\TomClock_zh_CN.ts ..\TomClock_QtCreator\src\lang\TomClock_zh_CN.ts   ..\TomClock_QtCreator\res.qrc debug\qmake_qmake_qm_files.qrc ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\data\dummy.cpp ..\TomClock_QtCreator\src\achievementwindow.h ..\TomClock_QtCreator\src\createmissionwindow.h ..\TomClock_QtCreator\src\history.h ..\TomClock_QtCreator\src\historywindow.h ..\TomClock_QtCreator\src\mission.h ..\TomClock_QtCreator\src\missionlistwindow.h ..\TomClock_QtCreator\src\runwindow.h ..\TomClock_QtCreator\src\mainwindow.h  ..\TomClock_QtCreator\src\achievementwindow.cpp ..\TomClock_QtCreator\src\createmissionwindow.cpp ..\TomClock_QtCreator\src\history.cpp ..\TomClock_QtCreator\src\historywindow.cpp ..\TomClock_QtCreator\src\mission.cpp ..\TomClock_QtCreator\src\missionlistwindow.cpp ..\TomClock_QtCreator\src\runwindow.cpp ..\TomClock_QtCreator\src\main.cpp ..\TomClock_QtCreator\src\mainwindow.cpp ..\TomClock_QtCreator\screenUi\achievementwindow.ui ..\TomClock_QtCreator\screenUi\createmissionwindow.ui ..\TomClock_QtCreator\screenUi\historywindow.ui ..\TomClock_QtCreator\screenUi\missionlistwindow.ui ..\TomClock_QtCreator\screenUi\runwindow.ui ..\TomClock_QtCreator\screenUi\mainwindow.ui    
+	$(ZIP) TomClock.zip $(SOURCES) $(DIST) ..\TomClock_QtCreator\TomClock.pro ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\spec_pre.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\device_config.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\sanitize.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\gcc-base.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\g++-base.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\windows-vulkan.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\g++-win32.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\common\windows-desktop.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\qconfig.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_ext_freetype.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_ext_libpng.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_core.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_help.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssettings.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_linguist.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_network.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_png_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_tools_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qt_functions.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qt_config.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\win32-g++\qmake.conf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\exclusive_builds.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\toolchain.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\default_pre.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\default_pre.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\resolve_config.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\default_post.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\build_pass.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\lrelease.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qml_debug.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\entrypoint.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\precompile_header.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\warn_on.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qt.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\resources_functions.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\resources.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\moc.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\opengl.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\uic.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\qmake_use.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\file_copies.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\win32\windows.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\testcase_targets.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\exceptions.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\yacc.prf ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\lex.prf ..\TomClock_QtCreator\TomClock.pro ..\TomClock_QtCreator\res.qrc debug\qmake_qmake_qm_files.qrc ..\..\..\qt\6.4.3\mingw_64\lib\Qt6Widgets.prl ..\..\..\qt\6.4.3\mingw_64\lib\Qt6Gui.prl ..\..\..\qt\6.4.3\mingw_64\lib\Qt6Sql.prl ..\..\..\qt\6.4.3\mingw_64\lib\Qt6Core.prl ..\..\..\qt\6.4.3\mingw_64\lib\Qt6EntryPoint.prl ..\TomClock_QtCreator\src\lang\TomClock_zh_CN.ts ..\TomClock_QtCreator\src\lang\TomClock_zh_CN.ts ..\TomClock_QtCreator\src\lang\TomClock_zh_CN.ts   ..\TomClock_QtCreator\res.qrc debug\qmake_qmake_qm_files.qrc ..\..\..\qt\6.4.3\mingw_64\mkspecs\features\data\dummy.cpp ..\TomClock_QtCreator\src\achievement.h ..\TomClock_QtCreator\src\achievementwindow.h ..\TomClock_QtCreator\src\createmissionwindow.h ..\TomClock_QtCreator\src\history.h ..\TomClock_QtCreator\src\historywindow.h ..\TomClock_QtCreator\src\mission.h ..\TomClock_QtCreator\src\missionlistwindow.h ..\TomClock_QtCreator\src\runwindow.h ..\TomClock_QtCreator\src\tomclock.h ..\TomClock_QtCreator\src\tomclockdatabase.h ..\TomClock_QtCreator\src\mainwindow.h  ..\TomClock_QtCreator\src\achievement.cpp ..\TomClock_QtCreator\src\achievementwindow.cpp ..\TomClock_QtCreator\src\createmissionwindow.cpp ..\TomClock_QtCreator\src\history.cpp ..\TomClock_QtCreator\src\historywindow.cpp ..\TomClock_QtCreator\src\mission.cpp ..\TomClock_QtCreator\src\missionlistwindow.cpp ..\TomClock_QtCreator\src\runwindow.cpp ..\TomClock_QtCreator\src\tomclock.cpp ..\TomClock_QtCreator\src\tomclockdatabase.cpp ..\TomClock_QtCreator\src\main.cpp ..\TomClock_QtCreator\src\mainwindow.cpp ..\TomClock_QtCreator\screenUi\achievementwindow.ui ..\TomClock_QtCreator\screenUi\createmissionwindow.ui ..\TomClock_QtCreator\screenUi\historywindow.ui ..\TomClock_QtCreator\screenUi\missionlistwindow.ui ..\TomClock_QtCreator\screenUi\runwindow.ui ..\TomClock_QtCreator\screenUi\mainwindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\achievementwindow.o debug\createmissionwindow.o debug\history.o debug\historywindow.o debug\mission.o debug\missionlistwindow.o debug\runwindow.o debug\main.o debug\mainwindow.o debug\qrc_res.o debug\qrc_qmake_qmake_qm_files.o debug\moc_achievementwindow.o debug\moc_createmissionwindow.o debug\moc_historywindow.o debug\moc_missionlistwindow.o debug\moc_runwindow.o debug\moc_mainwindow.o
+	-$(DEL_FILE) debug\achievement.o debug\achievementwindow.o debug\createmissionwindow.o debug\history.o debug\historywindow.o debug\mission.o debug\missionlistwindow.o debug\runwindow.o debug\tomclock.o debug\tomclockdatabase.o debug\main.o debug\mainwindow.o debug\qrc_res.o debug\qrc_qmake_qmake_qm_files.o debug\moc_achievementwindow.o debug\moc_createmissionwindow.o debug\moc_historywindow.o debug\moc_missionlistwindow.o debug\moc_runwindow.o debug\moc_mainwindow.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -169,10 +181,10 @@ compiler_moc_header_make_all: debug/moc_achievementwindow.cpp debug/moc_createmi
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug\moc_achievementwindow.cpp debug\moc_createmissionwindow.cpp debug\moc_historywindow.cpp debug\moc_missionlistwindow.cpp debug\moc_runwindow.cpp debug\moc_mainwindow.cpp
 debug/moc_achievementwindow.cpp: ../TomClock_QtCreator/src/achievementwindow.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qwidget.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiglobal.h \
+		../TomClock_QtCreator/src/achievement.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QString \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qglobal.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig.h \
@@ -197,22 +209,11 @@ debug/moc_achievementwindow.cpp: ../TomClock_QtCreator/src/achievementwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qnumeric.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qversiontagging.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qforeach.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qtgui-config.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiexports.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs_win.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qobject.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qstringview.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearray.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qrefcount.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydata.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qpair.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -227,6 +228,19 @@ debug/moc_achievementwindow.cpp: ../TomClock_QtCreator/src/achievementwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qutf8stringview.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qstringtokenizer.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qstringbuilder.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qwidget.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qtgui-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobject.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qlist.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qhashfunctions.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qiterator.h \
@@ -306,7 +320,7 @@ debug/moc_achievementwindow.cpp: ../TomClock_QtCreator/src/achievementwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qnativeinterface.h \
 		debug/moc_predefs.h \
 		../../../qt/6.4.3/mingw_64/bin/moc.exe
-	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\achievementwindow.h -o debug\moc_achievementwindow.cpp
+	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtSql -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\achievementwindow.h -o debug\moc_achievementwindow.cpp
 
 debug/moc_createmissionwindow.cpp: ../TomClock_QtCreator/src/createmissionwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
@@ -457,7 +471,7 @@ debug/moc_createmissionwindow.cpp: ../TomClock_QtCreator/src/createmissionwindow
 		../../../qt/6.4.3/mingw_64/include/QtCore/QDate \
 		debug/moc_predefs.h \
 		../../../qt/6.4.3/mingw_64/bin/moc.exe
-	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\createmissionwindow.h -o debug\moc_createmissionwindow.cpp
+	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtSql -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\createmissionwindow.h -o debug\moc_createmissionwindow.cpp
 
 debug/moc_historywindow.cpp: ../TomClock_QtCreator/src/historywindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
@@ -597,7 +611,7 @@ debug/moc_historywindow.cpp: ../TomClock_QtCreator/src/historywindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qnativeinterface.h \
 		debug/moc_predefs.h \
 		../../../qt/6.4.3/mingw_64/bin/moc.exe
-	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\historywindow.h -o debug\moc_historywindow.cpp
+	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtSql -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\historywindow.h -o debug\moc_historywindow.cpp
 
 debug/moc_missionlistwindow.cpp: ../TomClock_QtCreator/src/missionlistwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
@@ -737,7 +751,7 @@ debug/moc_missionlistwindow.cpp: ../TomClock_QtCreator/src/missionlistwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qnativeinterface.h \
 		debug/moc_predefs.h \
 		../../../qt/6.4.3/mingw_64/bin/moc.exe
-	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\missionlistwindow.h -o debug\moc_missionlistwindow.cpp
+	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtSql -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\missionlistwindow.h -o debug\moc_missionlistwindow.cpp
 
 debug/moc_runwindow.cpp: ../TomClock_QtCreator/src/runwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
@@ -877,7 +891,7 @@ debug/moc_runwindow.cpp: ../TomClock_QtCreator/src/runwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qnativeinterface.h \
 		debug/moc_predefs.h \
 		../../../qt/6.4.3/mingw_64/bin/moc.exe
-	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\runwindow.h -o debug\moc_runwindow.cpp
+	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtSql -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\runwindow.h -o debug\moc_runwindow.cpp
 
 debug/moc_mainwindow.cpp: ../TomClock_QtCreator/src/mainwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
@@ -1019,7 +1033,7 @@ debug/moc_mainwindow.cpp: ../TomClock_QtCreator/src/mainwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtabwidget.h \
 		debug/moc_predefs.h \
 		../../../qt/6.4.3/mingw_64/bin/moc.exe
-	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\mainwindow.h -o debug\moc_mainwindow.cpp
+	D:\qt\6.4.3\mingw_64\bin\moc.exe $(DEFINES) --include D:/work/TomClock/build-TomClock-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/debug/moc_predefs.h -ID:/qt/6.4.3/mingw_64/mkspecs/win32-g++ -ID:/work/TomClock/TomClock_QtCreator -ID:/qt/6.4.3/mingw_64/include -ID:/qt/6.4.3/mingw_64/include/QtWidgets -ID:/qt/6.4.3/mingw_64/include/QtGui -ID:/qt/6.4.3/mingw_64/include/QtSql -ID:/qt/6.4.3/mingw_64/include/QtCore -I. -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\TomClock_QtCreator\src\mainwindow.h -o debug\moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1064,11 +1078,10 @@ compiler_clean: compiler_lrelease_clean compiler_rcc_clean compiler_moc_predefs_
 
 ####### Compile
 
-debug/achievementwindow.o: ../TomClock_QtCreator/src/achievementwindow.cpp ../TomClock_QtCreator/src/achievementwindow.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qwidget.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiglobal.h \
+debug/achievement.o: ../TomClock_QtCreator/src/achievement.cpp ../TomClock_QtCreator/src/achievement.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QString \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qglobal.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig.h \
@@ -1093,22 +1106,61 @@ debug/achievementwindow.o: ../TomClock_QtCreator/src/achievementwindow.cpp ../To
 		../../../qt/6.4.3/mingw_64/include/QtCore/qnumeric.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qversiontagging.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qforeach.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qtgui-config.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiexports.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs_win.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qobject.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
-		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qstringview.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearray.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qrefcount.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydata.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qpair.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydatapointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydataops.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringliteral.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qanystringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qutf8stringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringtokenizer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\achievement.o ..\TomClock_QtCreator\src\achievement.cpp
+
+debug/achievementwindow.o: ../TomClock_QtCreator/src/achievementwindow.cpp ../TomClock_QtCreator/src/achievementwindow.h \
+		../TomClock_QtCreator/src/achievement.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QString \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcore-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtconfigmacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcoreexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsystemdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qprocessordetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompilerdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtypeinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainerfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsysinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlogging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qflags.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompare_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbasicatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qgenericatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobalstatic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnumeric.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qversiontagging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qforeach.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearray.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qrefcount.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydata.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qpair.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -1123,6 +1175,19 @@ debug/achievementwindow.o: ../TomClock_QtCreator/src/achievementwindow.cpp ../To
 		../../../qt/6.4.3/mingw_64/include/QtCore/qutf8stringview.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qstringtokenizer.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qstringbuilder.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qwidget.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qtgui-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qtguiexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobject.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qlist.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qhashfunctions.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qiterator.h \
@@ -1224,7 +1289,22 @@ debug/achievementwindow.o: ../TomClock_QtCreator/src/achievementwindow.cpp ../To
 		../../../qt/6.4.3/mingw_64/include/QtGui/qguiapplication.h \
 		../../../qt/6.4.3/mingw_64/include/QtGui/qinputmethod.h \
 		../../../qt/6.4.3/mingw_64/include/QtCore/qlocale.h \
-		../../../qt/6.4.3/mingw_64/include/QtGui/qguiapplication_platform.h
+		../../../qt/6.4.3/mingw_64/include/QtGui/qguiapplication_platform.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/QScrollArea \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qscrollarea.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qframe.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qlayout.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/QLabel \
+		../../../qt/6.4.3/mingw_64/include/QtWidgets/qlabel.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qpicture.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/qtextdocument.h \
+		../../../qt/6.4.3/mingw_64/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\achievementwindow.o ..\TomClock_QtCreator\src\achievementwindow.cpp
 
 debug/createmissionwindow.o: ../TomClock_QtCreator/src/createmissionwindow.cpp ../TomClock_QtCreator/src/createmissionwindow.h \
@@ -1436,7 +1516,95 @@ debug/createmissionwindow.o: ../TomClock_QtCreator/src/createmissionwindow.cpp .
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/qsplitter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\createmissionwindow.o ..\TomClock_QtCreator\src\createmissionwindow.cpp
 
-debug/history.o: ../TomClock_QtCreator/src/history.cpp ../TomClock_QtCreator/src/history.h
+debug/history.o: ../TomClock_QtCreator/src/history.cpp ../TomClock_QtCreator/src/history.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QString \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcore-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtconfigmacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcoreexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsystemdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qprocessordetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompilerdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtypeinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainerfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsysinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlogging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qflags.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompare_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbasicatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qgenericatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobalstatic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnumeric.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qversiontagging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qforeach.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearray.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qrefcount.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydata.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qpair.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydatapointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydataops.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringliteral.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qanystringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qutf8stringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringtokenizer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringbuilder.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QDate \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qdatetime.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qshareddata.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qhashfunctions.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcalendar.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlocale.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qvariant.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmetatype.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompare.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qscopeguard.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qdatastream.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qscopedpointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qiodevicebase.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qiterable.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmetacontainer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainerinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtaggedpointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmath.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qdebug.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtextstream.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringconverter_base.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontiguouscache.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsharedpointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlist.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qiterator.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearraylist.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringlist.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringmatcher.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmap.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qshareddata_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qset.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qhash.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qvarlengtharray.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobject.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcoreevent.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobject_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbindingstorage.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QTime
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\history.o ..\TomClock_QtCreator\src\history.cpp
 
 debug/historywindow.o: ../TomClock_QtCreator/src/historywindow.cpp ../TomClock_QtCreator/src/historywindow.h \
@@ -2018,6 +2186,160 @@ debug/runwindow.o: ../TomClock_QtCreator/src/runwindow.cpp ../TomClock_QtCreator
 		../../../qt/6.4.3/mingw_64/include/QtCore/qlocale.h \
 		../../../qt/6.4.3/mingw_64/include/QtGui/qguiapplication_platform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\runwindow.o ..\TomClock_QtCreator\src\runwindow.cpp
+
+debug/tomclock.o: ../TomClock_QtCreator/src/tomclock.cpp ../TomClock_QtCreator/src/tomclock.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QString \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcore-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtconfigmacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcoreexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsystemdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qprocessordetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompilerdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtypeinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainerfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsysinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlogging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qflags.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompare_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbasicatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qgenericatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobalstatic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnumeric.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qversiontagging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qforeach.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearray.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qrefcount.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydata.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qpair.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydatapointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydataops.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringliteral.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qanystringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qutf8stringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringtokenizer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tomclock.o ..\TomClock_QtCreator\src\tomclock.cpp
+
+debug/tomclockdatabase.o: ../TomClock_QtCreator/src/tomclockdatabase.cpp ../TomClock_QtCreator/src/tomclockdatabase.h \
+		../TomClock_QtCreator/src/mission.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QString \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstring.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qchar.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qconfig.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcore-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtconfigmacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtcoreexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsystemdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qprocessordetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompilerdetection.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtypeinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainerfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsysinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlogging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qflags.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompare_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbasicatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qgenericatomic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qglobalstatic.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnumeric.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qversiontagging.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qforeach.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearray.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qrefcount.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qnamespace.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtmetamacros.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydata.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qpair.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydatapointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qarraydataops.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearrayview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringfwd.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringliteral.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qanystringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qutf8stringview.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringtokenizer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringbuilder.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QTime \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qdatetime.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qshareddata.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qhashfunctions.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcalendar.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlocale.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qvariant.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmetatype.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcompare.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qscopeguard.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qdatastream.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qscopedpointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qiodevicebase.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qiterable.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmetacontainer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontainerinfo.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtaggedpointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qalgorithms.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmath.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qdebug.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qtextstream.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringconverter_base.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcontiguouscache.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsharedpointer.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qlist.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qiterator.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbytearraylist.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringlist.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qstringmatcher.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qmap.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qshareddata_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qset.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qhash.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qvarlengtharray.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobject.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qcoreevent.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qobject_impl.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/qbindingstorage.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QDate \
+		../TomClock_QtCreator/src/history.h \
+		../TomClock_QtCreator/src/achievement.h \
+		../../../qt/6.4.3/mingw_64/include/QtSql/QSqlDatabase \
+		../../../qt/6.4.3/mingw_64/include/QtSql/qsqldatabase.h \
+		../../../qt/6.4.3/mingw_64/include/QtSql/qtsqlglobal.h \
+		../../../qt/6.4.3/mingw_64/include/QtSql/qtsql-config.h \
+		../../../qt/6.4.3/mingw_64/include/QtSql/qtsqlexports.h \
+		../../../qt/6.4.3/mingw_64/include/QtSql/QSqlQuery \
+		../../../qt/6.4.3/mingw_64/include/QtSql/qsqlquery.h \
+		../../../qt/6.4.3/mingw_64/include/QtSql/QSqlError \
+		../../../qt/6.4.3/mingw_64/include/QtSql/qsqlerror.h \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QStringList \
+		../../../qt/6.4.3/mingw_64/include/QtCore/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tomclockdatabase.o ..\TomClock_QtCreator\src\tomclockdatabase.cpp
 
 debug/main.o: ../TomClock_QtCreator/src/main.cpp ../TomClock_QtCreator/src/mainwindow.h \
 		../../../qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
