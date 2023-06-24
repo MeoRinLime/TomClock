@@ -4,34 +4,43 @@ History::History()
 {
 
 }
-QDate History::getDate(){
+
+QDate History::getDate() const
+{
     return date;
 }
 
-QString History::getName(){
+void History::setDate(const QDate &newDate)
+{
+    date = newDate;
+}
+
+QString History::getName() const
+{
     return name;
 }
 
-int History::getNumOfTomato(){
+void History::setName(const QString &newName)
+{
+    name = newName;
+}
+
+int History::getNumOfTomato() const
+{
     return numOfTomato;
 }
 
-QTime History::getTotalTime(){
+void History::setNumOfTomato(int newNumOfTomato)
+{
+    numOfTomato = newNumOfTomato;
+}
+
+QTime History::getTotalTime() const
+{
     return totalTime;
 }
 
-void History::setDate(QDate Date){
-    date=Date;
-}
-
-void History::setName(QString Name){
-    name=Name;
-}
-
-void History::setNumOfTomato(int n){
-    numOfTomato=n;
-}
-
-void History::setTotalTime(QTime t){
-    totalTime=t;
+void History::setTotalTime(const QTime &newTotalTime)
+{
+    totalTime = newTotalTime;
 }

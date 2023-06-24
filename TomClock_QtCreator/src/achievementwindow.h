@@ -1,6 +1,7 @@
 #ifndef ACHIEVEMENTWINDOW_H
 #define ACHIEVEMENTWINDOW_H
 
+#include "achievement.h"
 #include <QWidget>
 
 namespace Ui {
@@ -12,7 +13,7 @@ class AchievementWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit AchievementWindow(QWidget *parent = nullptr);
+    explicit AchievementWindow(int achievementNum, Achievement *AchievementList, QWidget *parent = nullptr);
     ~AchievementWindow();
 
 private:

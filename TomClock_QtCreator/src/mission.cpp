@@ -3,43 +3,54 @@
 Mission::Mission()
 {
 
-
 }
-int Mission::getId(){
+
+int Mission::getId() const
+{
     return id;
 }
-QString Mission::getName(){
+
+void Mission::setId(int newId)
+{
+    id = newId;
+}
+
+QString Mission::getName() const
+{
     return name;
 }
 
-QTime Mission::getWorkTime(){
+void Mission::setName(const QString &newName)
+{
+    name = newName;
+}
+
+QTime Mission::getWorkTime() const
+{
     return workTime;
 }
 
-QTime Mission::getRelaxTime(){
+void Mission::setWorkTime(const QTime &newWorkTime)
+{
+    workTime = newWorkTime;
+}
+
+QTime Mission::getRelaxTime() const
+{
     return relaxTime;
 }
 
-QDate Mission::getCreateTime(){
+void Mission::setRelaxTime(const QTime &newRelaxTime)
+{
+    relaxTime = newRelaxTime;
+}
+
+QDate Mission::getCreateTime() const
+{
     return createTime;
 }
 
-void Mission::setId(int ID){
-    id=ID;
-}
-
-void Mission::setName(QString Name){
-    name=Name;
-}
-
-void Mission::setWorkTime(QTime WorkTime){
-    workTime=WorkTime;
-}
-
-void Mission::setRelaxTime(QTime RelaxTime){
-    relaxTime=RelaxTime;
-}
-
-void Mission::setCreateTime(QDate CreateTime){
-    createTime=CreateTime;
+void Mission::setCreateTime(const QDate &newCreateTime)
+{
+    createTime = newCreateTime;
 }
