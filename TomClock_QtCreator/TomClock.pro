@@ -11,7 +11,9 @@ CONFIG += c++17
 SOURCES += \
     src/achievementwindow.cpp \
     src/createmissionwindow.cpp \
+    src/history.cpp \
     src/historywindow.cpp \
+    src/mission.cpp \
     src/missionlistwindow.cpp \
     src/runwindow.cpp \
     src\main.cpp \
@@ -20,7 +22,9 @@ SOURCES += \
 HEADERS += \
     src/achievementwindow.h \
     src/createmissionwindow.h \
+    src/history.h \
     src/historywindow.h \
+    src/mission.h \
     src/missionlistwindow.h \
     src/runwindow.h \
     src\mainwindow.h

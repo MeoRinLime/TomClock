@@ -1,0 +1,17 @@
+release/achievementwindow.o
+release/createmissionwindow.o
+release/history.o
+release/historywindow.o
+release/mission.o
+release/missionlistwindow.o
+release/runwindow.o
+release/main.o
+release/mainwindow.o
+release/qrc_res.o
+release/qrc_qmake_qmake_qm_files.o
+release/moc_achievementwindow.o
+release/moc_createmissionwindow.o
+release/moc_historywindow.o
+release/moc_missionlistwindow.o
+release/moc_runwindow.o
+release/moc_mainwindow.o
