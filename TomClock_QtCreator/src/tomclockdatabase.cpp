@@ -7,8 +7,8 @@
 TomClockDatabase::TomClockDatabase(const QString &path)
 {
     //打开数据库
-    database = QSqlDatabase::addDatabase("SQLITE", path + "/tomclock.db");
-    database.setDatabaseName("TomClock");
+    database = QSqlDatabase::addDatabase("QSQLITE", path + "/tomclock.db");
+    database.setDatabaseName("TomClock.db");
 
     //异常处理
     try{
