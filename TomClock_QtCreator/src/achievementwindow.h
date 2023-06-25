@@ -2,18 +2,19 @@
 #define ACHIEVEMENTWINDOW_H
 
 #include "achievement.h"
-#include <QWidget>
+#include <QMainWindow>
 
 namespace Ui {
 class AchievementWindow;
 }
 
-class AchievementWindow : public QWidget
+class AchievementWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     explicit AchievementWindow(int achievementNum, Achievement *AchievementList, QWidget *parent = nullptr);
+    AchievementWindow(QWidget *parent = nullptr);
     ~AchievementWindow();
     void changeTomatoNum(int tomatoNum);                                //改变番茄数
     void updateAchievementState(int indexOfAchievement, bool newState); //更新成就的状态

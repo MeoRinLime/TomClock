@@ -25,11 +25,6 @@ SOURCES += \
     src\mainwindow.cpp
 
 HEADERS += \
-    
-    src/main.cpp \
-    src/mainwindow.cpp
-
-HEADERS += \
     src/achievement.h \
     src/about.h \
     src/settings.h \

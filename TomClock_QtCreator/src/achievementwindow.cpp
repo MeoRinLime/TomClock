@@ -9,7 +9,7 @@
 #include <QImage>
 
 AchievementWindow::AchievementWindow(int achievementNum, Achievement *achievementList, QWidget *parent) :
-    QWidget(parent),
+    QMainWindow(parent),
     ui(new Ui::AchievementWindow)
 {
     ui->setupUi(this);
@@ -87,6 +87,13 @@ AchievementWindow::AchievementWindow(int achievementNum, Achievement *achievemen
     foreach (auto widget, allChildWidgets) {
         allWidgetRect.insert(widget, QRect(widget->x(), widget->y(), widget->width(), widget->height()));
     }
+}
+
+AchievementWindow::AchievementWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::AchievementWindow)
+{
+    ui->setupUi(this);
 }
 
 AchievementWindow::~AchievementWindow()
