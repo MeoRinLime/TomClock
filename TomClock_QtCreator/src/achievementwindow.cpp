@@ -12,3 +12,8 @@ AchievementWindow::~AchievementWindow()
 {
     delete ui;
 }
+
+void AchievementWindow::MaintoAchievement()
+{
+    this->show();
+}

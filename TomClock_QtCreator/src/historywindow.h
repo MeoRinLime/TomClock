@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::HistoryWindow *ui;
+
+private slots:
+    void MaintoHistory();
 };
 
 #endif // HISTORYWINDOW_H

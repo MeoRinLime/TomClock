@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::AchievementWindow *ui;
+
+private slots:
+    void MaintoAchievement();
 };
 
 #endif // ACHIEVEMENTWINDOW_H

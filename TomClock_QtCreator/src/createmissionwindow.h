@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::CreateMissionWindow *ui;
+
+private slots:
+    void MaintoCreate();
 };
 
 #endif // CREATEMISSIONWINDOW_H

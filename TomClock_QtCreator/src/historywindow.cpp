@@ -12,3 +12,8 @@ HistoryWindow::~HistoryWindow()
 {
     delete ui;
 }
+
+void HistoryWindow::MaintoHistory()
+{
+    this->show();
+}

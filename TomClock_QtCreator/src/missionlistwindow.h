@@ -17,6 +17,9 @@ public:
 
 private:
     Ui::MissionListWindow *ui;
+
+private slots:
+    void MaintoList();
 };
 
 #endif // MISSIONLISTWINDOW_H
