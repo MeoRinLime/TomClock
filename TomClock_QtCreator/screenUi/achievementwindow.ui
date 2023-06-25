@@ -1,21 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>AchievementWindow</class>
  <widget class="QWidget" name="AchievementWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>400</height>
+   </size>
   </property>
+  <widget class="QLabel" name="TomatoLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>已有番茄数</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="numOfTomato">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>20</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>561</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>561</width>
+      <height>331</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>
