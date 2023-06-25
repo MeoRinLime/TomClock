@@ -24,6 +24,9 @@ private:
     QList<QWidget*> allChildWidgets;       //储存所有子控件
     QMap<QWidget*, QRect> allWidgetRect;   //保存所有子控件的初始大小
     void resizeEvent(QResizeEvent *event); //重写resizeEvent
+
+private slots:
+    void MaintoAchievement();
 };
 
 #endif // ACHIEVEMENTWINDOW_H

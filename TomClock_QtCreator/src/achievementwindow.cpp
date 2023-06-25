@@ -94,6 +94,11 @@ AchievementWindow::~AchievementWindow()
     delete ui;
 }
 
+void AchievementWindow::MaintoAchievement()
+{
+    this->show();
+}
+
 void AchievementWindow::changeTomatoNum(int tomatoNum)
 {
     //仅起到修改界面显示的数据的功能

@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::RunWindow *ui;
+
 };
 
 #endif // RUNWINDOW_H

@@ -12,3 +12,8 @@ MissionListWindow::~MissionListWindow()
 {
     delete ui;
 }
+
+void MissionListWindow::MaintoList()
+{
+    this->show();
+}

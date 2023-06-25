@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     src/achievement.cpp \
+    src/about.cpp \
+    src/settings.cpp \
     src/achievementwindow.cpp \
     src/createmissionwindow.cpp \
     src/history.cpp \
@@ -23,7 +25,14 @@ SOURCES += \
     src\mainwindow.cpp
 
 HEADERS += \
+    
+    src/main.cpp \
+    src/mainwindow.cpp
+
+HEADERS += \
     src/achievement.h \
+    src/about.h \
+    src/settings.h \
     src/achievementwindow.h \
     src/createmissionwindow.h \
     src/history.h \
@@ -34,14 +43,17 @@ HEADERS += \
     src/tomclock.h \
     src/tomclockdatabase.h \
     src\mainwindow.h
+    src/mainwindow.h
 
 FORMS += \
+    screenUi/about.ui \
     screenUi/achievementwindow.ui \
     screenUi/createmissionwindow.ui \
     screenUi/historywindow.ui \
     screenUi/missionlistwindow.ui \
     screenUi/runwindow.ui \
-    screenUi\mainwindow.ui
+    screenUi/settings.ui \
+    screenUi/mainwindow.ui
 
 TRANSLATIONS += \
     src\lang\TomClock_zh_CN.ts

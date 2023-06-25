@@ -12,3 +12,8 @@ CreateMissionWindow::~CreateMissionWindow()
 {
     delete ui;
 }
+
+void CreateMissionWindow::MaintoCreate()
+{
+    this->show();
+}
