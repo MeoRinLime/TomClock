@@ -2,7 +2,11 @@
 #define HISTORYWINDOW_H
 
 #include <QWidget>
-
+#include"history.h"
+#include<QVector>
+#include<QTime>
+#include<QPushButton>
+#include<QLabel>
 namespace Ui {
 class HistoryWindow;
 }
@@ -14,10 +18,11 @@ class HistoryWindow : public QWidget
 public:
     explicit HistoryWindow(QWidget *parent = nullptr);
     ~HistoryWindow();
-
+    QString caculateTotalTime();//计算总时长
+    QString historyRecord(History h);//获取历史纪录
 private:
     Ui::HistoryWindow *ui;
-
+    QVector<History>histories;
 private slots:
     void MaintoHistory();
 };

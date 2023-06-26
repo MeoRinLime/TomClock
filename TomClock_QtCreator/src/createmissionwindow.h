@@ -2,7 +2,7 @@
 #define CREATEMISSIONWINDOW_H
 
 #include <QWidget>
-
+#include"mission.h"
 namespace Ui {
 class CreateMissionWindow;
 }
@@ -20,6 +20,8 @@ private:
 
 private slots:
     void MaintoCreate();
+    void on_cancel_clicked();
+    void on_comfirm_clicked();
 };
 
 #endif // CREATEMISSIONWINDOW_H
