@@ -27,31 +27,31 @@ class Ui_CreateMissionWindow
 {
 public:
     QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer_14;
-    QSpacerItem *horizontalSpacer_19;
-    QSplitter *splitter;
-    QPushButton *comfirm;
-    QSpacerItem *horizontalSpacer_17;
+    QPushButton *cancel;
+    QSpacerItem *horizontalSpacer_15;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label;
+    QLineEdit *nameOfMission;
     QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *horizontalSpacer_17;
+    QSpacerItem *horizontalSpacer_21;
+    QSpacerItem *horizontalSpacer_13;
+    QSpacerItem *horizontalSpacer_19;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_4;
     QComboBox *relaxTime;
     QLabel *label_5;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label;
-    QLineEdit *nameOfMission;
-    QSpacerItem *horizontalSpacer_21;
-    QSpacerItem *horizontalSpacer_13;
-    QSpacerItem *horizontalSpacer_20;
-    QSpacerItem *horizontalSpacer_15;
-    QSpacerItem *horizontalSpacer_3;
-    QSpacerItem *horizontalSpacer;
     QSpacerItem *horizontalSpacer_22;
+    QSpacerItem *horizontalSpacer_14;
+    QSpacerItem *horizontalSpacer;
+    QSpacerItem *horizontalSpacer_20;
+    QSplitter *splitter;
+    QPushButton *comfirm;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
     QComboBox *workTime;
     QLabel *label_3;
-    QPushButton *cancel;
+    QSpacerItem *horizontalSpacer_3;
 
     void setupUi(QWidget *CreateMissionWindow)
     {
@@ -64,8 +64,16 @@ public:
         sizePolicy.setHeightForWidth(CreateMissionWindow->sizePolicy().hasHeightForWidth());
         CreateMissionWindow->setSizePolicy(sizePolicy);
         CreateMissionWindow->setMinimumSize(QSize(600, 400));
-        CreateMissionWindow->setMaximumSize(QSize(600, 502));
-        CreateMissionWindow->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+        CreateMissionWindow->setMaximumSize(QSize(600, 400));
+        CreateMissionWindow->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 189, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
+""));
+        gridLayout = new QGridLayout(CreateMissionWindow);
+        gridLayout->setObjectName("gridLayout");
+        cancel = new QPushButton(CreateMissionWindow);
+        cancel->setObjectName("cancel");
+        sizePolicy.setHeightForWidth(cancel->sizePolicy().hasHeightForWidth());
+        cancel->setSizePolicy(sizePolicy);
+        cancel->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgb(255, 255, 255);\n"
 "border:2px groove gray;\n"
 "border-radius:10px;\n"
@@ -82,35 +90,58 @@ public:
 "background-color:rgb(204, 228, 247);\n"
 "border-style: inset;\n"
 "}"));
-        gridLayout = new QGridLayout(CreateMissionWindow);
-        gridLayout->setObjectName("gridLayout");
-        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_14, 9, 2, 1, 1);
+        gridLayout->addWidget(cancel, 0, 3, 1, 1);
 
-        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_19, 1, 1, 1, 1);
+        gridLayout->addItem(horizontalSpacer_15, 10, 2, 1, 1);
 
-        splitter = new QSplitter(CreateMissionWindow);
-        splitter->setObjectName("splitter");
-        splitter->setOrientation(Qt::Horizontal);
-        comfirm = new QPushButton(splitter);
-        comfirm->setObjectName("comfirm");
-        sizePolicy.setHeightForWidth(comfirm->sizePolicy().hasHeightForWidth());
-        comfirm->setSizePolicy(sizePolicy);
-        comfirm->setStyleSheet(QString::fromUtf8("font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";"));
-        splitter->addWidget(comfirm);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        label = new QLabel(CreateMissionWindow);
+        label->setObjectName("label");
+        sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy);
+        label->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
 
-        gridLayout->addWidget(splitter, 8, 2, 1, 1);
+        horizontalLayout->addWidget(label);
+
+        nameOfMission = new QLineEdit(CreateMissionWindow);
+        nameOfMission->setObjectName("nameOfMission");
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(nameOfMission->sizePolicy().hasHeightForWidth());
+        nameOfMission->setSizePolicy(sizePolicy1);
+        nameOfMission->setStyleSheet(QString::fromUtf8("font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";\n"
+"background-color: rgb(255, 255, 255);"));
+
+        horizontalLayout->addWidget(nameOfMission);
+
+        horizontalLayout->setStretch(1, 1);
+
+        gridLayout->addLayout(horizontalLayout, 1, 2, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 2, 2, 1, 1);
 
         horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout->addItem(horizontalSpacer_17, 0, 2, 1, 1);
 
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_21 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_2, 2, 2, 1, 1);
+        gridLayout->addItem(horizontalSpacer_21, 1, 3, 1, 1);
+
+        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_13, 6, 2, 1, 1);
+
+        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_19, 1, 0, 1, 1);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
@@ -118,6 +149,7 @@ public:
         label_4->setObjectName("label_4");
         sizePolicy.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
         label_4->setSizePolicy(sizePolicy);
+        label_4->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
 
         horizontalLayout_3->addWidget(label_4);
 
@@ -129,13 +161,10 @@ public:
         relaxTime->addItem(QString());
         relaxTime->addItem(QString());
         relaxTime->setObjectName("relaxTime");
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(relaxTime->sizePolicy().hasHeightForWidth());
         relaxTime->setSizePolicy(sizePolicy1);
         relaxTime->setStyleSheet(QString::fromUtf8("font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";\n"
-"font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";"));
+"background-color: rgb(255, 255, 255);"));
 
         horizontalLayout_3->addWidget(relaxTime);
 
@@ -143,6 +172,7 @@ public:
         label_5->setObjectName("label_5");
         sizePolicy.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
         label_5->setSizePolicy(sizePolicy);
+        label_5->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
 
         horizontalLayout_3->addWidget(label_5);
 
@@ -152,54 +182,54 @@ public:
 
         gridLayout->addLayout(horizontalLayout_3, 5, 2, 1, 1);
 
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName("horizontalLayout");
-        label = new QLabel(CreateMissionWindow);
-        label->setObjectName("label");
-        sizePolicy.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy);
+        horizontalSpacer_22 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout->addWidget(label);
+        gridLayout->addItem(horizontalSpacer_22, 7, 2, 1, 1);
 
-        nameOfMission = new QLineEdit(CreateMissionWindow);
-        nameOfMission->setObjectName("nameOfMission");
-        sizePolicy1.setHeightForWidth(nameOfMission->sizePolicy().hasHeightForWidth());
-        nameOfMission->setSizePolicy(sizePolicy1);
-        nameOfMission->setStyleSheet(QString::fromUtf8("font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";"));
+        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout->addWidget(nameOfMission);
-
-        horizontalLayout->setStretch(1, 1);
-
-        gridLayout->addLayout(horizontalLayout, 1, 2, 1, 1);
-
-        horizontalSpacer_21 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_21, 1, 3, 1, 1);
-
-        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_13, 6, 2, 1, 1);
-
-        horizontalSpacer_20 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_20, 1, 4, 1, 1);
-
-        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_15, 10, 2, 1, 1);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_3, 1, 0, 1, 1);
+        gridLayout->addItem(horizontalSpacer_14, 9, 2, 1, 1);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout->addItem(horizontalSpacer, 3, 2, 1, 1);
 
-        horizontalSpacer_22 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_20 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_22, 7, 2, 1, 1);
+        gridLayout->addItem(horizontalSpacer_20, 1, 4, 1, 1);
+
+        splitter = new QSplitter(CreateMissionWindow);
+        splitter->setObjectName("splitter");
+        splitter->setOrientation(Qt::Horizontal);
+        comfirm = new QPushButton(splitter);
+        comfirm->setObjectName("comfirm");
+        sizePolicy.setHeightForWidth(comfirm->sizePolicy().hasHeightForWidth());
+        comfirm->setSizePolicy(sizePolicy);
+        QFont font;
+        font.setPointSize(18);
+        comfirm->setFont(font);
+        comfirm->setStyleSheet(QString::fromUtf8("\n"
+"\n"
+"QPushButton{\n"
+"background-color: rgb(255, 255, 255);\n"
+"border:2px groove gray;\n"
+"border-radius:10px;\n"
+"padding:2px 4px;\n"
+"border-style: outset;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color:rgb(229, 241, 251); \n"
+"color: black;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"background-color:rgb(204, 228, 247);\n"
+"border-style: inset;\n"
+"}"));
+        splitter->addWidget(comfirm);
+
+        gridLayout->addWidget(splitter, 8, 2, 1, 1);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
@@ -207,6 +237,7 @@ public:
         label_2->setObjectName("label_2");
         sizePolicy.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
         label_2->setSizePolicy(sizePolicy);
+        label_2->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
 
         horizontalLayout_2->addWidget(label_2);
 
@@ -220,7 +251,8 @@ public:
         workTime->setObjectName("workTime");
         sizePolicy.setHeightForWidth(workTime->sizePolicy().hasHeightForWidth());
         workTime->setSizePolicy(sizePolicy);
-        workTime->setStyleSheet(QString::fromUtf8("font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";"));
+        workTime->setStyleSheet(QString::fromUtf8("font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";\n"
+"background-color: rgb(255, 255, 255);"));
 
         horizontalLayout_2->addWidget(workTime);
 
@@ -228,6 +260,7 @@ public:
         label_3->setObjectName("label_3");
         sizePolicy.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
         label_3->setSizePolicy(sizePolicy);
+        label_3->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
 
         horizontalLayout_2->addWidget(label_3);
 
@@ -237,16 +270,24 @@ public:
 
         gridLayout->addLayout(horizontalLayout_2, 4, 2, 1, 1);
 
-        cancel = new QPushButton(CreateMissionWindow);
-        cancel->setObjectName("cancel");
-        sizePolicy.setHeightForWidth(cancel->sizePolicy().hasHeightForWidth());
-        cancel->setSizePolicy(sizePolicy);
-        cancel->setStyleSheet(QString::fromUtf8("font: 290 18pt \"\345\276\256\350\275\257\351\233\205\351\273\221 Light\";"));
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addWidget(cancel, 0, 3, 1, 1);
+        gridLayout->addItem(horizontalSpacer_3, 1, 1, 1, 1);
 
         gridLayout->setRowStretch(0, 1);
+        gridLayout->setRowStretch(1, 1);
+        gridLayout->setRowStretch(2, 1);
+        gridLayout->setRowStretch(3, 1);
+        gridLayout->setRowStretch(4, 1);
+        gridLayout->setRowStretch(5, 1);
+        gridLayout->setRowStretch(6, 1);
+        gridLayout->setRowStretch(7, 1);
+        gridLayout->setRowStretch(8, 1);
+        gridLayout->setRowStretch(9, 1);
+        gridLayout->setRowStretch(10, 1);
         gridLayout->setColumnStretch(0, 1);
+        gridLayout->setColumnStretch(1, 1);
+        gridLayout->setColumnStretch(3, 1);
 
         retranslateUi(CreateMissionWindow);
 
@@ -256,7 +297,9 @@ public:
     void retranslateUi(QWidget *CreateMissionWindow)
     {
         CreateMissionWindow->setWindowTitle(QCoreApplication::translate("CreateMissionWindow", "Form", nullptr));
-        comfirm->setText(QCoreApplication::translate("CreateMissionWindow", "\346\267\273\345\212\240\345\210\260\344\273\273\345\212\241\345\210\227\350\241\250", nullptr));
+        cancel->setText(QCoreApplication::translate("CreateMissionWindow", "\345\217\226\346\266\210", nullptr));
+        label->setText(QCoreApplication::translate("CreateMissionWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">\344\273\273\345\212\241\345\220\215\357\274\232</span></p></body></html>", nullptr));
+        nameOfMission->setText(QString());
         label_4->setText(QCoreApplication::translate("CreateMissionWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">\344\274\221\346\201\257\346\227\266\351\227\264\357\274\232</span></p></body></html>", nullptr));
         relaxTime->setItemText(0, QCoreApplication::translate("CreateMissionWindow", "2", nullptr));
         relaxTime->setItemText(1, QCoreApplication::translate("CreateMissionWindow", "3", nullptr));
@@ -266,8 +309,7 @@ public:
         relaxTime->setItemText(5, QCoreApplication::translate("CreateMissionWindow", "10", nullptr));
 
         label_5->setText(QCoreApplication::translate("CreateMissionWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">\345\210\206\351\222\237</span></p></body></html>", nullptr));
-        label->setText(QCoreApplication::translate("CreateMissionWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">\344\273\273\345\212\241\345\220\215\357\274\232</span></p></body></html>", nullptr));
-        nameOfMission->setText(QString());
+        comfirm->setText(QCoreApplication::translate("CreateMissionWindow", "\346\267\273\345\212\240\345\210\260\344\273\273\345\212\241\345\210\227\350\241\250", nullptr));
         label_2->setText(QCoreApplication::translate("CreateMissionWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">\345\267\245\344\275\234\346\227\266\351\227\264\357\274\232</span></p></body></html>", nullptr));
         workTime->setItemText(0, QCoreApplication::translate("CreateMissionWindow", "15", nullptr));
         workTime->setItemText(1, QCoreApplication::translate("CreateMissionWindow", "20", nullptr));
@@ -277,7 +319,6 @@ public:
         workTime->setItemText(5, QCoreApplication::translate("CreateMissionWindow", "50", nullptr));
 
         label_3->setText(QCoreApplication::translate("CreateMissionWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">\345\210\206\351\222\237</span></p></body></html>", nullptr));
-        cancel->setText(QCoreApplication::translate("CreateMissionWindow", "\345\217\226\346\266\210", nullptr));
     } // retranslateUi
 
 };

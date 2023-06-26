@@ -42,6 +42,6 @@ void CreateMissionWindow::on_comfirm_clicked()
 
     mi.setCreateTime(QDate::currentDate());
 
-    this->hide();
+    this->close();
 }
 

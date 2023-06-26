@@ -34,7 +34,8 @@ int main(int argc, char *argv[])
     Settings settingW;
     about aboutW;
     mainW.show();
-
+    //createW.show();
+    //historyW.show();
     QObject::connect(&mainW, SIGNAL(JumptoAchievement()), &achievementW, SLOT(MaintoAchievement()));
     QObject::connect(&mainW, SIGNAL(JumptoHistory()), &historyW, SLOT(MaintoHistory()));
     QObject::connect(&mainW, SIGNAL(JumptoMissionCreate()), &createW, SLOT(MaintoCreate()));

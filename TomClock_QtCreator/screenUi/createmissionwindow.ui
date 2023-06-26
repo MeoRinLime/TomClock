@@ -25,14 +25,27 @@
   <property name="maximumSize">
    <size>
     <width>600</width>
-    <height>502</height>
+    <height>400</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton{
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 189, 255, 255), stop:1 rgba(255, 255, 255, 255));
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1,1,1,1,1,1,1,1,1" columnstretch="1,1,0,1,0">
+   <item row="0" column="3">
+    <widget class="QPushButton" name="cancel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
 background-color: rgb(255, 255, 255);
 border:2px groove gray;
 border-radius:10px;
@@ -49,54 +62,74 @@ QPushButton:pressed{
 background-color:rgb(204, 228, 247);
 border-style: inset;
 }</string>
-  </property>
-  <layout class="QGridLayout" name="gridLayout" rowstretch="1,0,0,0,0,0,0,0,0,0,0" columnstretch="1,0,0,0,0">
-   <item row="9" column="2">
-    <spacer name="horizontalSpacer_14">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
+     <property name="text">
+      <string>取消</string>
      </property>
-    </spacer>
-   </item>
-   <item row="1" column="1">
-    <spacer name="horizontalSpacer_19">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="8" column="2">
-    <widget class="QSplitter" name="splitter">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QPushButton" name="comfirm">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
-      </property>
-      <property name="text">
-       <string>添加到任务列表</string>
-      </property>
-     </widget>
     </widget>
+   </item>
+   <item row="10" column="2">
+    <spacer name="horizontalSpacer_15">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="2">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;任务名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nameOfMission">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="2">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item row="0" column="2">
     <spacer name="horizontalSpacer_17">
@@ -111,8 +144,34 @@ border-style: inset;
      </property>
     </spacer>
    </item>
-   <item row="2" column="2">
-    <spacer name="horizontalSpacer_2">
+   <item row="1" column="3">
+    <spacer name="horizontalSpacer_21">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="6" column="2">
+    <spacer name="horizontalSpacer_13">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="0">
+    <spacer name="horizontalSpacer_19">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -134,6 +193,9 @@ border-style: inset;
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;休息时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
@@ -149,7 +211,7 @@ border-style: inset;
        </property>
        <property name="styleSheet">
         <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;
-font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
+background-color: rgb(255, 255, 255);</string>
        </property>
        <item>
         <property name="text">
@@ -191,6 +253,9 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;分钟&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
@@ -198,41 +263,8 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
      </item>
     </layout>
    </item>
-   <item row="1" column="2">
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;任务名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="nameOfMission">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="3">
-    <spacer name="horizontalSpacer_21">
+   <item row="7" column="2">
+    <spacer name="horizontalSpacer_22">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -244,47 +276,8 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
      </property>
     </spacer>
    </item>
-   <item row="6" column="2">
-    <spacer name="horizontalSpacer_13">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="4">
-    <spacer name="horizontalSpacer_20">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="10" column="2">
-    <spacer name="horizontalSpacer_15">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="0">
-    <spacer name="horizontalSpacer_3">
+   <item row="9" column="2">
+    <spacer name="horizontalSpacer_14">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -309,8 +302,8 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
      </property>
     </spacer>
    </item>
-   <item row="7" column="2">
-    <spacer name="horizontalSpacer_22">
+   <item row="1" column="4">
+    <spacer name="horizontalSpacer_20">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -322,6 +315,50 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
      </property>
     </spacer>
    </item>
+   <item row="8" column="2">
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QPushButton" name="comfirm">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+
+QPushButton{
+background-color: rgb(255, 255, 255);
+border:2px groove gray;
+border-radius:10px;
+padding:2px 4px;
+border-style: outset;
+}
+
+QPushButton:hover{
+background-color:rgb(229, 241, 251); 
+color: black;
+}
+
+QPushButton:pressed{
+background-color:rgb(204, 228, 247);
+border-style: inset;
+}</string>
+      </property>
+      <property name="text">
+       <string>添加到任务列表</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
    <item row="4" column="2">
     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1">
      <item>
@@ -331,6 +368,9 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
        </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;工作时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -346,7 +386,8 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
+        <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;
+background-color: rgb(255, 255, 255);</string>
        </property>
        <item>
         <property name="text">
@@ -388,6 +429,9 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;分钟&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
@@ -395,21 +439,18 @@ font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
      </item>
     </layout>
    </item>
-   <item row="0" column="3">
-    <widget class="QPushButton" name="cancel">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+   <item row="1" column="1">
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-     <property name="styleSheet">
-      <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;</string>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
      </property>
-     <property name="text">
-      <string>取消</string>
-     </property>
-    </widget>
+    </spacer>
    </item>
   </layout>
  </widget>
