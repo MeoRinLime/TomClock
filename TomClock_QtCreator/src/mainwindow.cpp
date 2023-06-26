@@ -2,24 +2,30 @@
 #include "ui_mainwindow.h"
 
 #include <QResizeEvent>
+#include <QPalette>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-}
 
+    setStyleSheet("QMainWindow {border-image:url(:/images/resourse/images/background/bg2.png);}");
+}
+//:/images/resourse/images/background/bg1.png
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 
 void MainWindow::on_historyData_clicked()
 {
     this->hide();
     emit JumptoHistory();
 }
+
 //点击跳转至历史数据界面
 
 void MainWindow::on_personalAchievement_clicked()
@@ -63,3 +69,8 @@ void MainWindow::on_aboutTeam_clicked()
     emit JumptoAbout();
 }
 //点击跳转至关于界面
+
+void MainWindow::SettingsToMain()
+{
+    this->show();
+}
