@@ -2,7 +2,20 @@
 
 Mission::Mission()
 {
+    setId(0);
+    setName("");
+    setWorkTime(QTime());
+    setRelaxTime(QTime());
+    setCreateTime(QDate());
+}
 
+Mission::Mission(int id, const QString &name, const QTime &wtime, const QTime &rtime, const QDate &ctime)
+{
+    setId(id);
+    setName(name);
+    setWorkTime(wtime);
+    setRelaxTime(rtime);
+    setCreateTime(ctime);
 }
 
 int Mission::getId() const

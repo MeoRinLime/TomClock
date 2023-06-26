@@ -9,6 +9,7 @@ class Mission
 {
 public:
     Mission();
+    Mission(int id, const QString &name, const QTime &wtime, const QTime &rtime, const QDate &ctime);
     int getId() const;
     void setId(int newId);
     QString getName() const;
