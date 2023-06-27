@@ -24,13 +24,15 @@ signals:
 private slots:
     void MaintoList();
     void disapearChoice();
-
+    void deleteMission();
+    void jumpToRunWindows(Mission mission);
 private:
     Ui::MissionListWindow *ui;
     QVector<Mission>missions;
-
+    QGridLayout* gL;
     QVector<MissionPushButton*>MPBTS;
     int choice;
+
 };
 
 

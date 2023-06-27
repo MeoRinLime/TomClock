@@ -21,10 +21,11 @@ public:
     QHBoxLayout *getHBlt();
     QPushButton *getPBtn();
     void disapearChoice();
-
+    static void setAN(int n);
 private:
     Ui::MissionPushButton *ui;
     int num;
+
     static int allNum;
     QPushButton *pBtn;
      QPushButton *mBegin;
@@ -32,11 +33,14 @@ private:
       QPushButton *mDelete;
     QHBoxLayout *hBlt;
 
+  signals:
+    void deleteMission();
+     void beginMission(Mission mission);
 private   slots:
     void setAllNum();
-    //void changeMission();
 
-
+    void sentDelete();
+    void sentBegin();
 };
 
 #endif // MISSIONPUSHBUTTON_H
