@@ -6,6 +6,7 @@ HistoryWindow::HistoryWindow(QWidget *parent) :
     ui(new Ui::HistoryWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("HistoryWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
     //数据是否可以导入测试部分
     History h;
     QDate q(QDate::currentDate());

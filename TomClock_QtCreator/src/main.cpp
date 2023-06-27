@@ -6,6 +6,7 @@
 #include "runwindow.h"
 #include "settings.h"
 #include "about.h"
+#include "ourteam.h"
 
 
 #include <QApplication>
@@ -34,6 +35,8 @@ int main(int argc, char *argv[])
     RunWindow runW;
     Settings settingW;
     about aboutW;
+    OurTeam teamW;
+
     mainW.show();
 
     //各页面之间进行跳转的实现
@@ -43,9 +46,13 @@ int main(int argc, char *argv[])
     QObject::connect(&mainW, SIGNAL(JumptoMissionList()), &listW, SLOT(MaintoList()));
     QObject::connect(&mainW, SIGNAL(JumptoSettings()), &settingW, SLOT(MaintoSettings()));
     QObject::connect(&mainW, SIGNAL(JumptoAbout()), &aboutW, SLOT(MaintoAbout()));
-    QObject::connect(&settingW, SIGNAL(BackToMain()), &mainW, SLOT(SettingsToMain()));
-    QObject::connect(&historyW, SIGNAL(BacktoMain()), &mainW, SLOT(HistoryToMain()));
+    QObject::connect(&settingW, SIGNAL(BacktoMain()), &mainW, SLOT(SettingstoMain()));
+    QObject::connect(&historyW, SIGNAL(BacktoMain()), &mainW, SLOT(HistorytoMain()));
+    QObject::connect(&aboutW, SIGNAL(AbouttoTeam()), &teamW, SLOT(AbouttoTeam()));
+    QObject::connect(&aboutW, SIGNAL(BacktoMain()), &mainW, SLOT(AbouttoMain()));
+    QObject::connect(&teamW, SIGNAL(BacktoAbout()), &aboutW, SLOT(TeamtoAbout()));
 
-    QObject::connect(&settingW, SIGNAL(ThemeChange()), &settingW, SLOT(on_themeChange_currentTextChanged(Qstring)));
+    //我尝试了在各个页面的cpp文件下写页面跳转，但是好像先创建所有窗口方法的跳转不支持，你们有解决办法可以重写一下
+
     return a.exec();
 }

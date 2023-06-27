@@ -19,16 +19,13 @@ private:
     Ui::Settings *ui;
 
 signals:
-    void LightTheme();
-    void DarkTheme();
-    void BackToMain();
+    void currentIndexChanged(int);
+    void BacktoMain();
 
 private slots:
     void MaintoSettings();
-    void on_themeChange_currentTextChanged(const QString &arg1);
     void on_backToMain_clicked();
-    void ChangeToLight();
-    void ChangeToDark();
+    void on_themeChange_currentIndexChanged(int index);
 };
 
 #endif // SETTINGS_H

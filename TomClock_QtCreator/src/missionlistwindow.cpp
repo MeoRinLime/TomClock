@@ -6,6 +6,7 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
     ui(new Ui::MissionListWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("MissionListWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
 
 }
 

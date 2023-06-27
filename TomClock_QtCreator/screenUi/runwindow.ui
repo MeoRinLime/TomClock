@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>RunWindow</class>
  <widget class="QWidget" name="RunWindow">
   <property name="geometry">
@@ -13,9 +11,15 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>TomClock</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../res.qrc">
+    <normaloff>:/images/resourse/images/Icons/Main_Color/tomato1.png</normaloff>:/images/resourse/images/Icons/Main_Color/tomato1.png</iconset>
   </property>
  </widget>
- <pixmapfunction/>
+ <resources>
+  <include location="../res.qrc"/>
+ </resources>
  <connections/>
 </ui>

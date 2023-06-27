@@ -18,8 +18,17 @@ public:
 private:
     Ui::about *ui;
 
+signals:
+    void BacktoMain();
+    void AbouttoTeam();
+
 private slots:
     void MaintoAbout();
+    void TeamtoAbout();
+
+    void on_backToMain_clicked();
+    void on_ourTeam_clicked();
+    void on_github_clicked();
 };
 
 #endif // ABOUT_H
