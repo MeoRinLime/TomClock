@@ -49,18 +49,28 @@ int main(int argc, char *argv[])
     tcdb.createMission(m2);
     tcdb.deleteMission(1);
     tcdb.updateMission(2, ml);
+    delete[] qm;
     qm = tcdb.queryMission();
-    qDebug(QString("%1").arg(qm[0].getId()).toLatin1());
-    qDebug(QString("%1").arg(qm[1].getId()).toLatin1());
+//    qDebug(QString("%1").arg(qm[0].getId()).toLatin1());
+//    qDebug(QString("%1").arg(qm[1].getId()).toLatin1());
     tcdb.addHistory(h1);
+    delete[] qh;
     qh = tcdb.queryHistory();
-    qDebug(QString("%1").arg(qh[0].getId()).toLatin1());
+//    qDebug(QString("%1").arg(qh[0].getId()).toLatin1());
     tcdb.initAchievement(1, al);
+    delete[] qa;
     qa = tcdb.queryAchievement();
-    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
+//    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
     tcdb.updateAchievement("First Tomato");
+    delete[] qa;
     qa = tcdb.queryAchievement();
-    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
+//    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
+    delete[] qm;
+    qm = nullptr;
+    delete[] qh;
+    qh = nullptr;
+    delete[] qa;
+    qa = nullptr;
     //test end
     mainW.show();
 
