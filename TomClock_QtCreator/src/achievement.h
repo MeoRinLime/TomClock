@@ -6,6 +6,7 @@
 class Achievement
 {
 public:
+    Achievement();
     Achievement(QString name, bool state, QString howToAchieve);
     QString getName() const;
     void setName(const QString &newName);

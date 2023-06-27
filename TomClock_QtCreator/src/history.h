@@ -9,6 +9,7 @@ class History
 {
 public:
     History();
+    History(int id, const QDate &date, const QString &name, int numOfTomato, const QTime &totaltime);
     QDate getDate() const;
     void setDate(const QDate &newDate);
     QString getName() const;
@@ -18,7 +19,11 @@ public:
     QTime getTotalTime() const;
     void setTotalTime(const QTime &newTotalTime);
 
+    int getId() const;
+    void setId(int newId);
+
 private:
+    int id;
     QDate date;
     QString name;
     int numOfTomato;
