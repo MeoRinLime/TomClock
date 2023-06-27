@@ -23,8 +23,11 @@ public:
 private:
     Ui::HistoryWindow *ui;
     QVector<History>histories;
+signals:
+    void BacktoMain();
 private slots:
     void MaintoHistory();
+    void on_backToMain_clicked();
 };
 
 #endif // HISTORYWINDOW_H

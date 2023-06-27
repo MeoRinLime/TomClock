@@ -43,5 +43,6 @@ private slots:
     void on_aboutTeam_clicked();
 
     void SettingsToMain();
+    void HistoryToMain();
 };
 #endif // MAINWINDOW_H

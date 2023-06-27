@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
     QObject::connect(&mainW, SIGNAL(JumptoSettings()), &settingW, SLOT(MaintoSettings()));
     QObject::connect(&mainW, SIGNAL(JumptoAbout()), &aboutW, SLOT(MaintoAbout()));
     QObject::connect(&settingW, SIGNAL(BackToMain()), &mainW, SLOT(SettingsToMain()));
+    QObject::connect(&historyW, SIGNAL(BacktoMain()), &mainW, SLOT(HistoryToMain()));
 
     QObject::connect(&settingW, SIGNAL(ThemeChange()), &settingW, SLOT(on_themeChange_currentTextChanged(Qstring)));
     return a.exec();

@@ -82,7 +82,7 @@ void TomClockDatabase::updateMission(Mission *missionList)
 
 Mission *TomClockDatabase::queryMission()
 {
-
+return nullptr;
 }
 
 //History增加、查询
@@ -93,7 +93,7 @@ void TomClockDatabase::addHistory(const History &history)
 
 History *TomClockDatabase::queryHistory()
 {
-
+return nullptr;
 }
 
 //Achievements更新、查询
@@ -104,5 +104,5 @@ void TomClockDatabase::updateAchievements(Achievement *achievements)
 
 Achievement * TomClockDatabase::queryAchievementes()
 {
-
+return nullptr;
 }

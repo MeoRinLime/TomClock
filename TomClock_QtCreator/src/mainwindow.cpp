@@ -74,3 +74,8 @@ void MainWindow::SettingsToMain()
 {
     this->show();
 }
+
+void MainWindow::HistoryToMain()
+{
+    this->show();
+}

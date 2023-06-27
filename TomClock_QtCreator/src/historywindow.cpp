@@ -91,3 +91,10 @@ QString HistoryWindow::historyRecord(History h){
 +"        学习时长"+h.getTotalTime().toString();
         return hi;
 }
+
+void HistoryWindow::on_backToMain_clicked()
+{
+        this->hide();
+        emit BacktoMain();
+}
+
