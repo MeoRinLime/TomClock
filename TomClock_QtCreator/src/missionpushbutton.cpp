@@ -177,11 +177,7 @@ void MissionPushButton::setAN(int n){
 }
 
 void MissionPushButton::sentBegin(){
-    Mission missionmm;
-    missionmm.setId(1);
-    missionmm.setName("ggg");
-    missionmm.setRelaxTime(QTime(0,2,0));
-     missionmm.setWorkTime(QTime(0,30,0));
-    emit beginMission(missionmm);
+
+    emit beginMission();
 
 }

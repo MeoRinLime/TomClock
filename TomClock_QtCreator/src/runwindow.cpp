@@ -12,3 +12,7 @@ RunWindow::~RunWindow()
 {
     delete ui;
 }
+void RunWindow::beginRun(Mission mission){
+    this->show();
+    qDebug()<<mission.getName()<<"  "<<mission.getWorkTime().toString()<<"  "<<mission.getRelaxTime().toString();
+}
