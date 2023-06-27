@@ -2,5 +2,8 @@
     <qresource prefix="/images">
         <file>MainIcon.png</file>
         <file>resourse/images/Icons/Main_Color/tomato1.png</file>
+        <file>resourse/images/background/bg1.png</file>
+        <file>resourse/images/background/bg2.png</file>
+        <file>resourse/images/background/bg3.png</file>
     </qresource>
 </RCC>

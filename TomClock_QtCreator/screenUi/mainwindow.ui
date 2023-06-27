@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>671</width>
-    <height>400</height>
+    <width>800</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>600</width>
-    <height>400</height>
+    <width>800</width>
+    <height>500</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -28,6 +28,9 @@
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
@@ -316,18 +319,47 @@ border-style: inset;
          </property>
          <property name="minimumSize">
           <size>
-           <width>200</width>
-           <height>40</height>
+           <width>84</width>
+           <height>34</height>
           </size>
          </property>
          <property name="font">
           <font>
            <family>方正铭石体 简</family>
-           <pointsize>22</pointsize>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+           <kerning>true</kerning>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 20px;
+    min-width: 80px;
+    min-height: 30px;
+}
+
+QPushButton:hover {
+    background-color: #3e8e41;
+}
+
+QPushButton:pressed {
+    background-color: #2e6b2e;
+}</string>
          </property>
          <property name="text">
           <string>开始</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
          </property>
         </widget>
        </item>
