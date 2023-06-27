@@ -22,11 +22,11 @@ public:
     void setCreateTime(const QDate &newCreateTime);
 
 private:
-    int id;
-    QString name;
+    int id;           //每个mission的唯一标记 从1开始++
+    QString name;     //任务名 varchar(20)
     QTime workTime;
     QTime relaxTime;
-    QDate createTime;
+    QDate createTime; //创建日期
 };
 
 #endif // MISSION_H
