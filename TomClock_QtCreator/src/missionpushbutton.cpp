@@ -86,7 +86,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
      mDelete->setMaximumSize(QSize(50,100));
      pBtn->setText("ooooo");
 
-     //QString information=mission->getName()+"     "+mission->getWorkTime().toString()+"   "+mission->getRelaxTime().toString();
+
 
     pBtn->setStyleSheet(
         "QPushButton{"                             // 正常状态样式
@@ -113,11 +113,18 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     connect(pBtn,&QPushButton::clicked,this,&MissionPushButton::setAllNum);
     hBlt->addWidget(pBtn);
     this->setLayout(hBlt);
+    connect(this->mDelete,&QPushButton::clicked,this,&MissionPushButton::sentDelete);
+    connect(this->mBegin,&QPushButton::clicked,this,&MissionPushButton::sentBegin);
 }
 
 MissionPushButton::~MissionPushButton()
 {
     delete ui;
+    delete pBtn;
+    delete hBlt;
+    delete mBegin;
+    delete mChange;
+    delete mDelete;
 }
 
 
@@ -145,9 +152,7 @@ int MissionPushButton::getallNum(){
 int MissionPushButton::allNum=-1;
 void MissionPushButton::disapearChoice(){
     if(num!=allNum){
-    //hBlt->removeWidget(mBegin);
-    //hBlt->removeWidget(mChange);
-    //hBlt->removeWidget(mDelete);
+
         mBegin->hide();
     mChange->hide();
         mDelete->hide();
@@ -160,5 +165,23 @@ QPushButton* MissionPushButton::getPBtn(){
     return pBtn;
 }
 
+void MissionPushButton::sentDelete(){
+    qDebug()<<pBtn->text();
+    this->hide();
+    emit deleteMission();
 
+}
 
+void MissionPushButton::setAN(int n){
+    allNum=n;
+}
+
+void MissionPushButton::sentBegin(){
+    Mission missionmm;
+    missionmm.setId(1);
+    missionmm.setName("ggg");
+    missionmm.setRelaxTime(QTime(0,2,0));
+     missionmm.setWorkTime(QTime(0,30,0));
+    emit beginMission(missionmm);
+
+}
