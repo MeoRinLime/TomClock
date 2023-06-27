@@ -2,7 +2,20 @@
 
 History::History()
 {
+    setId(-1);
+    setDate(QDate());
+    setName("");
+    setNumOfTomato(-1);
+    setTotalTime(QTime());
+}
 
+History::History(int id, const QDate &date, const QString &name, int numOfTomato, const QTime &totaltime)
+{
+    setId(id);
+    setDate(date);
+    setName(name);
+    setNumOfTomato(numOfTomato);
+    setTotalTime(totaltime);
 }
 
 QDate History::getDate() const
@@ -43,4 +56,14 @@ QTime History::getTotalTime() const
 void History::setTotalTime(const QTime &newTotalTime)
 {
     totalTime = newTotalTime;
+}
+
+int History::getId() const
+{
+    return id;
+}
+
+void History::setId(int newId)
+{
+    id = newId;
 }
