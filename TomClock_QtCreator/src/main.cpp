@@ -7,7 +7,7 @@
 #include "settings.h"
 #include "about.h"
 #include "ourteam.h"
-
+#include "tomclockdatabase.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     OurTeam teamW;
 
     //test
-    TomClockDatabase tcdb(qApp->applicationDirPath());
+    TomClockDatabase tcdb;
     Mission m1(1, "study math", QTime().fromString("00:25", "mm:ss"), QTime().fromString("00:05", "mm:ss"), QDate::currentDate());
     Mission m2(2, "study english", QTime().fromString("00:25", "mm:ss"), QTime().fromString("00:05", "mm:ss"), QDate::currentDate());
     Mission ml[2] = {m1, m2};

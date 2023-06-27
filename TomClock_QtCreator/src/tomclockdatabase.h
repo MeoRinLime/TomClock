@@ -21,7 +21,7 @@
 class TomClockDatabase
 {
 public:
-    TomClockDatabase(const QString &path);
+    TomClockDatabase();
 
     bool tablesExist();      //判断表是否存在
     void createTables();     //创建表

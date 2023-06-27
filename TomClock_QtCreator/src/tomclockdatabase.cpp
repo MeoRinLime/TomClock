@@ -13,10 +13,10 @@ enum SqlError{
     SqlQueryError
 };
 
-TomClockDatabase::TomClockDatabase(const QString &path)
+TomClockDatabase::TomClockDatabase()
 {
     //连接数据库
-    database = QSqlDatabase::addDatabase("QSQLITE", path + "/tomclock.db");
+    database = QSqlDatabase::addDatabase("QSQLITE", "tomclock_connect");
     database.setDatabaseName("TomClock.db");
 
     //尝试 打开数据库
@@ -41,6 +41,9 @@ TomClockDatabase::TomClockDatabase(const QString &path)
     if (!tablesExist()){
         createTables();
     }
+    else {
+        qDebug("Tables already exist.");
+    }
 }
 
 bool TomClockDatabase::tablesExist()
@@ -57,7 +60,7 @@ void TomClockDatabase::createTables()
 {
     sqlStr = QString("create table MissionTable(\
                         id int not null primary key,\
-                        name varchar(20) null,\
+                        name text null,\
                         worktime time null,\
                         relaxtime time null,\
                         createtime date null);");
@@ -77,7 +80,7 @@ void TomClockDatabase::createTables()
     sqlStr = QString("create table HistoryTable(\
                         id int not null primary key,\
                         date date null,\
-                        name varchar(20) null,\
+                        name text null,\
                         numoftomato int null,\
                         totaltime time null);");
     //抛出异常
@@ -94,9 +97,9 @@ void TomClockDatabase::createTables()
         }
     };
     sqlStr = QString("create table AchievementTable(\
-                        name varchar(20) not null primary key,\
+                        name text not null primary key,\
                         state boolean null,\
-                        howtoachieve varchar(100) null);");
+                        howtoachieve text null);");
     //抛出异常
     try {
         if (!query.exec(sqlStr)){
@@ -169,11 +172,11 @@ void TomClockDatabase::updateMission(int listSize, Mission *missionList)
             throw SqlUpdateError;
         }
         else {
-            qDebug("Successfully delete MissionTable.");
+            qDebug("UpdataMission: Successfully delete MissionTable.");
         }
     } catch (SqlError e) {
         if (e == SqlUpdateError){
-            qDebug("Failed to delete MissionTable. Failed to update mission.");
+            qDebug("UpdataMission: Failed to delete MissionTable.");
         }
     };
 
@@ -192,11 +195,11 @@ void TomClockDatabase::updateMission(int listSize, Mission *missionList)
                 throw SqlUpdateError;
             }
             else {
-                qDebug("Successfully update mission.");
+                qDebug("UpdataMission: Successfully update mission.");
             }
         } catch (SqlError e) {
             if (e == SqlUpdateError)
-                qDebug("Failed to insert into MissionTable. Failed to update mission.");
+                qDebug("UpdataMission: Failed to insert into MissionTable.");
         }
     }
 }
@@ -217,7 +220,7 @@ Mission *TomClockDatabase::queryMission()
             qDebug("Failed to query mission.");
         }
     }
-    Mission *missionList = new Mission[query.size()];
+    Mission *missionList = new Mission[query.size()]; //这里query.size()为-1，导致bad_alloc  可以使用QSqlQueryModel类
     for (int i = 0; query.next(); ++i) {
         missionList[i].setId(query.value("id").toInt());
         missionList[i].setName(query.value("name").toString());
@@ -295,11 +298,11 @@ void TomClockDatabase::initAchievement(int listSize, Achievement *achievementLis
             throw SqlUpdateError;
         }
         else {
-            qDebug("initialize Achievement: Successfully query achievement.");
+            qDebug("Initialize Achievement: Successfully query achievement.");
         }
     } catch (SqlError e) {
         if (e == SqlUpdateError){
-            qDebug("Failed to query achievement. Failed to initialize Achievement.");
+            qDebug("Initialize Achievement: Failed to query achievement.");
         }
     }
     if (query.size() == 0){ //AchievementTable为空
@@ -317,7 +320,7 @@ void TomClockDatabase::initAchievement(int listSize, Achievement *achievementLis
                 }
             } catch (SqlError e) {
                 if (e == SqlUpdateError)
-                    qDebug("Failed to insert into AchievementTable. Failed to initialize achievement.");
+                    qDebug("Initialize Achievement: Failed to insert into AchievementTable.");
             }
         }
         qDebug("Successfully initialize achievement.");
@@ -340,11 +343,11 @@ void TomClockDatabase::updateAchievement(const QString &name)
             throw SqlUpdateError;
         }
         else {
-            qDebug("Successfully update achievement.");
+            qDebug("UpdateAchievement: Successfully update achievement.");
         }
     } catch (SqlError e) {
         if (e == SqlUpdateError){
-            qDebug("Failed to update achievement.");
+            qDebug("UpdateAchievement: Failed to update achievement.");
         }
     }
 }
