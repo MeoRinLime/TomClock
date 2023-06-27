@@ -35,7 +35,7 @@ private:
 
   signals:
     void deleteMission();
-     void beginMission(Mission mission);
+     void beginMission();
 private   slots:
     void setAllNum();
 

@@ -75,5 +75,6 @@ int main(int argc, char *argv[])
     QObject::connect(&historyW, SIGNAL(BacktoMain()), &mainW, SLOT(HistoryToMain()));
 
     QObject::connect(&settingW, SIGNAL(ThemeChange()), &settingW, SLOT(on_themeChange_currentTextChanged(Qstring)));
+    QObject::connect(&listW,SIGNAL(jumpToRunWindows(Mission)),&runW,SLOT(beginRun(Mission)));
     return a.exec();
 }
