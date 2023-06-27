@@ -1,5 +1,12 @@
 #include "achievement.h"
 
+Achievement::Achievement()
+{
+    setName("");
+    setState(false);
+    setHowToAchieve("");
+}
+
 Achievement::Achievement(QString name, bool state, QString howToAchieve)
 {
     setName(name);
