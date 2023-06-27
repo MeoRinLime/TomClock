@@ -42,7 +42,8 @@ private slots:
     void on_settings_clicked();
     void on_aboutTeam_clicked();
 
-    void SettingsToMain();
-    void HistoryToMain();
+    void SettingstoMain();
+    void HistorytoMain();
+    void AbouttoMain();
 };
 #endif // MAINWINDOW_H

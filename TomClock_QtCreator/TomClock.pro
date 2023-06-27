@@ -21,6 +21,7 @@ SOURCES += \
     src/runwindow.cpp \
     src/tomclock.cpp \
     src/tomclockdatabase.cpp \
+    src/ourteam.cpp \
     src\main.cpp \
     src\mainwindow.cpp
 
@@ -37,7 +38,7 @@ HEADERS += \
     src/runwindow.h \
     src/tomclock.h \
     src/tomclockdatabase.h \
-    src\mainwindow.h
+    src/ourteam.h \
     src/mainwindow.h
 
 FORMS += \
@@ -48,6 +49,7 @@ FORMS += \
     screenUi/missionlistwindow.ui \
     screenUi/runwindow.ui \
     screenUi/settings.ui \
+    screenUi/ourteam.ui \
     screenUi/mainwindow.ui
 
 TRANSLATIONS += \
