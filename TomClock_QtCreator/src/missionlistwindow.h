@@ -2,7 +2,11 @@
 #define MISSIONLISTWINDOW_H
 
 #include <QWidget>
+#include<QGridLayout>
+#include<QVector>
+#include<QMessageBox>
 
+#include"missionpushbutton.h"
 namespace Ui {
 class MissionListWindow;
 }
@@ -19,10 +23,15 @@ signals:
 
 private slots:
     void MaintoList();
-    void on_remove_clicked();
+    void disapearChoice();
 
 private:
     Ui::MissionListWindow *ui;
+    QVector<Mission>missions;
+
+    QVector<MissionPushButton*>MPBTS;
+    int choice;
 };
+
 
 #endif // MISSIONLISTWINDOW_H
