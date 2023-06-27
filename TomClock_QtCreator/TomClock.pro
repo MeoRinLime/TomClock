@@ -12,6 +12,7 @@ SOURCES += \
     src/achievement.cpp \
     src/about.cpp \
     src/missionpushbutton.cpp \
+    src/ourteam.cpp \
     src/settings.cpp \
     src/achievementwindow.cpp \
     src/createmissionwindow.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     src/achievement.h \
     src/about.h \
     src/missionpushbutton.h \
+    src/ourteam.h \
     src/settings.h \
     src/achievementwindow.h \
     src/createmissionwindow.h \
@@ -48,6 +50,7 @@ FORMS += \
     screenUi/createmissionwindow.ui \
     screenUi/historywindow.ui \
     screenUi/missionlistwindow.ui \
+    screenUi/ourteam.ui \
     screenUi/runwindow.ui \
     screenUi/settings.ui \
     screenUi/mainwindow.ui \

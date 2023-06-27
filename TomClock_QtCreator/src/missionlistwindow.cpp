@@ -5,16 +5,13 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MissionListWindow)
 {
-     gL=new  QGridLayout();
     ui->setupUi(this);
-    for(int i=0;i<20;i++){
-        //测试部分
-        Mission mmm;
-        mmm.setName("nnn"+QString::number(i));
-        mmm.setRelaxTime(QTime(0,10,0));
-        mmm.setWorkTime(QTime(0,30,0));
-        missions.push_back(mmm);
-        QString mmmmm=mmm.getName()+"   "+mmm.getWorkTime().toString()+"  "+mmm.getRelaxTime().toString();
+     gL=new  QGridLayout();
+
+    for(int i=0;missions.size();i++){
+
+
+        QString mmmmm=missions[i].getName()+"   "+missions[i].getWorkTime().toString()+"  "+missions[i].getRelaxTime().toString();
         MissionPushButton *mpb=new   MissionPushButton();
         mpb->getPBtn()->setText(mmmmm);
         mpb->setNum(i);
@@ -49,10 +46,11 @@ void MissionListWindow::deleteMission(){
 
 
 
-
+    missions.erase( missions.begin()+MissionPushButton::getallNum());
    MPBTS.erase( MPBTS.begin()+MissionPushButton::getallNum());
-
+     delete gL;
     gL=new  QGridLayout();
+
     for(int i=0;i<MPBTS.size();i++){
         MPBTS[i]->setNum(i);
         gL->addWidget(MPBTS[i]);
@@ -68,3 +66,34 @@ void MissionListWindow::beginMission(){
 
 
 }
+void MissionListWindow::recieveMission(Mission mission){
+    missions.push_back(mission);
+    delete gL;
+    gL=new  QGridLayout();
+
+    QString mmmmm=mission.getName()+"   "+mission.getWorkTime().toString()+"  "+mission.getRelaxTime().toString();
+    qDebug()<<mmmmm;
+    MissionPushButton *mpb=new MissionPushButton();
+    mpb->getPBtn()->setText(mmmmm);
+    mpb->setNum(missions.size()-1);
+    MPBTS.push_back(mpb);
+    for(int i=0;i<missions.size();i++){
+
+
+
+        gL->addWidget(MPBTS[i]);
+        connect(MPBTS[i]->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
+        connect(MPBTS[i],&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
+        connect(MPBTS[i],&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
+        gL->setRowStretch(i+1,1);
+    }
+    ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
+    ui->scrollArea->widget()->setLayout(gL);
+
+}
+
+void MissionListWindow::on_pushButton_clicked()
+{
+    emit create();
+}
+

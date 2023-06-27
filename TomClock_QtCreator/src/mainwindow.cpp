@@ -89,3 +89,8 @@ void MainWindow::AbouttoMain()
     this->show();
 }
 //关于界面跳转到主界面
+
+void  MainWindow::OthertoMain()
+{
+    this->show();
+}

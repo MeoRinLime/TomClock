@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     //各页面之间进行跳转的实现
     QObject::connect(&mainW, SIGNAL(JumptoAchievement()), &achievementW, SLOT(MaintoAchievement()));
     QObject::connect(&mainW, SIGNAL(JumptoHistory()), &historyW, SLOT(MaintoHistory()));
-    QObject::connect(&mainW, SIGNAL(JumptoMissionCreate()), &createW, SLOT(MaintoCreate()));
+   // QObject::connect(&mainW, SIGNAL(JumptoMissionCreate()), &createW, SLOT(MaintoCreate()));
     QObject::connect(&mainW, SIGNAL(JumptoMissionList()), &listW, SLOT(MaintoList()));
     QObject::connect(&mainW, SIGNAL(JumptoSettings()), &settingW, SLOT(MaintoSettings()));
     QObject::connect(&mainW, SIGNAL(JumptoAbout()), &aboutW, SLOT(MaintoAbout()));
@@ -51,7 +51,10 @@ int main(int argc, char *argv[])
     QObject::connect(&aboutW, SIGNAL(AbouttoTeam()), &teamW, SLOT(AbouttoTeam()));
     QObject::connect(&aboutW, SIGNAL(BacktoMain()), &mainW, SLOT(AbouttoMain()));
     QObject::connect(&teamW, SIGNAL(BacktoAbout()), &aboutW, SLOT(TeamtoAbout()));
-
+    QObject::connect(&listW,SIGNAL(jumpToRunWindows(Mission)),&runW,SLOT(ListtoRun(Mission)));
+    //QObject::connect(&createW,SIGNAL(sentAndJump(Mission)),&mainW,SLOT(othertoMain()));
+     QObject::connect(&createW,SIGNAL(sentAndJump(Mission)),&listW,SLOT(recieveMission(Mission)));
+    QObject::connect(&listW,SIGNAL(create()),&createW,SLOT(toCreate()));
     //我尝试了在各个页面的cpp文件下写页面跳转，但是好像先创建所有窗口方法的跳转不支持，你们有解决办法可以重写一下
 
     return a.exec();

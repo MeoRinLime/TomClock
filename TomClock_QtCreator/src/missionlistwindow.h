@@ -20,12 +20,16 @@ public:
     ~MissionListWindow();
 
 signals:
-
+   void jumpToRunWindows(Mission mission);
+    void create();
 private slots:
     void MaintoList();
     void disapearChoice();
     void deleteMission();
-    void jumpToRunWindows(Mission mission);
+    void beginMission();
+    void recieveMission(Mission mission);
+    void on_pushButton_clicked();
+
 private:
     Ui::MissionListWindow *ui;
     QVector<Mission>missions;

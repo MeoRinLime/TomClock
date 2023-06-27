@@ -31,7 +31,7 @@ private:
     bool oncePaused;        //记录 曾经是否暂停过
 
 private slots:
-    void ListtoRun();       //界面跳转
+    void ListtoRun(Mission mission);       //界面跳转
     void processTimeout();  //处理计时器信号
     void nextPeriod();      //进入下一个番茄钟时间段
     void on_PauseResumeButton_clicked();
