@@ -15,11 +15,12 @@ public:
     explicit MissionListWindow(QWidget *parent = nullptr);
     ~MissionListWindow();
 
+private slots:
+
+    void on_remove_clicked();
+
 private:
     Ui::MissionListWindow *ui;
-
-private slots:
-    void MaintoList();
 };
 
 #endif // MISSIONLISTWINDOW_H
