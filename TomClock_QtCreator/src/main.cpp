@@ -37,6 +37,44 @@ int main(int argc, char *argv[])
     about aboutW;
     OurTeam teamW;
 
+    //test
+    TomClockDatabase tcdb(qApp->applicationDirPath());
+    Mission m1(1, "study math", QTime().fromString("00:25", "mm:ss"), QTime().fromString("00:05", "mm:ss"), QDate::currentDate());
+    Mission m2(2, "study english", QTime().fromString("00:25", "mm:ss"), QTime().fromString("00:05", "mm:ss"), QDate::currentDate());
+    Mission ml[2] = {m1, m2};
+    Mission *qm = new Mission[2];
+    History h1(1, QDate::currentDate(), "study math", 0, QTime().fromString("11:45", "mm:ss"));
+    History *qh = new History[1];
+    Achievement a1("First Tomato", 0, "Get your first tomato by complete a mission.");
+    Achievement al[1] = {a1};
+    Achievement *qa = new Achievement[1];
+    tcdb.createMission(m1);
+    tcdb.createMission(m2);
+    tcdb.deleteMission(1);
+    tcdb.updateMission(2, ml);
+    delete[] qm;
+    qm = tcdb.queryMission();
+//    qDebug(QString("%1").arg(qm[0].getId()).toLatin1());
+//    qDebug(QString("%1").arg(qm[1].getId()).toLatin1());
+    tcdb.addHistory(h1);
+    delete[] qh;
+    qh = tcdb.queryHistory();
+//    qDebug(QString("%1").arg(qh[0].getId()).toLatin1());
+    tcdb.initAchievement(1, al);
+    delete[] qa;
+    qa = tcdb.queryAchievement();
+//    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
+    tcdb.updateAchievement("First Tomato");
+    delete[] qa;
+    qa = tcdb.queryAchievement();
+//    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
+    delete[] qm;
+    qm = nullptr;
+    delete[] qh;
+    qh = nullptr;
+    delete[] qa;
+    qa = nullptr;
+    //test end
     mainW.show();
 
     //各页面之间进行跳转的实现
