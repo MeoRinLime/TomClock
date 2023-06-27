@@ -47,6 +47,7 @@ void MainWindow::on_startIcon_clicked()
     this->hide();
     emit JumptoMissionList();
 }
+//点击跳转至任务列表界面
 
 
 void MainWindow::on_startText_clicked()
@@ -74,8 +75,10 @@ void MainWindow::SettingsToMain()
 {
     this->show();
 }
+//设置界面跳转到主界面
 
 void MainWindow::HistoryToMain()
 {
     this->show();
 }
+//历史记录跳转到主界面

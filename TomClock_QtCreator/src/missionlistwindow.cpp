@@ -14,7 +14,10 @@ MissionListWindow::~MissionListWindow()
     delete ui;
 }
 
-
+void MissionListWindow::MaintoList()
+{
+    this->show();
+}
 
 void MissionListWindow::on_remove_clicked()
 {
