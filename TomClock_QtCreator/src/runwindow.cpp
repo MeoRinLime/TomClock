@@ -8,6 +8,7 @@ RunWindow::RunWindow(QWidget *parent) :
     ui(new Ui::RunWindow)
 {
     ui->setupUi(this);
+    this->setStyleSheet("RunWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
 }
 
 RunWindow::RunWindow(const Mission &m, QWidget *parent) :
@@ -16,11 +17,7 @@ RunWindow::RunWindow(const Mission &m, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    curMission = m;                                      //参数初始化
-    displayedTime = curMission.getWorkTime();            //显示的时间 工作时间
 
-    ui->MissionNameLabel->setText(curMission.getName()); //显示 任务名
-    ui->TimeDisplay->setText(displayedTime.toString());  //显示 时间
 }
 
 RunWindow::~RunWindow()
@@ -28,8 +25,15 @@ RunWindow::~RunWindow()
     delete ui;
 }
 
-void RunWindow::ListtoRun()
+void RunWindow::ListtoRun(Mission mission)
 {
+    curMission=mission;
+                                        //参数初始化
+    displayedTime = curMission.getWorkTime();            //显示的时间 工作时间
+
+    ui->MissionNameLabel->setText(curMission.getName()); //显示 任务名
+    ui->TimeDisplay->setText(displayedTime.toString());  //显示 时间
+    qDebug()<<"seccuess";
     this->show();
     whichPeriod = 0;    //表示处于 第一个工作时间
     oncePaused = false; //表示 从未暂停过
