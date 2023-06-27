@@ -4,6 +4,10 @@
 #include <QDebug>
 #include <QString>
 
+enum Except{
+    Connection
+};
+
 TomClockDatabase::TomClockDatabase(const QString &path)
 {
     //打开数据库
@@ -16,7 +20,7 @@ TomClockDatabase::TomClockDatabase(const QString &path)
             throw QSqlError::ConnectionError;
         }
         else{
-            qDebug("Successfully opened database");
+            qDebug("Successfully opened database!");
         }
     }
     catch(QSqlError){
@@ -40,9 +44,32 @@ bool TomClockDatabase::tablesExist()
 void TomClockDatabase::createTables()
 {
     sqlStr = QString("create table MissionTable(\
-                        mid int not null primary key,\
-                        mname varchar(20) null,\
-                        worktime time )");
+                        id int not null primary key,\
+                        name varchar(20) null,\
+                        worktime time null,\
+                        relaxtime time null,\
+                        createtime date null);");
+    sqlStr += QString("create table HistoryTable(\
+                        id int not null primary key,\
+                        date date null,\
+                        name varchar(20) null,\
+                        numOfTomato int null,\
+                        totaltime time null);");
+    sqlStr += QString("create table AchievementTable(\
+                        name varchar(20) not null primary key,\
+                        state bool null,\
+                        howtoachieve varchar(100) null);");
+    //抛出异常
+    try {
+        if (query.exec(sqlStr)){
+            throw QString("Successfully created tables!");
+        }
+        else {
+            throw QString("Failed to create tables.");
+        }
+    } catch (QString e) {
+        qDebug(e.toLatin1());
+    };
 }
 
 //Mission增删改查
@@ -62,7 +89,7 @@ void TomClockDatabase::createMission(const Mission &mission)
             throw QSqlError::TransactionError;
         }
         else{
-            qDebug("Successfully created mission");
+            qDebug("Successfully created mission!");
         }
     }
     catch(QSqlError){
@@ -72,7 +99,17 @@ void TomClockDatabase::createMission(const Mission &mission)
 
 void TomClockDatabase::deleteMission(int id)
 {
-
+    sqlStr = QString("delete from MissionTable where id=%1").arg(id);
+    try {
+        if (query.exec(sqlStr)){
+            throw QString("Successfully deleted mission(id=%1)").arg(id);
+        }
+        else {
+            throw QString("Failed to delete mission(id=%1)").arg(id);
+        }
+    } catch (QString e) {
+        qDebug(e.toLatin1());
+    }
 }
 
 void TomClockDatabase::updateMission(Mission *missionList)
