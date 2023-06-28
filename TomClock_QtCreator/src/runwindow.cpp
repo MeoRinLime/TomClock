@@ -18,6 +18,11 @@ RunWindow::~RunWindow()
 
 void RunWindow::closeEvent(QCloseEvent *event)
 {
+    //只有单个mission时，可以正常delete
+//    delete secTimer;
+//    delete periodTimer;
+    secTimer->stop();
+    periodTimer->stop();
     emit JumptoMain();
     QMainWindow::closeEvent(event);
 }
@@ -124,6 +129,10 @@ void RunWindow::nextPeriod()
             emit oneMoreTomato();
         }
         //跳转回主窗口
+
+        secTimer->stop();
+        periodTimer->stop();
+
         emit JumptoMain();
         this->close();
         break;
@@ -162,6 +171,11 @@ void RunWindow::on_AbortButton_clicked()
     abortConfirmMsgBox->setDefaultButton(QMessageBox::Cancel);
 
     connect(abortConfirmMsgBox, &QDialog::accepted, this, [=](){
+        //同closeEvent的情况
+//        delete secTimer;
+//        delete periodTimer;
+        secTimer->stop();
+        periodTimer->stop();
         emit noTomato(); //无番茄
         //跳转到主窗口
         emit JumptoMain();
