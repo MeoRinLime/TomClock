@@ -16,6 +16,13 @@
     <height>500</height>
    </size>
   </property>
+  <property name="windowTitle">
+   <string>TomClock</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../res.qrc">
+    <normaloff>:/images/resourse/images/Icons/Main_Color/tomato1.png</normaloff>:/images/resourse/images/Icons/Main_Color/tomato1.png</iconset>
+  </property>
   <widget class="QLabel" name="TomatoLabel">
    <property name="geometry">
     <rect>
@@ -81,6 +88,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../res.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -22,7 +22,7 @@ public:
 signals:
     void JumptoAchievement();//跳转至成就界面
     void JumptoHistory();//跳转至历史记录界面
-    void JumptoMissionCreate();//跳转至创建任务界面
+    //void JumptoMissionCreate();//跳转至创建任务界面
     void JumptoMissionList();//点击开始或者图标后跳转至任务列表界面
     void JumptoSettings();//跳转至设置界面
     void JumptoAbout();//跳转至关于界面
@@ -42,7 +42,9 @@ private slots:
     void on_settings_clicked();
     void on_aboutTeam_clicked();
 
-    void SettingsToMain();
-    void HistoryToMain();
+    void SettingstoMain();
+    void HistorytoMain();
+    void AbouttoMain();
+    void  OthertoMain();
 };
 #endif // MAINWINDOW_H

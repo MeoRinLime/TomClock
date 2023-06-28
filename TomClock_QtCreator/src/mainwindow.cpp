@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    setStyleSheet("QMainWindow {border-image:url(:/images/resourse/images/background/bg2.png);}");
+    this->setStyleSheet("QMainWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    //bg3是浅色，bg2是深色
 }
 //:/images/resourse/images/background/bg1.png
 MainWindow::~MainWindow()
@@ -71,14 +72,25 @@ void MainWindow::on_aboutTeam_clicked()
 }
 //点击跳转至关于界面
 
-void MainWindow::SettingsToMain()
+void MainWindow::SettingstoMain()
 {
     this->show();
 }
 //设置界面跳转到主界面
 
-void MainWindow::HistoryToMain()
+void MainWindow::HistorytoMain()
 {
     this->show();
 }
 //历史记录跳转到主界面
+
+void MainWindow::AbouttoMain()
+{
+    this->show();
+}
+//关于界面跳转到主界面
+
+void  MainWindow::OthertoMain()
+{
+    this->show();
+}

@@ -13,8 +13,8 @@ AchievementWindow::AchievementWindow(int achievementNum, Achievement *achievemen
     ui(new Ui::AchievementWindow)
 {
     ui->setupUi(this);
-    this->setWindowTitle("成就一览");                     //设置窗口标题
-    this->setWindowIcon(QIcon(":/images/MainIcon.png")); //设置窗口图标
+    this->setStyleSheet("AchievementWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
+
     QWidget *backdrop = new QWidget;                     //创建滚动显示区域幕布
     QHBoxLayout *layout = new QHBoxLayout(backdrop);     //创建布局
 
