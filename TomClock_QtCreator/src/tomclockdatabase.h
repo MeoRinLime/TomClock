@@ -4,9 +4,7 @@
 #include "mission.h"
 #include "history.h"
 #include "achievement.h"
-#include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
-#include <QString>
 
 /*
  * 用于处理数据库，对象构造时会确保表的存在
@@ -18,30 +16,31 @@
  * queryMission  返回一个堆上的mission数组
 */
 
-class TomClockDatabase
+class TomClockDatabase : public QObject
 {
+    Q_OBJECT
 public:
-    TomClockDatabase(const QString &path);
-
-    bool tablesExist();      //判断表是否存在
-    void createTables();     //创建表
+    TomClockDatabase();
 
     //任务列表的增删改查
     void createMission(const Mission &mission);
     void deleteMission(int id);
-    void updateMission(int listSize, Mission *missionList);
-    Mission * queryMission();
+    void updateMission(QVector<Mission> missionList);
+    QVector<Mission> queryMission();
 
     //历史记录的增加和查询
     void addHistory(const History &history);
-    History * queryHistory();
+    QVector<History> queryHistory();
 
     //成就的更新和查询
-    void initAchievement(int listSize, Achievement *achievementList);
+    void initAchievement(QVector<Achievement> achievementList);
     void updateAchievement(const QString &name); //仅修改name对应的state，由0变1
-    Achievement * queryAchievement();
+    QVector<Achievement> queryAchievement();
 
 private:
+    bool tablesExist();      //判断表是否存在
+    void createTables();     //创建表
+
     QSqlDatabase database;   //被封装了一层
     QSqlQuery query;         //用于操作数据库
     QString sqlStr;          //用于存放具体的sql语句

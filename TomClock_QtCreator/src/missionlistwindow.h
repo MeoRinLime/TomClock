@@ -5,7 +5,7 @@
 #include<QGridLayout>
 #include<QVector>
 #include<QMessageBox>
-
+#include "mission.h"
 #include"missionpushbutton.h"
 namespace Ui {
 class MissionListWindow;
@@ -20,15 +20,18 @@ public:
     ~MissionListWindow();
 
 signals:
-   void jumpToRunWindows(Mission mission);
+    void jumpToRunWindows(Mission mission);
     void create();
+    void BacktoMain();
+
 private slots:
     void MaintoList();
     void disapearChoice();
     void deleteMission();
     void beginMission();
     void recieveMission(Mission mission);
-    void on_pushButton_clicked();
+    void on_backtoMain_clicked();
+    void on_create_clicked();
 
 private:
     Ui::MissionListWindow *ui;

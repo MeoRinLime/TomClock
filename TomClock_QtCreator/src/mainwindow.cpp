@@ -3,16 +3,17 @@
 
 #include <QResizeEvent>
 #include <QPalette>
-
+#include <QLabel>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    this->setStyleSheet("QMainWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    this->setStyleSheet("MainWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
     //bg3是浅色，bg2是深色
 }
+
 //:/images/resourse/images/background/bg1.png
 MainWindow::~MainWindow()
 {
@@ -82,6 +83,16 @@ void MainWindow::HistorytoMain()
 {
     this->show();
 }
+
+void MainWindow::RuntoMain()
+{
+    this->show();
+}
+
+void MainWindow::AchievetoMain()
+{
+    this->show();
+}
 //历史记录跳转到主界面
 
 void MainWindow::AbouttoMain()
@@ -91,6 +102,11 @@ void MainWindow::AbouttoMain()
 //关于界面跳转到主界面
 
 void  MainWindow::OthertoMain()
+{
+    this->show();
+}
+
+void MainWindow::ListtoMain()
 {
     this->show();
 }
