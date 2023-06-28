@@ -27,7 +27,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     mChangeConfirm->setText("确定");
     mChangeConfirm->setStyleSheet(
         "QPushButton{"                             // 正常状态样式
-        "background-color: rgb(200, 200, 200);"       // 背景色（也可以设置图片）
+        "background-color: rgb(0, 250, 154);"       // 背景色（也可以设置图片）
         "color: white;"                            // 字体颜色
         "font: bold 13px;"                         // 字体: 加粗 大小
         "border-radius: 5px;"                      // 边框圆角半径像素
@@ -37,7 +37,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
         "}"
 
         "QPushButton:focus{"                       // 聚焦样式
-        "background-color:rgb(255, 128, 64);"
+        "background-color: rgb(0, 250, 154);"
         "color: white;"
         "border-radius: 5px;"
         "border: 2px solid white;"
@@ -51,7 +51,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     mChangeCancel->setText("取消");
     mChangeCancel->setStyleSheet(
         "QPushButton{"                             // 正常状态样式
-        "background-color: rgb(200, 200, 200);"       // 背景色（也可以设置图片）
+        "background-color: rgb(205, 92, 92);"       // 背景色（也可以设置图片）
         "color: white;"                            // 字体颜色
         "font: bold 13px;"                         // 字体: 加粗 大小
         "border-radius: 5px;"                      // 边框圆角半径像素
@@ -61,7 +61,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
         "}"
 
         "QPushButton:focus{"                       // 聚焦样式
-        "background-color:rgb(255, 128, 64);"
+        "background-color: rgb(205, 92, 92);"
         "color: white;"
         "border-radius: 5px;"
         "border: 2px solid white;"
@@ -75,7 +75,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
      mBegin->setText("开始");
      mBegin->setStyleSheet(
         "QPushButton{"                             // 正常状态样式
-        "background-color: rgb(200, 200, 200);"       // 背景色（也可以设置图片）
+        "background-color: rgb(0, 250, 154);"       // 背景色（也可以设置图片）
         "color: white;"                            // 字体颜色
         "font: bold 13px;"                         // 字体: 加粗 大小
         "border-radius: 5px;"                      // 边框圆角半径像素
@@ -85,7 +85,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
         "}"
 
         "QPushButton:focus{"                       // 聚焦样式
-        "background-color:rgb(255, 128, 64);"
+        "background-color: rgb(0, 250, 154);"
         "color: white;"
         "border-radius: 5px;"
         "border: 2px solid white;"
@@ -98,25 +98,25 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
 
     mChange->setText("修改");
     mChange->setStyleSheet(
-        "QPushButton{"                             // 正常状态样式
-        "background-color: rgb(200, 200, 200);"       // 背景色（也可以设置图片）
-        "color: white;"                            // 字体颜色
-        "font: bold 13px;"                         // 字体: 加粗 大小
-        "border-radius: 5px;"                      // 边框圆角半径像素
-        "border: 2px solid rgb(50, 50, 50);"       // 边框样式：border-width border-style border-color
-        "border-style:outset;"                     // 定义一个3D突出边框，inset与之相反
-        "text-align: center;"                        // 文本：左对齐
-        "}"
+         "QPushButton{"                             // 正常状态样式
+         "background-color: rgb(30, 144, 255);"       // 背景色（也可以设置图片）
+         "color: white;"                            // 字体颜色
+         "font: bold 13px;"                         // 字体: 加粗 大小
+         "border-radius: 5px;"                      // 边框圆角半径像素
+         "border: 2px solid rgb(50, 50, 50);"       // 边框样式：border-width border-style border-color
+         "border-style:outset;"                     // 定义一个3D突出边框，inset与之相反
+         "text-align: center;"                        // 文本：左对齐
+         "}"
 
-        "QPushButton:focus{"                       // 聚焦样式
-        "background-color:rgb(255, 128, 64);"
-        "color: white;"
-        "border-radius: 5px;"
-        "border: 2px solid white;"
-        "border-style:outset;"
-        "font:bold 13px;"
-        "text-align: center;"
-        "}");
+         "QPushButton:focus{"                       // 聚焦样式
+         "background-color:rgb(30, 144, 255);"
+         "color: white;"
+         "border-radius: 5px;"
+         "border: 2px solid white;"
+         "border-style:outset;"
+         "font:bold 13px;"
+         "text-align: center;"
+         "}");
     mChange->setMinimumSize(QSize(50,0));   //width height
     mChange->setMaximumSize(QSize(50,100));
 
@@ -124,7 +124,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     mDelete->setText("删除");
     mDelete->setStyleSheet(
         "QPushButton{"                             // 正常状态样式
-        "background-color: rgb(200, 200, 200);"       // 背景色（也可以设置图片）
+        "background-color: rgb(205, 92, 92);"       // 背景色（也可以设置图片）
         "color: white;"                            // 字体颜色
         "font: bold 13px;"                         // 字体: 加粗 大小
         "border-radius: 5px;"                      // 边框圆角半径像素
@@ -134,7 +134,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
         "}"
 
         "QPushButton:focus{"                       // 聚焦样式
-        "background-color:rgb(255, 128, 64);"
+        "background-color:rgb(205, 92, 92);"
         "color: white;"
         "border-radius: 5px;"
         "border: 2px solid white;"
@@ -150,7 +150,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
 
     pBtn->setStyleSheet(
         "QPushButton{"                             // 正常状态样式
-        "background-color: rgb(200, 200, 200);"       // 背景色（也可以设置图片）
+        "background-color: transparent;"       // 背景色（也可以设置图片）
         "color: white;"                            // 字体颜色
         "font: bold 13px;"                         // 字体: 加粗 大小
         "border-radius: 5px;"                      // 边框圆角半径像素
@@ -160,7 +160,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
         "}"
 
         "QPushButton:focus{"                       // 聚焦样式
-        "background-color:rgb(255, 128, 64);"
+        "background-color:transparent;"
         "color: white;"
         "border-radius: 5px;"
         "border: 2px solid white;"
