@@ -8,7 +8,7 @@
 #include <QPixmap>
 #include <QImage>
 
-AchievementWindow::AchievementWindow(int achievementNum, Achievement *achievementList, QWidget *parent) :
+AchievementWindow::AchievementWindow(QVector<Achievement> achievementList, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AchievementWindow)
 {
@@ -26,7 +26,7 @@ AchievementWindow::AchievementWindow(int achievementNum, Achievement *achievemen
               << QString("resourse/images/Icons/Main_Color/tomato1.png");
 
     //进行界面的布局
-    for(int i = 0; i < achievementNum; i++){
+    for(int i = 0; i < achievementList.size(); i++){
         QWidget *tmpWidgetPtr = new QWidget();                                                                //当前的成就的widget
         tmpWidgetPtr->setObjectName("tmpWidget");                                                             //设置ui对象名
         tmpWidgetPtr->setStyleSheet(QString("QWidget#tmpWidget{border:1px solid black;border-radius:15px}")); //边框设置为黑色，圆角
