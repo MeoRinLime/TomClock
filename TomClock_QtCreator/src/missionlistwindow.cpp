@@ -44,7 +44,7 @@ void MissionListWindow::disapearChoice(){
 
 void MissionListWindow::deleteMission(){
 
-
+    delete MPBTS[MissionPushButton::getallNum()];
 
     missions.erase( missions.begin()+MissionPushButton::getallNum());
    MPBTS.erase( MPBTS.begin()+MissionPushButton::getallNum());
