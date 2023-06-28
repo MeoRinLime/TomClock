@@ -9,7 +9,7 @@ about::about(QWidget *parent) :
     ui(new Ui::about)
 {
     ui->setupUi(this);
-    this->setStyleSheet("about {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 }
 
 about::~about()

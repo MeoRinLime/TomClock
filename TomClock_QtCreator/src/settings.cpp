@@ -11,7 +11,7 @@ Settings::Settings(QWidget *parent) :
     ui->setupUi(this);
 
     setAttribute(Qt::WA_StyledBackground);
-    this->setStyleSheet("Settings {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 
     connect(ui->themeChange, SIGNAL(currentIndexChanged(int)), this, SLOT(on_themeChange_currentIndexChanged(int)));
 
@@ -58,7 +58,14 @@ void Settings::on_themeChange_currentIndexChanged(int index)
     for (QWidget* window : windows)
     {
         QString windowObjectName = window->objectName();
-        window->setStyleSheet(windowObjectName + " { border-image: url(" + backgroundImage + ");}");
+        if(windowObjectName == "MainWindow")
+        {
+            window->setStyleSheet(windowObjectName + " { border-image: url(" + backgroundImage + ");}");
+        }
+        else
+        {
+            window->setStyleSheet("#frame { border-image: url(" + backgroundImage + ");}");
+        }
     }
 /* 有一个问题就是切换背景图片的时候会提示“Could not parse stylesheet of object QComboBoxPrivateContainer”
  * 同时需要加载2-3秒钟才可以完成切换，我暂时还没有找到解决办法。好像可以自定义事件，如果时间充裕再考虑写一下
