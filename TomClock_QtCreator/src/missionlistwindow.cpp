@@ -17,12 +17,14 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
         MissionPushButton *mpb=new   MissionPushButton();
         mpb->getPBtn()->setText(mmmmm);
         mpb->setNum(i);
-        MPBTS.push_back(mpb);
+
         gL->addWidget(mpb);
         connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
         connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
         connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
-        gL->setRowStretch(i+1,1);
+        connect(mpb,SIGNAL(sentChange(Mission)),this,SLOT(changeMission(Mission)));
+         gL->setRowStretch(i+1,1);
+        MPBTS.push_back(mpb);
     }
     ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
     ui->scrollArea->widget()->setLayout(gL);
@@ -86,6 +88,7 @@ void MissionListWindow::recieveMission(Mission mission){
         connect(MPBTS[i]->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
         connect(MPBTS[i],&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
         connect(MPBTS[i],&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
+        connect(MPBTS[i],&MissionPushButton::sentChange,this,&MissionListWindow::changeMission);
         gL->setRowStretch(i+1,1);
     }
     ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
@@ -104,4 +107,13 @@ void MissionListWindow::on_create_clicked()
 {
     emit create();
 }
+void MissionListWindow::changeMission(Mission mi){
 
+    missions[MissionPushButton::getallNum()].setName(mi.getName());
+    missions[MissionPushButton::getallNum()].setWorkTime(mi.getWorkTime());
+    missions[MissionPushButton::getallNum()].setRelaxTime(mi.getRelaxTime());
+    QString mmmmm=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
+    MPBTS[MissionPushButton::getallNum()]->getPBtn()->setText(mmmmm);
+    qDebug()<<"执行"<<"hh";
+
+}

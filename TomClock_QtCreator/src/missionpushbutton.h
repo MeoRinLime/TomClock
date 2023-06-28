@@ -2,11 +2,15 @@
 #define MISSIONPUSHBUTTON_H
 
 #include <QWidget>
-#include<QPushButton>
-#include<QHBoxLayout>
-
-namespace Ui {
-class MissionPushButton;
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QComboBox>
+#include <QLabel>
+#include <QLineEdit>
+#include "mission.h"
+namespace Ui
+{
+    class MissionPushButton;
 }
 
 class MissionPushButton : public QWidget
@@ -22,6 +26,7 @@ public:
     QPushButton *getPBtn();
     void disapearChoice();
     static void setAN(int n);
+
 private:
     Ui::MissionPushButton *ui;
     int num;
@@ -32,15 +37,25 @@ private:
     QPushButton *mChange;
     QPushButton *mDelete;
     QHBoxLayout *hBlt;
-
+    QPushButton *mChangeConfirm;
+    QPushButton *mChangeCancel;
+    QComboBox *workTime;
+    QComboBox *relaxTime;
+    QLineEdit *mName;
+    QLabel name;
+    QLabel wT;
+    QLabel rT;
 signals:
     void deleteMission();
     void beginMission();
-private   slots:
+    void sentChange(Mission mi);
+private slots:
     void setAllNum();
-
+    void change_clicked();
     void sentDelete();
     void sentBegin();
+    void cancelChange();
+    void confirmChange();
 };
 
 #endif // MISSIONPUSHBUTTON_H
