@@ -11,15 +11,6 @@ RunWindow::RunWindow(QWidget *parent) :
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 }
 
-RunWindow::RunWindow(const Mission &m, QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::RunWindow)
-{
-    ui->setupUi(this);
-
-
-}
-
 RunWindow::~RunWindow()
 {
     delete ui;
