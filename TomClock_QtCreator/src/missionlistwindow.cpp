@@ -46,10 +46,10 @@ void MissionListWindow::disapearChoice(){
 void MissionListWindow::deleteMission(){
 
 
-
+    delete MPBTS[MissionPushButton::getallNum()];
     missions.erase( missions.begin()+MissionPushButton::getallNum());
-   MPBTS.erase( MPBTS.begin()+MissionPushButton::getallNum());
-     delete gL;
+    MPBTS.erase( MPBTS.begin()+MissionPushButton::getallNum());
+    delete gL;
     gL=new  QGridLayout();
 
     for(int i=0;i<MPBTS.size();i++){
