@@ -7,7 +7,7 @@
 class TomClock
 {
 public:
-    TomClock(const QString &path);
+    TomClock();
 private:
     TomClockDatabase *tcDatabase;
 };

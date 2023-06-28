@@ -19,6 +19,7 @@ signals:
 private:
     Ui::CreateMissionWindow *ui;
     Mission mi;
+    int countID = 0;
 private slots:
     void toCreate();
     void on_cancel_clicked();

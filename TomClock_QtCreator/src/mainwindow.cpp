@@ -83,6 +83,16 @@ void MainWindow::HistorytoMain()
 {
     this->show();
 }
+
+void MainWindow::RuntoMain()
+{
+    this->show();
+}
+
+void MainWindow::AchievetoMain()
+{
+    this->show();
+}
 //历史记录跳转到主界面
 
 void MainWindow::AbouttoMain()

@@ -5,7 +5,7 @@
 #include<QGridLayout>
 #include<QVector>
 #include<QMessageBox>
-
+#include "mission.h"
 #include"missionpushbutton.h"
 namespace Ui {
 class MissionListWindow;

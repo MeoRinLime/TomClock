@@ -4,7 +4,7 @@
 #include <QWidget>
 #include<QPushButton>
 #include<QHBoxLayout>
-#include"mission.h"
+
 namespace Ui {
 class MissionPushButton;
 }
