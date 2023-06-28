@@ -79,7 +79,7 @@ AchievementWindow::AchievementWindow(int achievementNum, Achievement *achievemen
         layout->addWidget(tmpWidgetPtr);       //将每个成就的widget放入layout
     }
     //最后将幕布放入scrollArea
-    ui->scrollArea->setWidget(backdrop);
+    ui->scrollArea1->setWidget(backdrop);
 
     //获取所有控件
     allChildWidgets = this->findChildren<QWidget*>(QString(), Qt::FindDirectChildrenOnly);
@@ -94,11 +94,17 @@ AchievementWindow::AchievementWindow(QWidget *parent) :
     ui(new Ui::AchievementWindow)
 {
     ui->setupUi(this);
+
 }
 
 AchievementWindow::~AchievementWindow()
 {
     delete ui;
+
+    QBitmap bitmap(":/res/bg.png");
+    ui->scrollArea1->setGeometry(0,0,bitmap.width(), bitmap.height());
+    ui->scrollAreaWidgetContents_2->setGeometry(0,0,bitmap.width(), bitmap.height());
+
 }
 
 void AchievementWindow::MaintoAchievement()
@@ -120,10 +126,4 @@ void AchievementWindow::resizeEvent(QResizeEvent *event)
 //        i.key()->setGeometry(i.value().x() * width, i.value().y() *height, i.value().width() * width, i.value().height() * height);
 //    }
     QWidget::resizeEvent(event);
-}
-
-void AchievementWindow::closeEvent(QCloseEvent *event)
-{
-    emit JumptoMain();
-    QMainWindow::closeEvent(event);
 }

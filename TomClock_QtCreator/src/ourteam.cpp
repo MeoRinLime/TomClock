@@ -6,7 +6,7 @@ OurTeam::OurTeam(QWidget *parent) :
     ui(new Ui::OurTeam)
 {
     ui->setupUi(this);
-    this->setStyleSheet("OurTeam {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 }
 
 OurTeam::~OurTeam()

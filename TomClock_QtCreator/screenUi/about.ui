@@ -168,8 +168,16 @@
           </item>
           <item>
            <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <pointsize>21</pointsize>
+             </font>
+            </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;关于...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;关于&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -179,11 +187,11 @@
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
+             <enum>QSizePolicy::Minimum</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>300</width>
               <height>20</height>
              </size>
             </property>
@@ -225,18 +233,14 @@
              <widget class="QPushButton" name="ourTeam">
               <property name="font">
                <font>
-                <family>隶书</family>
-                <pointsize>20</pointsize>
+                <family>方正铭石体 简</family>
+                <pointsize>25</pointsize>
                 <italic>false</italic>
                 <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-color:rgb(170, 255, 255);
-font: 20pt &quot;隶书&quot;;
-alternate-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>我们的团队</string>
@@ -258,11 +262,16 @@ alternate-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
             </item>
             <item>
              <widget class="QPushButton" name="github">
+              <property name="font">
+               <font>
+                <family>方正铭石体 简</family>
+                <pointsize>25</pointsize>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">background-color:rgb(170, 255, 255);
-font: 20pt &quot;隶书&quot;;
-alternate-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>项目细节</string>
