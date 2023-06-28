@@ -14,12 +14,13 @@ class CreateMissionWindow : public QWidget
 public:
     explicit CreateMissionWindow(QWidget *parent = nullptr);
     ~CreateMissionWindow();
-
+signals:
+    void sentAndJump(Mission mission);
 private:
     Ui::CreateMissionWindow *ui;
-
+    Mission mi;
 private slots:
-    void MaintoCreate();
+    void toCreate();
     void on_cancel_clicked();
     void on_comfirm_clicked();
 };
