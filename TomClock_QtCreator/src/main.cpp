@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     tcdb.initAchievement(al);
     qa = tcdb.queryAchievement();
 //    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
-    tcdb.updateAchievement("First Tomato");
+    tcdb.updateAchievement(a1);
     qa = tcdb.queryAchievement();
 //    qDebug(QString("%1").arg(qa[0].getState()).toLatin1());
     //test end

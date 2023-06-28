@@ -22,6 +22,7 @@ class TomClockDatabase : public QObject
 public:
     TomClockDatabase();
 
+public slots:
     //任务列表的增删改查
     void createMission(const Mission &mission);
     void deleteMission(int id);
@@ -34,7 +35,7 @@ public:
 
     //成就的更新和查询
     void initAchievement(QVector<Achievement> achievementList);
-    void updateAchievement(const QString &name); //仅修改name对应的state，由0变1
+    void updateAchievement(const Achievement &achievement); //仅修改name对应的state，由0变1
     QVector<Achievement> queryAchievement();
 
 private:
