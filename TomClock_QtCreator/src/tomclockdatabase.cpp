@@ -62,9 +62,9 @@ void TomClockDatabase::createTables()
     sqlStr = QString("create table MissionTable(\
                         id int not null primary key,\
                         name text null,\
-                        worktime time null,\
-                        relaxtime time null,\
-                        createtime date null);");
+                        worktime text null,\
+                        relaxtime text null,\
+                        createtime text null);");
     //抛出异常
     try {
         if (!query.exec(sqlStr)){
@@ -80,10 +80,10 @@ void TomClockDatabase::createTables()
     };
     sqlStr = QString("create table HistoryTable(\
                         id int not null primary key,\
-                        date date null,\
+                        date text null,\
                         name text null,\
                         numoftomato int null,\
-                        totaltime time null);");
+                        totaltime text null);");
     //抛出异常
     try {
         if (!query.exec(sqlStr)){
@@ -124,9 +124,9 @@ void TomClockDatabase::createMission(const Mission &mission)
     query.prepare(sqlStr);
     query.bindValue(":id", mission.getId());
     query.bindValue(":name", mission.getName());
-    query.bindValue(":worktime", mission.getWorkTime());
-    query.bindValue(":relaxtime", mission.getRelaxTime());
-    query.bindValue(":createtime", mission.getCreateTime());
+    query.bindValue(":worktime", mission.getWorkTime().toString());
+    query.bindValue(":relaxtime", mission.getRelaxTime().toString());
+    query.bindValue(":createtime", mission.getCreateTime().toString());
     try{
         if (!query.exec()){
             throw SqlCreateError;
@@ -284,7 +284,7 @@ QVector<History> TomClockDatabase::queryHistory()
     for (/*int i = 1*/; query.next(); /*++i*/) {
         History tmpHistory;
         tmpHistory.setId(query.value("id").toInt());
-        tmpHistory.setDate(query.value("date").toDate());
+        tmpHistory.setDate(QDate().fromString(query.value("date").toString()));
         tmpHistory.setName(query.value("name").toString());
         tmpHistory.setNumOfTomato(query.value("numoftomato").toInt());
         tmpHistory.setTotalTime(QTime().fromString(query.value("totaltime").toString()));
