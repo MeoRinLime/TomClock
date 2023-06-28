@@ -30,7 +30,6 @@ void RunWindow::ListtoRun(const Mission &mission)
 
     ui->MissionNameLabel->setText(curMission.getName()); //显示 任务名
     ui->TimeDisplay->setText(displayedTime.toString());  //显示 时间
-    qDebug()<<"seccuess";
     this->show();
     whichPeriod = 0;    //表示处于 第一个工作时间
     oncePaused = false; //表示 从未暂停过

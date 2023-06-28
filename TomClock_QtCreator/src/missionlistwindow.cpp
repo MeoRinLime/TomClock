@@ -22,7 +22,7 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
         connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
         connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
         connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
-         gL->setRowStretch(i+1,1);
+        gL->setRowStretch(i+1,1);
     }
     ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
     ui->scrollArea->widget()->setLayout(gL);
@@ -62,27 +62,26 @@ void MissionListWindow::deleteMission(){
     ui->scrollArea->widget()->setLayout(gL);
     qDebug()<<MissionPushButton::getallNum()<<"  "<<gL->count()<<" "<<gL->rowCount();
 }
+
 void MissionListWindow::beginMission(){
     emit jumpToRunWindows(missions[MissionPushButton::getallNum()]);
     this->hide();
 
 
 }
+
 void MissionListWindow::recieveMission(Mission mission){
     missions.push_back(mission);
     delete gL;
-    gL=new  QGridLayout();
+    gL = new  QGridLayout();
 
-    QString mmmmm=mission.getName()+"   "+mission.getWorkTime().toString()+"  "+mission.getRelaxTime().toString();
+    QString mmmmm = mission.getName()+"   "+mission.getWorkTime().toString()+"  "+mission.getRelaxTime().toString();
     qDebug()<<mmmmm;
-    MissionPushButton *mpb=new MissionPushButton();
+    MissionPushButton *mpb = new MissionPushButton();
     mpb->getPBtn()->setText(mmmmm);
     mpb->setNum(missions.size()-1);
     MPBTS.push_back(mpb);
     for(int i=0;i<missions.size();i++){
-
-
-
         gL->addWidget(MPBTS[i]);
         connect(MPBTS[i]->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
         connect(MPBTS[i],&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
@@ -91,7 +90,6 @@ void MissionListWindow::recieveMission(Mission mission){
     }
     ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
     ui->scrollArea->widget()->setLayout(gL);
-
 }
 
 

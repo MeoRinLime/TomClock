@@ -28,14 +28,14 @@ private:
 
     static int allNum;
     QPushButton *pBtn;
-     QPushButton *mBegin;
-     QPushButton *mChange;
-      QPushButton *mDelete;
+    QPushButton *mBegin;
+    QPushButton *mChange;
+    QPushButton *mDelete;
     QHBoxLayout *hBlt;
 
-  signals:
+signals:
     void deleteMission();
-     void beginMission();
+    void beginMission();
 private   slots:
     void setAllNum();
 
