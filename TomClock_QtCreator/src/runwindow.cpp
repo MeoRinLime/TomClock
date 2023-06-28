@@ -18,6 +18,11 @@ RunWindow::~RunWindow()
 
 void RunWindow::closeEvent(QCloseEvent *event)
 {
+    //只有单个mission时，可以正常delete
+//    delete secTimer;
+//    delete periodTimer;
+    secTimer->stop();
+    periodTimer->stop();
     emit JumptoMain();
     QMainWindow::closeEvent(event);
 }
@@ -30,7 +35,6 @@ void RunWindow::ListtoRun(const Mission &mission)
 
     ui->MissionNameLabel->setText(curMission.getName()); //显示 任务名
     ui->TimeDisplay->setText(displayedTime.toString());  //显示 时间
-    qDebug()<<"seccuess";
     this->show();
     whichPeriod = 0;    //表示处于 第一个工作时间
     oncePaused = false; //表示 从未暂停过
@@ -125,6 +129,10 @@ void RunWindow::nextPeriod()
             emit oneMoreTomato();
         }
         //跳转回主窗口
+
+        secTimer->stop();
+        periodTimer->stop();
+
         emit JumptoMain();
         this->close();
         break;
@@ -163,6 +171,11 @@ void RunWindow::on_AbortButton_clicked()
     abortConfirmMsgBox->setDefaultButton(QMessageBox::Cancel);
 
     connect(abortConfirmMsgBox, &QDialog::accepted, this, [=](){
+        //同closeEvent的情况
+//        delete secTimer;
+//        delete periodTimer;
+        secTimer->stop();
+        periodTimer->stop();
         emit noTomato(); //无番茄
         //跳转到主窗口
         emit JumptoMain();
