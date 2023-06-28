@@ -29,7 +29,7 @@ private slots:
     void beginMission();
     void recieveMission(Mission mission);
     void on_pushButton_clicked();
-
+    void changeMission(Mission mi);
 private:
     Ui::MissionListWindow *ui;
     QVector<Mission>missions;
