@@ -8,6 +8,7 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
     ui->setupUi(this);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
     gL=new  QGridLayout();
+    ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
 
     for(int i=0;missions.size();i++){
 
