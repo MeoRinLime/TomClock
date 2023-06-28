@@ -11,24 +11,21 @@ RunWindow::RunWindow(QWidget *parent) :
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 }
 
-RunWindow::RunWindow(const Mission &m, QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::RunWindow)
-{
-    ui->setupUi(this);
-
-
-}
-
 RunWindow::~RunWindow()
 {
     delete ui;
 }
 
-void RunWindow::ListtoRun(Mission mission)
+void RunWindow::closeEvent(QCloseEvent *event)
+{
+    emit JumptoMain();
+    QMainWindow::closeEvent(event);
+}
+
+void RunWindow::ListtoRun(const Mission &mission)
 {
     curMission=mission;
-                                        //参数初始化
+        //参数初始化
     displayedTime = curMission.getWorkTime();            //显示的时间 工作时间
 
     ui->MissionNameLabel->setText(curMission.getName()); //显示 任务名
@@ -42,10 +39,7 @@ void RunWindow::ListtoRun(Mission mission)
     connect(secTimer, SIGNAL(timeout()), this, SLOT(processTimeout()));
     connect(periodTimer, SIGNAL(timeout()), this, SLOT(nextPeriod()));
     secTimer->start(1000);                                  //开始计时，间隔1000毫秒
-    periodTimer->start(1000 * (\
-        curMission.getWorkTime().hour() * 3600 + \
-        curMission.getWorkTime().minute() * 60 + \
-        curMission.getWorkTime().second()));          //开始计时，间隔为一个workTime
+    periodTimer->start(1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()));//开始计时，间隔为一个workTime
 }
 
 void RunWindow::processTimeout()
@@ -57,9 +51,7 @@ void RunWindow::processTimeout()
 
 void RunWindow::nextPeriod()
 {
-    int secRelaxTime = curMission.getRelaxTime().hour() * 3600 \
-        + curMission.getRelaxTime().minute() * 60 \
-        + curMission.getRelaxTime().second();
+    int secRelaxTime = QTime(0,0,0).secsTo(curMission.getRelaxTime());
     int h = (4 * secRelaxTime) / 3600;
     int m = ((4 * secRelaxTime) % 3600) / 60;
     int s = ((4 * secRelaxTime) % 3600) % 60;
@@ -73,10 +65,7 @@ void RunWindow::nextPeriod()
         whichPeriod++;//1
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
-        periodTimer->setInterval(1000 * (\
-            curMission.getRelaxTime().hour() * 3600 + \
-            curMission.getRelaxTime().minute() * 60 + \
-            curMission.getRelaxTime().second()));
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
         update();
         break;
     case 1:
@@ -84,10 +73,7 @@ void RunWindow::nextPeriod()
         whichPeriod++;//2
         displayedTime = curMission.getWorkTime();
         ui->MissionNameLabel->setText(curMission.getName());
-        periodTimer->setInterval(1000 * (\
-            curMission.getWorkTime().hour() * 3600 + \
-            curMission.getWorkTime().minute() * 60 + \
-            curMission.getWorkTime().second()));
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()));
         update();
         break;
     case 2:
@@ -95,10 +81,7 @@ void RunWindow::nextPeriod()
         whichPeriod++;//3
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
-        periodTimer->setInterval(1000 * (\
-            curMission.getRelaxTime().hour() * 3600 + \
-            curMission.getRelaxTime().minute() * 60 + \
-            curMission.getRelaxTime().second()));
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
         update();
         break;
     case 3:
@@ -106,10 +89,7 @@ void RunWindow::nextPeriod()
         whichPeriod++;//4
         displayedTime = curMission.getWorkTime();
         ui->MissionNameLabel->setText(curMission.getName());
-        periodTimer->setInterval(1000 * (\
-            curMission.getWorkTime().hour() * 3600 + \
-            curMission.getWorkTime().minute() * 60 + \
-            curMission.getWorkTime().second()));
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()));
         update();
         break;
     case 4:
@@ -117,10 +97,7 @@ void RunWindow::nextPeriod()
         whichPeriod++;//5
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
-        periodTimer->setInterval(1000 * (\
-            curMission.getRelaxTime().hour() * 3600 + \
-            curMission.getRelaxTime().minute() * 60 + \
-            curMission.getRelaxTime().second()));
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
         update();
         break;
     case 5:
@@ -128,10 +105,7 @@ void RunWindow::nextPeriod()
         whichPeriod++;//6
         displayedTime = curMission.getWorkTime();
         ui->MissionNameLabel->setText(curMission.getName());
-        periodTimer->setInterval(1000 * (\
-            curMission.getWorkTime().hour() * 3600 + \
-            curMission.getWorkTime().minute() * 60 + \
-            curMission.getWorkTime().second()));
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()));
         update();
         break;
     case 6:
@@ -151,9 +125,7 @@ void RunWindow::nextPeriod()
             emit oneMoreTomato();
         }
         //跳转回主窗口
-        /*
-        emit RuntoMain();
-        */
+        emit JumptoMain();
         this->close();
         break;
     default:
@@ -193,9 +165,7 @@ void RunWindow::on_AbortButton_clicked()
     connect(abortConfirmMsgBox, &QDialog::accepted, this, [=](){
         emit noTomato(); //无番茄
         //跳转到主窗口
-        /*
-        emit RuntoMain();
-        */
+        emit JumptoMain();
         this->close();
     });
     connect(abortConfirmMsgBox, &QDialog::rejected, this, [=](){

@@ -1,6 +1,6 @@
 #include "tomclock.h"
 
-TomClock::TomClock(const QString &path)
+TomClock::TomClock()
 {
-    tcDatabase = new TomClockDatabase(path);
+    tcDatabase = new TomClockDatabase();
 }

@@ -121,3 +121,9 @@ void AchievementWindow::resizeEvent(QResizeEvent *event)
 //    }
     QWidget::resizeEvent(event);
 }
+
+void AchievementWindow::closeEvent(QCloseEvent *event)
+{
+    emit JumptoMain();
+    QMainWindow::closeEvent(event);
+}
