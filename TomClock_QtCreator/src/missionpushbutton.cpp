@@ -149,7 +149,9 @@ void MissionPushButton::setAllNum(){
 int MissionPushButton::getallNum(){
     return allNum;
 }
+
 int MissionPushButton::allNum=-1;
+
 void MissionPushButton::disapearChoice(){
     if(num!=allNum){
 
