@@ -5,12 +5,13 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::MissionListWindow)
 {
+
     ui->setupUi(this);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
     gL=new  QGridLayout();
     ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
 
-    for(int i=0;missions.size();i++){
+    for(int i=0;i<missions.size();i++){
 
 
         QString mmmmm=missions[i].getName()+"   "+missions[i].getWorkTime().toString()+"  "+missions[i].getRelaxTime().toString();
@@ -82,13 +83,14 @@ void MissionListWindow::recieveMission(Mission mission){
     MissionPushButton *mpb = new MissionPushButton();
     mpb->getPBtn()->setText(mmmmm);
     mpb->setNum(missions.size()-1);
+    connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
+    connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
+    connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
+    connect(mpb,SIGNAL(sentChange(Mission)),this,SLOT(changeMission(Mission)));
     MPBTS.push_back(mpb);
     for(int i=0;i<missions.size();i++){
         gL->addWidget(MPBTS[i]);
-        connect(MPBTS[i]->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
-        connect(MPBTS[i],&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
-        connect(MPBTS[i],&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
-        connect(MPBTS[i],&MissionPushButton::sentChange,this,&MissionListWindow::changeMission);
+
         gL->setRowStretch(i+1,1);
     }
     ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
