@@ -6,7 +6,8 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
     ui(new Ui::MissionListWindow)
 {
     ui->setupUi(this);
-     gL=new  QGridLayout();
+    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    gL=new  QGridLayout();
 
     for(int i=0;missions.size();i++){
 
@@ -23,7 +24,7 @@ MissionListWindow::MissionListWindow(QWidget *parent) :
          gL->setRowStretch(i+1,1);
     }
     ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
-     ui->scrollArea->widget()->setLayout(gL);
+    ui->scrollArea->widget()->setLayout(gL);
 }
 
 MissionListWindow::~MissionListWindow()
@@ -92,7 +93,15 @@ void MissionListWindow::recieveMission(Mission mission){
 
 }
 
-void MissionListWindow::on_pushButton_clicked()
+
+void MissionListWindow::on_backtoMain_clicked()
+{
+    this->hide();
+    emit BacktoMain();
+}
+
+
+void MissionListWindow::on_create_clicked()
 {
     emit create();
 }

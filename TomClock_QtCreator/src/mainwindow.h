@@ -45,6 +45,7 @@ private slots:
     void SettingstoMain();
     void HistorytoMain();
     void AbouttoMain();
-    void  OthertoMain();
+    void ListtoMain();
+    void OthertoMain();
 };
 #endif // MAINWINDOW_H
