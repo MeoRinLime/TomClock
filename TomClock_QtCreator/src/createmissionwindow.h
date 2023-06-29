@@ -19,7 +19,7 @@ signals:
 private:
     Ui::CreateMissionWindow *ui;
     Mission mi;//创建的任务
-    int countID = 0;//id
+
 private slots:
     void toCreate();//从其他界面来到创建任务界面
     void on_cancel_clicked();//取消创建新任务
