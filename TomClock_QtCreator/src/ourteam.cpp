@@ -19,6 +19,12 @@ void OurTeam::AbouttoTeam()
     this->show();
 }
 
+void OurTeam::closeEvent(QCloseEvent *event)
+{
+    emit BacktoAbout();
+    QWidget::closeEvent(event);
+}
+
 
 void OurTeam::on_backToAbout_clicked()
 {

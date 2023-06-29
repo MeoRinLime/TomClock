@@ -154,3 +154,9 @@ int HistoryWindow::caculateTotalTomato(){
         }
         return total;
 }
+
+void HistoryWindow::closeEvent(QCloseEvent *event)
+{
+    emit BacktoMain();
+    QWidget::closeEvent(event);
+}

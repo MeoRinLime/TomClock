@@ -35,6 +35,12 @@ MissionListWindow::~MissionListWindow()
     delete ui;
 }
 
+void MissionListWindow::closeEvent(QCloseEvent *event)
+{
+    emit BacktoMain();
+    QWidget::closeEvent(event);
+}
+
 void MissionListWindow::MaintoList()
 {
     this->show();

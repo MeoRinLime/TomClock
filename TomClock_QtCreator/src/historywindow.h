@@ -25,7 +25,8 @@ public:
 private:
     Ui::HistoryWindow *ui;
     QVector<History> histories;//历史数据容器
-     QGridLayout *pLayout;//网格布局
+    QGridLayout *pLayout;//网格布局
+    void closeEvent(QCloseEvent *event);
 signals:
     void BacktoMain();//回到主页面
 private slots:

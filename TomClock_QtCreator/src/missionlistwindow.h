@@ -26,6 +26,7 @@ signals:
     void BacktoMain();//返回主菜单信号
 
 private slots:
+    void closeEvent(QCloseEvent *event);
     void MaintoList();//主界面来到任务列表界面
     void disapearChoice();//掩盖选项按钮
     void deleteMission();//删除任务

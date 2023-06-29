@@ -22,6 +22,12 @@ Settings::~Settings()
     delete ui;
 }
 
+void Settings::closeEvent(QCloseEvent *event)
+{
+    emit BacktoMain();
+    QWidget::closeEvent(event);
+}
+
 
 
 void Settings::MaintoSettings()
