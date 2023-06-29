@@ -20,6 +20,7 @@ MissionListWindow::MissionListWindow(QVector<Mission>m,QWidget *parent) :
         mpb->setNum(i);
 
         gL->addWidget(mpb);
+        //连接对应的信号和槽
         connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
         connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
         connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
@@ -93,10 +94,12 @@ void MissionListWindow::recieveMission(Mission mission){
     MissionPushButton *mpb = new MissionPushButton();
     mpb->getPBtn()->setText(m);
     mpb->setNum(missions.size()-1);
+
     connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
     connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
     connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
     connect(mpb,SIGNAL(sentChange(Mission)),this,SLOT(changeMission(Mission)));
+
     MPBTS.push_back(mpb);
     for(int i=0;i<missions.size();i++){
         missions[i].setId(i);

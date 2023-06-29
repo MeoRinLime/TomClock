@@ -30,7 +30,8 @@ void RunWindow::closeEvent(QCloseEvent *event)
 
 void RunWindow::ListtoRun(const Mission &mission)
 {
-    numOfTomato=0;
+
+
      ui->PauseResumeButton->setText("暂停");
     curMission=mission;
         //参数初始化
@@ -39,6 +40,7 @@ void RunWindow::ListtoRun(const Mission &mission)
     ui->MissionNameLabel->setText(curMission.getName()); //显示 任务名
     ui->TimeDisplay->setText(displayedTime.toString());  //显示 时间
     this->show();
+    numOfTomato=0;//    番茄数重零计时
     whichPeriod = 0;    //表示处于 第一个工作时间
     oncePaused = false; //表示 从未暂停过
     secTimer = new QTimer(this);                            //创建 每秒计时器
@@ -66,7 +68,7 @@ void RunWindow::nextPeriod()
     QString sm = m > 9 ? QString::number(m) : QString("0%1").arg(m);
     QString ss = s > 9 ? QString::number(s) : QString("0%1").arg(s);
 
-    switch (whichPeriod%7) {
+    switch (whichPeriod%8) {
     case 0:
         //进入第一个 休息时间段
         numOfTomato++;
@@ -128,24 +130,13 @@ void RunWindow::nextPeriod()
         update();
         break;
     case 7:
-        /*
-         * 此处由于Pologue对番茄的计数理解有误，应当做出修改
-        */
-        //整个任务结束
-        if (oncePaused){ //若曾经暂停过，则无番茄
-            emit noTomato();
-        }
-        else { //未暂停过，则番茄+1
-            emit oneMoreTomato();
-        }
-        //跳转回主窗口
-
-        secTimer->stop();
-        periodTimer->stop();
-
-
-        emit JumptoMain();
-        this->close();
+        //重新进入第1个 工作时间段
+        whichPeriod++;//1
+        displayedTime = curMission.getWorkTime();
+        ui->MissionNameLabel->setText(curMission.getName());
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()));
+        update();
+        break;
         break;
     default:
         qDebug("whichPeriod error. Unknown state.");
@@ -189,16 +180,19 @@ void RunWindow::on_AbortButton_clicked()
         periodTimer->stop();
        // emit noTomato(); //无番茄
         //跳转到主窗口
+        //记录保存
         history.setDate(QDate::currentDate());
         history.setNumOfTomato(numOfTomato);
-
         int s=60-displayedTime.second();
+        //只记录工作时长，休息时间不记录
          int m=curMission.getWorkTime().minute()*numOfTomato+(curMission.getWorkTime().minute()-displayedTime.minute()-1);
         int h=m/60;
          m=m%60;
         history.setTotalTime(QTime(h,m,s));
          history.setName(curMission.getName());
+        //发送到历史记录
         emit sentHistory(history);
+
         emit JumptoMain();
         this->close();
     });
