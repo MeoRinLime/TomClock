@@ -45,3 +45,9 @@ void about::TeamtoAbout()
 {
     this->show();
 }
+
+void about::closeEvent(QCloseEvent *event)
+{
+    emit BacktoMain();
+    QWidget::closeEvent(event);
+}

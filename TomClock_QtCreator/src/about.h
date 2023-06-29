@@ -25,7 +25,7 @@ signals:
 private slots:
     void MaintoAbout();
     void TeamtoAbout();
-
+    void closeEvent(QCloseEvent *event);
     void on_backToMain_clicked();
     void on_ourTeam_clicked();
     void on_github_clicked();

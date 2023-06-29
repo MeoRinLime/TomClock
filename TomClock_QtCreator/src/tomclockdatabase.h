@@ -22,20 +22,21 @@ class TomClockDatabase : public QObject
 public:
     TomClockDatabase();
 
+public slots:
     //任务列表的增删改查
     void createMission(const Mission &mission);
     void deleteMission(int id);
-    void updateMission(QVector<Mission> missionList);
-    QVector<Mission> queryMission();
+    void updateMission(const QVector<Mission> &missionList);
+    void queryMission(QVector<Mission> &missioinList);
 
     //历史记录的增加和查询
     void addHistory(const History &history);
-    QVector<History> queryHistory();
+    void queryHistory(QVector<History> &historyList);
 
     //成就的更新和查询
-    void initAchievement(QVector<Achievement> achievementList);
-    void updateAchievement(const QString &name); //仅修改name对应的state，由0变1
-    QVector<Achievement> queryAchievement();
+    void initAchievement(const QVector<Achievement> &achievementList);
+    void updateAchievement(const Achievement &achievement); //仅修改name对应的state，由0变1
+    void queryAchievement(QVector<Achievement> &achievementList);
 
 private:
     bool tablesExist();      //判断表是否存在

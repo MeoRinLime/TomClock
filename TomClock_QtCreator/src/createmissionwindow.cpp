@@ -6,6 +6,8 @@ CreateMissionWindow::CreateMissionWindow(QWidget *parent) :
     ui(new Ui::CreateMissionWindow)
 {
     ui->setupUi(this);
+
+    //设置窗口样式
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 }
 
@@ -35,11 +37,11 @@ void CreateMissionWindow::on_comfirm_clicked()
     QTime ti;
 
     //获取新任务的工作时间
-    ti.setHMS(0,ui->workTime->currentText().toInt(),0);
+    ti.setHMS(0,ui->workTime->currentText().toInt(),10);
     mi.setWorkTime(ti);
     qDebug()<<ti.toString();
         //获取新任务的休息时间
-    ti.setHMS(0,ui->relaxTime->currentText().toInt(),0);
+    ti.setHMS(0,ui->relaxTime->currentText().toInt(),7);
     mi.setRelaxTime(ti);
     qDebug()<<ti.toString();
     mi.setCreateTime(QDate::currentDate());

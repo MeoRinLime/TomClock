@@ -6,6 +6,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     ui(new Ui::MissionPushButton)
 {
     ui->setupUi(this);
+    //初始化对象
     mChangeConfirm=new QPushButton();
     mChangeCancel=new QPushButton();
     workTime =new QComboBox() ;
@@ -19,9 +20,9 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     mDelete=new QPushButton();
 
     QStringList sl1;
-    sl1<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("40")<<tr("50");
+    sl1<<tr("0")<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("40")<<tr("50");
     QStringList sl2;
-    sl2<<tr("2")<<tr("3")<<tr("4")<<tr("6")<<tr("8")<<tr("10");
+    sl2<<tr("0")<<tr("2")<<tr("3")<<tr("4")<<tr("6")<<tr("8")<<tr("10");
     workTime->addItems(sl1);
      relaxTime->addItems(sl2);
     mChangeConfirm->setText("确定");
@@ -173,6 +174,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     connect(pBtn,&QPushButton::clicked,this,&MissionPushButton::setAllNum);
     hBlt->addWidget(pBtn);
     this->setLayout(hBlt);
+    //建立信号与槽的连接
     connect(this->mDelete,&QPushButton::clicked,this,&MissionPushButton::sentDelete);
     connect(this->mBegin,&QPushButton::clicked,this,&MissionPushButton::sentBegin);
     connect(this->mChange,&QPushButton::clicked,this,&MissionPushButton::change_clicked);
@@ -201,6 +203,7 @@ void MissionPushButton::setNum(int n){
 }
 
 void MissionPushButton::setAllNum(){
+    //点击该任务，显示三个选项
     allNum=num;
     pBtn->setMinimumSize(QSize(500,0));   //width height
     pBtn->setMaximumSize(QSize(600,100));
@@ -222,6 +225,7 @@ int MissionPushButton::getallNum(){
 int MissionPushButton::allNum=-1;
 
 void MissionPushButton::disapearChoice(){
+    //如果点击的不是该任务，则该任务的三个选项隐藏
     if(num!=allNum){
 
         mBegin->hide();
@@ -305,8 +309,8 @@ void MissionPushButton::cancelChange(){
 void MissionPushButton::confirmChange(){
       Mission mi;
       mi.setName(mName->text());
-      mi.setWorkTime(QTime(0,workTime->currentText().toInt(),0));
-      mi.setRelaxTime(QTime(0,relaxTime->currentText().toInt(),0));
+      mi.setWorkTime(QTime(0,workTime->currentText().toInt(),10));
+      mi.setRelaxTime(QTime(0,relaxTime->currentText().toInt(),5));
 
       mChangeConfirm->hide();
       mChangeCancel->hide();
@@ -320,8 +324,8 @@ void MissionPushButton::confirmChange(){
       mBegin->show();
       mChange->show();
       mDelete->show();
-       QString mmmmm=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
-      pBtn->setText(mmmmm);
-       qDebug()<<mmmmm<<"拉拉";
+       QString m=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
+      pBtn->setText(m);
+
       emit sentChange(mi);
 }

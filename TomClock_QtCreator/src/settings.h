@@ -24,6 +24,7 @@ signals:
 
 
 private slots:
+    void closeEvent(QCloseEvent *event);
     void MaintoSettings();
     void on_backToMain_clicked();
     void on_themeChange_currentIndexChanged(int index);

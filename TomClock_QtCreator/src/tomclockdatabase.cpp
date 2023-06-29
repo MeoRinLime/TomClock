@@ -160,7 +160,7 @@ void TomClockDatabase::deleteMission(int id)
     }
 }
 
-void TomClockDatabase::updateMission(QVector<Mission> missionList)
+void TomClockDatabase::updateMission(const QVector<Mission> &missionList)
 {
     /*
      * 按照id从1到listSize,更新整个MissionTable
@@ -182,7 +182,7 @@ void TomClockDatabase::updateMission(QVector<Mission> missionList)
     };
 
     for (int i = 0; i < missionList.size(); ++i) {
-        sqlStr = QString("insert into MissioinTable (id, name, worktime, relaxtime, createtime) \
+        sqlStr = QString("insert into MissionTable (id, name, worktime, relaxtime, createtime) \
                             values(:id, :name, :worktime, :relaxtime, :createtime);");
         query.prepare(sqlStr);
         query.bindValue(":id", missionList[i].getId());
@@ -205,7 +205,7 @@ void TomClockDatabase::updateMission(QVector<Mission> missionList)
     }
 }
 
-QVector<Mission> TomClockDatabase::queryMission()
+void TomClockDatabase::queryMission(QVector<Mission> &missionList)
 {
     sqlStr = QString("select * from MissionTable;");
     //尝试query
@@ -221,8 +221,7 @@ QVector<Mission> TomClockDatabase::queryMission()
             qDebug("Failed to query mission.");
         }
     }
-    QVector<Mission> missionList;
-//    Mission *missionList = new Mission[query.size()]; //这里query.size()为-1，导致bad_alloc  可以使用QSqlQueryModel类
+    missionList.clear();
     for (/*int i = 0*/; query.next(); /*++i*/) {
         Mission tmpMission;
         tmpMission.setId(query.value("id").toInt());
@@ -233,7 +232,6 @@ QVector<Mission> TomClockDatabase::queryMission()
         missionList.append(tmpMission);
     }
     query.clear();
-    return missionList;
 }
 
 //History增加、查询
@@ -263,7 +261,7 @@ void TomClockDatabase::addHistory(const History &history)
     }
 }
 
-QVector<History> TomClockDatabase::queryHistory()
+void TomClockDatabase::queryHistory(QVector<History> &historyList)
 {
     sqlStr = QString("select * from HistoryTable;");
     //尝试query
@@ -279,8 +277,6 @@ QVector<History> TomClockDatabase::queryHistory()
             qDebug("Failed to query history.");
         }
     }
-//    History *historyList = new History[query.size()];
-    QVector<History> historyList;
     for (/*int i = 1*/; query.next(); /*++i*/) {
         History tmpHistory;
         tmpHistory.setId(query.value("id").toInt());
@@ -291,10 +287,9 @@ QVector<History> TomClockDatabase::queryHistory()
         historyList.append(tmpHistory);
     }
     query.clear();
-    return historyList;
 }
 
-void TomClockDatabase::initAchievement(QVector<Achievement> achievementList)
+void TomClockDatabase::initAchievement(const QVector<Achievement> &achievementList)
 {
     //判断是否为空
     //若无内容，则插入整个achievement数组
@@ -313,11 +308,14 @@ void TomClockDatabase::initAchievement(QVector<Achievement> achievementList)
             qDebug("Initialize Achievement: Failed to query achievement.");
         }
     }
+
     QVector<Achievement> tmpAchievementList;
     while (query.next()) {
         Achievement tmpAchievement;
         tmpAchievementList.append(tmpAchievement);
     }
+    query.clear();
+
     if (tmpAchievementList.size() == 0){ //AchievementTable为空
         for (int i = 0; i < achievementList.size(); ++i) {
             sqlStr = QString("insert into AchievementTable (name, state, howtoachieve) \
@@ -345,15 +343,19 @@ void TomClockDatabase::initAchievement(QVector<Achievement> achievementList)
 }
 
 //Achievements更新、查询
-void TomClockDatabase::updateAchievement(const QString &name)
+void TomClockDatabase::updateAchievement(const Achievement &achievement)
 {
     /*
      * 不删除整个表，仅修改name对应的行
     */
-    sqlStr = QString("update AchievementTable set state = true where name = %1;").arg(name);
+    sqlStr = QString("update AchievementTable set name = :name, state = :state, howtoachieve = :howtoachieve where name = :name;");
+    query.prepare(sqlStr);
+    query.bindValue(":name", achievement.getName());
+    query.bindValue(":state", true);
+    query.bindValue(":howtoachieve", achievement.getHowToAchieve());
     //尝试update
     try {
-        if (!query.exec(sqlStr)){
+        if (!query.exec()){
             throw SqlUpdateError;
         }
         else {
@@ -366,7 +368,7 @@ void TomClockDatabase::updateAchievement(const QString &name)
     }
 }
 
-QVector<Achievement> TomClockDatabase::queryAchievement()
+void TomClockDatabase::queryAchievement(QVector<Achievement> &achievementList)
 {
     sqlStr = QString("select * from AchievementTable;");
     //尝试query
@@ -382,14 +384,13 @@ QVector<Achievement> TomClockDatabase::queryAchievement()
             qDebug("Failed to query achievement.");
         }
     }
-//    Achievement *achievementList = new Achievement[query.size()];
-    QVector<Achievement> achievementList;
+    achievementList.clear();
     for (/*int i = 0*/; query.next(); /*++i*/) {
         Achievement tmpAchievement;
         tmpAchievement.setName(query.value("name").toString());
         tmpAchievement.setState(query.value("state").toBool());
         tmpAchievement.setHowToAchieve(query.value("howtoachieve").toString());
+        achievementList.append(tmpAchievement);
     }
     query.clear();
-    return achievementList;
 }

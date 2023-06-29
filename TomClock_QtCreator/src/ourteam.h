@@ -20,7 +20,7 @@ signals:
 
 private slots:
     void AbouttoTeam();
-
+    void closeEvent(QCloseEvent *event);
     void on_backToAbout_clicked();
 
 private:

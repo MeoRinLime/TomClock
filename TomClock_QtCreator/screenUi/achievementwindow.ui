@@ -54,8 +54,8 @@
     <rect>
      <x>20</x>
      <y>50</y>
-     <width>561</width>
-     <height>331</height>
+     <width>761</width>
+     <height>431</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -81,8 +81,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>561</width>
-      <height>331</height>
+      <width>761</width>
+      <height>431</height>
      </rect>
     </property>
    </widget>
