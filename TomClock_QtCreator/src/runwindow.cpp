@@ -40,7 +40,7 @@ void RunWindow::ListtoRun(const Mission &mission)
     ui->MissionNameLabel->setText(curMission.getName()); //显示 任务名
     ui->TimeDisplay->setText(displayedTime.toString());  //显示 时间
     this->show();
-    numOfTomato=0;//    番茄数重零计时
+    addNumOfTomato=0;//    番茄数重零计时
     whichPeriod = 0;    //表示处于 第一个工作时间
     oncePaused = false; //表示 从未暂停过
     secTimer = new QTimer(this);                            //创建 每秒计时器
@@ -149,7 +149,6 @@ void RunWindow::nextPeriod()
         periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()));
         update();
         break;
-        break;
     default:
         qDebug("whichPeriod error. Unknown state.");
         break;
@@ -203,7 +202,7 @@ void RunWindow::on_AbortButton_clicked()
         history.setName(curMission.getName());
         //发送到历史记录
         emit sentHistory(history);
-
+        emit toJudgeAchieve();
         emit JumptoMain();
         this->close();
     });

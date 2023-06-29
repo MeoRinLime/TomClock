@@ -93,11 +93,11 @@ void HistoryWindow::on_backToMain_clicked()
 }
 
 int HistoryWindow::caculateTotalTomato(){
-        int total=0;
-        for(int i=0;i<histories.size();i++){
+    int total=0;
+    for(int i=0;i<histories.size();i++){
         total=total+histories[i].getNumOfTomato();
-        }
-        return total;
+    }
+    return total;
 }
 
 void HistoryWindow::closeEvent(QCloseEvent *event)

@@ -13,8 +13,8 @@ class AchievementWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit AchievementWindow(const QVector<Achievement> &achievementList, QWidget *parent = nullptr);
-    AchievementWindow(QWidget *parent = nullptr);
+    explicit AchievementWindow(/*const QVector<Achievement> &achievementList, */QWidget *parent = nullptr);
+//    AchievementWindow(QWidget *parent = nullptr);
     ~AchievementWindow();
     void changeTomatoNum(int tomatoNum);                                //改变番茄数
     void updateAchievementState(int indexOfAchievement, bool newState); //更新成就的状态
@@ -39,7 +39,7 @@ private:
     void closeEvent(QCloseEvent *event);
 
 private slots:
-    void MaintoAchievement();
+    void MaintoAchievement(QVector<Achievement> achieveList);
     void on_backBtn_clicked();
 };
 

@@ -19,9 +19,9 @@ class HistoryWindow : public QWidget
 public:
     explicit HistoryWindow( QWidget *parent = nullptr);
     ~HistoryWindow();
-    QString caculateTotalTime();//计算总时长
-    QString historyRecord(History h);//历史纪录信息
-    int caculateTotalTomato();//计算总番茄数
+    QString caculateTotalTime();      //计算总时长
+    QString historyRecord(History h); //历史纪录信息
+    int caculateTotalTomato();        //计算总番茄数
 private:
     Ui::HistoryWindow *ui;
     QVector<History> histories;//历史数据容器
