@@ -6,9 +6,7 @@ MissionListWindow::MissionListWindow(QVector<Mission>m,QWidget *parent) :
     ui(new Ui::MissionListWindow)
 {
     missions=m;
-    for(int i=0;i<missions.size();i++){
-        qDebug()<<missions[i].getId()<<"   "<<missions[i].getName();
-    }
+
     ui->setupUi(this);
     //设置界面布局和展示界面
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");

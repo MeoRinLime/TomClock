@@ -1,7 +1,7 @@
 #include "historywindow.h"
 #include "ui_historywindow.h"
 
-HistoryWindow::HistoryWindow(const QVector<History> &histories, QWidget *parent) :
+HistoryWindow::HistoryWindow( QWidget *parent) :
     QWidget(parent),
     ui(new Ui::HistoryWindow)
 {
@@ -121,7 +121,7 @@ QString HistoryWindow::caculateTotalTime(){
     for(int i = 0; i < histories.size(); i++){
         h += histories[i].getTotalTime().hour();
         m += histories[i].getTotalTime().minute();
-        s += histories[i].getTotalTime().msec();
+        s += histories[i].getTotalTime().second();
     }
     m+=s/60;
     s=s%60;

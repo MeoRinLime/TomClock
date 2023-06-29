@@ -7,10 +7,11 @@ TomClock::TomClock()
 
     tcDatabase = new TomClockDatabase();
     tcDatabase->queryMission(missionList);
+    tcDatabase->queryHistory(historyList);
 //    achievementW = new AchievementWindow();
     createW = new CreateMissionWindow();
     missionListW = new MissionListWindow(missionList);
-
+    historyW=new HistoryWindow();
     runW = new RunWindow();
     settingW = new Settings();
     aboutW = new about();
@@ -32,7 +33,7 @@ TomClock::TomClock()
     //achieve test end
 
     initAchieveWindow();
-    initHistoryWindow();
+
 
     mainW = new MainWindow(historyList);
 
@@ -43,7 +44,7 @@ TomClock::TomClock()
    // missionListW->initMissions(missionList);
     //各页面之间进行跳转的实现
     connect(mainW, SIGNAL(JumptoAchievement()), achievementW, SLOT(MaintoAchievement()));
-    connect(mainW, SIGNAL(JumptoHistory(const QVector<History> &)), historyW, SLOT(MaintoHistory(const QVector<History> &)));
+    connect(mainW, SIGNAL(JumptoHistory( QVector<History>)), historyW, SLOT(MaintoHistory( QVector<History>)));
 //    connect(&mainW, SIGNAL(JumptoMissionCreate()), &createW, SLOT(MaintoCreate()));
     connect(mainW, SIGNAL(JumptoMissionList()), missionListW, SLOT(MaintoList()));
     connect(mainW, SIGNAL(JumptoSettings()), settingW, SLOT(MaintoSettings()));
@@ -95,18 +96,7 @@ void TomClock::initMissionListWindow()
     //将missionList传给missionListW
 }
 
-void TomClock::initHistoryWindow()
-{
-    tcDatabase->queryHistory(historyList);
-    //得到tomato数量，来自最后一个history
-    if (historyList.size() == 0){
-        numOfTomato = 0;
-    }else {
-        numOfTomato = historyList[historyList.size() - 1].getNumOfTomato();
-    }
-    //将historyList传给historyW
-    historyW = new HistoryWindow(historyList);
-}
+
 
 void TomClock::showWindow()
 {

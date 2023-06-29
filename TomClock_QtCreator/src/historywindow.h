@@ -17,7 +17,7 @@ class HistoryWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit HistoryWindow(const QVector<History> &histories, QWidget *parent = nullptr);
+    explicit HistoryWindow( QWidget *parent = nullptr);
     ~HistoryWindow();
     QString caculateTotalTime();//计算总时长
     QString historyRecord(History h);//历史纪录信息
