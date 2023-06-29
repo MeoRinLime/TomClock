@@ -7,7 +7,7 @@
 #include<QMessageBox>
 #include "mission.h"
 #include"missionpushbutton.h"
-#include"tomclockdatabase.h"
+
 namespace Ui {
 class MissionListWindow;
 }
@@ -17,14 +17,15 @@ class MissionListWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit MissionListWindow(QWidget *parent = nullptr);
+    explicit MissionListWindow(QVector<Mission>m,QWidget *parent = nullptr);
     ~MissionListWindow();
 
+    QVector<Mission> getMission();
 signals:
     void jumpToRunWindows(Mission mission);//传送任务信息并前往计时界面
     void create();//创建新任务信号
-    void BacktoMain();//返回主菜单信号
-
+    void BacktoMain( );//返回主菜单信号
+    void updateDatabase();//更新数据库
 private slots:
     void closeEvent(QCloseEvent *event);
     void MaintoList();//主界面来到任务列表界面

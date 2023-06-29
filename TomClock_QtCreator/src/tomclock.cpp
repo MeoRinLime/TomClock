@@ -3,10 +3,14 @@
 TomClock::TomClock()
 {
 
+
+
     tcDatabase = new TomClockDatabase();
+    tcDatabase->queryMission(missionList);
 //    achievementW = new AchievementWindow();
     createW = new CreateMissionWindow();
-    missionListW = new MissionListWindow();
+    missionListW = new MissionListWindow(missionList);
+
     runW = new RunWindow();
     settingW = new Settings();
     aboutW = new about();
@@ -34,6 +38,9 @@ TomClock::TomClock()
 
     qRegisterMetaType<QVector<History>>("QVector<History>");
 
+
+
+   // missionListW->initMissions(missionList);
     //各页面之间进行跳转的实现
     connect(mainW, SIGNAL(JumptoAchievement()), achievementW, SLOT(MaintoAchievement()));
     connect(mainW, SIGNAL(JumptoHistory(QVector<History>)), historyW, SLOT(MaintoHistory(QVector<History>)));
@@ -57,11 +64,8 @@ TomClock::TomClock()
     connect(achievementW, SIGNAL(JumptoMain()), mainW, SLOT(AchievetoMain()));
     //    connect(&createW,SIGNAL(sentAndJump(Mission)),&mainW,SLOT(othertoMain()));
     connect(createW,SIGNAL(sentAndJump(Mission)),missionListW,SLOT(recieveMission(Mission)));
+    connect(missionListW,SIGNAL(updateDatabase()),this,SLOT(updataMissionDatabase()));
 
-    connect(runW, QOverload<History>::of(&RunWindow::addNewHistory), this, [=](History newHistory){
-        tcDatabase->addHistory(newHistory);
-
-    });
 }
 
 TomClock::~TomClock()
@@ -107,4 +111,11 @@ void TomClock::initHistoryWindow()
 void TomClock::showWindow()
 {
     mainW->show();
+}
+
+void TomClock::updataMissionDatabase(){
+    missionList.clear();
+    missionList=missionListW->getMission();
+    qDebug()<<"hhhhhh";
+    tcDatabase->updateMission(missionList);
 }

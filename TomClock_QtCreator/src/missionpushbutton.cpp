@@ -309,8 +309,8 @@ void MissionPushButton::cancelChange(){
 void MissionPushButton::confirmChange(){
       Mission mi;
       mi.setName(mName->text());
-      mi.setWorkTime(QTime(0,workTime->currentText().toInt(),0));
-      mi.setRelaxTime(QTime(0,relaxTime->currentText().toInt(),0));
+      mi.setWorkTime(QTime(0,workTime->currentText().toInt(),10));
+      mi.setRelaxTime(QTime(0,relaxTime->currentText().toInt(),5));
 
       mChangeConfirm->hide();
       mChangeCancel->hide();
@@ -324,8 +324,8 @@ void MissionPushButton::confirmChange(){
       mBegin->show();
       mChange->show();
       mDelete->show();
-       QString mmmmm=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
-      pBtn->setText(mmmmm);
-       qDebug()<<mmmmm<<"拉拉";
+       QString m=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
+      pBtn->setText(m);
+
       emit sentChange(mi);
 }
