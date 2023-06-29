@@ -6,7 +6,7 @@ HistoryWindow::HistoryWindow( QWidget *parent) :
     ui(new Ui::HistoryWindow)
 {
     ui->setupUi(this);
-   ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
+    ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
 
   /*   //数据是否可以导入测试部分
     //    History h;
