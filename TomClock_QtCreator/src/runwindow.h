@@ -3,7 +3,7 @@
 
 #include "mission.h"
 #include <QMainWindow>
-#include<QMediaPlayer>
+
 #include"history.h"
 namespace Ui {
 class RunWindow;
@@ -30,7 +30,7 @@ private:
     QTimer *periodTimer;    //计时器 每段workTime/relaxTime一次 用于切换工作休息
     int whichPeriod;        //记录 当前处于哪一个番茄钟时间段 范围从0到7
     bool oncePaused;        //记录 曾经是否暂停过
-    QMediaPlayer player;
+
     void closeEvent(QCloseEvent *event); //重写closeEvent，跳转回mainWindow
     History history;
     int numOfTomato;
