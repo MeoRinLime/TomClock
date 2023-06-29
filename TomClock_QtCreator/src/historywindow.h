@@ -29,6 +29,7 @@ private:
     void closeEvent(QCloseEvent *event);
 signals:
     void BacktoMain();//回到主页面
+
 private slots:
     void MaintoHistory(QVector<History> histories);//从主界面到历史界面
     void on_backToMain_clicked();//回到主界面

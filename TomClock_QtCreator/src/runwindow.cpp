@@ -31,6 +31,7 @@ void RunWindow::closeEvent(QCloseEvent *event)
 void RunWindow::ListtoRun(const Mission &mission)
 {
     numOfTomato=0;
+     ui->PauseResumeButton->setText("暂停");
     curMission=mission;
         //参数初始化
     displayedTime = curMission.getWorkTime();            //显示的时间 工作时间

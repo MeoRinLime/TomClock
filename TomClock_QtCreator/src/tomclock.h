@@ -47,6 +47,7 @@ private:
     QVector<Achievement> achieveList;
 private slots:
     void updataMissionDatabase();
+    void updataHistoryDatabase(History h);
 };
 
 #endif // TOMCLOCK_H

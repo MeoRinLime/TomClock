@@ -65,7 +65,7 @@ TomClock::TomClock()
     //    connect(&createW,SIGNAL(sentAndJump(Mission)),&mainW,SLOT(othertoMain()));
     connect(createW,SIGNAL(sentAndJump(Mission)),missionListW,SLOT(recieveMission(Mission)));
     connect(missionListW,SIGNAL(updateDatabase()),this,SLOT(updataMissionDatabase()));
-
+    connect(runW,SIGNAL(sentHistory(History )),this,SLOT(updataHistoryDatabase(History)));
 }
 
 TomClock::~TomClock()
@@ -118,4 +118,10 @@ void TomClock::updataMissionDatabase(){
     missionList=missionListW->getMission();
     qDebug()<<"hhhhhh";
     tcDatabase->updateMission(missionList);
+}
+
+void TomClock::updataHistoryDatabase(History h){
+    h.setId(historyList.size());
+    historyList.push_back(h);
+    tcDatabase->addHistory(h);
 }

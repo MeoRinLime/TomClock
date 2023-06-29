@@ -6,20 +6,19 @@ HistoryWindow::HistoryWindow(const QVector<History> &histories, QWidget *parent)
     ui(new Ui::HistoryWindow)
 {
     ui->setupUi(this);
-    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
-    ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
+   ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
 
-    //数据是否可以导入测试部分
-//    History h;
-//    QDate q(QDate::currentDate());
-//    h.setDate(q);
-//    h.setName("aaa");
-//    h.setNumOfTomato(5);
-//    QTime tt(QTime::currentTime());
-//    h.setTotalTime(tt);
-//    for(int i=0;i<100;i++){
-//        histories.push_back(h);
-//    }
+  /*   //数据是否可以导入测试部分
+    //    History h;
+    //    QDate q(QDate::currentDate());
+    //    h.setDate(q);
+    //    h.setName("aaa");
+    //    h.setNumOfTomato(5);
+    //    QTime tt(QTime::currentTime());
+    //    h.setTotalTime(tt);
+    //    for(int i=0;i<100;i++){
+    //        histories.push_back(h);
+    //    }
     this->histories = histories;
     //测试部分结束
 
@@ -29,7 +28,7 @@ HistoryWindow::HistoryWindow(const QVector<History> &histories, QWidget *parent)
     ui->totalTime->setText(caculateTotalTime());//显示总时长
     ui->totalTomato->setText(QString::number(caculateTotalTomato()));
 
-      pLayout = new QGridLayout();//网格布局
+    pLayout = new QGridLayout();//网格布局
     for(int i = 0; i < histories.size(); i++)
     {
         QPushButton *pBtn = new QPushButton();
@@ -61,7 +60,9 @@ HistoryWindow::HistoryWindow(const QVector<History> &histories, QWidget *parent)
         pLayout->setRowStretch(i+1,1);
     }
 
-    ui->scrollArea->widget()->setLayout(pLayout);//把布局放置到QScrollArea的内部QWidget中
+    ui->scrollArea->widget()->setLayout(pLayout);//把布局放置到QScrollArea的内部QWidget中*/
+   this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
+
 }
 
 HistoryWindow::~HistoryWindow()
@@ -72,6 +73,43 @@ HistoryWindow::~HistoryWindow()
 void HistoryWindow::MaintoHistory(QVector<History> histories)
 {
     this->histories = histories;
+    delete pLayout;
+    pLayout = new QGridLayout();//网格布局
+    for(int i = 0; i < histories.size(); i++)
+    {
+        QPushButton *pBtn = new QPushButton();
+        pBtn->setText(historyRecord(histories[i]));
+        pBtn->setStyleSheet(
+            "QPushButton{"                             // 正常状态样式
+            "background-color: transparent;"       // 背景色（也可以设置图片）
+            "color: white;"                            // 字体颜色
+            "font: bold 13px;"                         // 字体: 加粗 大小
+            "border-radius: 5px;"                      // 边框圆角半径像素
+            "border: 2px solid rgb(50, 50, 50);"       // 边框样式：border-width border-style border-color
+            "border-style:outset;"                     // 定义一个3D突出边框，inset与之相反
+            "text-align: center;"                        // 文本：左对齐
+            "}"
+
+            "QPushButton:focus{"                       // 聚焦样式
+            "background-color:rgb(255, 128, 64);"
+            "color: white;"
+            "border-radius: 5px;"
+            "border: 2px solid white;"
+            "border-style:outset;"
+            "font:bold 13px;"
+            "text-align: center;"
+            "}");
+        pBtn->setMinimumSize(QSize(750,40));   //width height
+        pBtn->setMaximumSize(QSize(750,50));
+
+        pLayout->addWidget(pBtn);//把按钮添加到布局控件中
+        pLayout->setRowStretch(i+1,1);
+    }
+    ui->numOfTotal->setText(QString::number(histories.size()));//把任务记录数显示出来
+    ui->totalTime->setText(caculateTotalTime());//显示总时长
+    ui->totalTomato->setText(QString::number(caculateTotalTomato()));
+     ui->scrollAreaWidgetContents->setFixedHeight(52*histories.size());
+    ui->scrollArea->widget()->setLayout(pLayout);//把布局放置到QScrollArea的内部QWidget中
     this->show();
 }
 

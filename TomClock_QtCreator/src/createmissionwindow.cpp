@@ -37,11 +37,11 @@ void CreateMissionWindow::on_comfirm_clicked()
     QTime ti;
 
     //获取新任务的工作时间
-    ti.setHMS(0,ui->workTime->currentText().toInt(),10);
+    ti.setHMS(0,ui->workTime->currentText().toInt(),0);
     mi.setWorkTime(ti);
     qDebug()<<ti.toString();
         //获取新任务的休息时间
-    ti.setHMS(0,ui->relaxTime->currentText().toInt(),7);
+    ti.setHMS(0,ui->relaxTime->currentText().toInt(),0);
     mi.setRelaxTime(ti);
     qDebug()<<ti.toString();
     mi.setCreateTime(QDate::currentDate());
