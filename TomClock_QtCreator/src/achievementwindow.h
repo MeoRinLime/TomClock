@@ -24,14 +24,23 @@ signals:
 
 private:
     Ui::AchievementWindow *ui;
+    //成就图片的路径，目前仅为示例
+    QList<QString> imagePathList = {"MainIcon.png", \
+                                    "MainIcon.png", \
+                                    "MainIcon.png", \
+                                    "MainIcon.png", \
+                                    "MainIcon.png"};
+
     //实现自适应窗口大小
     QList<QWidget*> allChildWidgets;       //储存所有子控件
     QMap<QWidget*, QRect> allWidgetRect;   //保存所有子控件的初始大小
+
     void resizeEvent(QResizeEvent *event); //重写resizeEvent
     void closeEvent(QCloseEvent *event);
 
 private slots:
     void MaintoAchievement();
+    void on_backBtn_clicked();
 };
 
 #endif // ACHIEVEMENTWINDOW_H

@@ -65,10 +65,12 @@ void RunWindow::nextPeriod()
     QString sm = m > 9 ? QString::number(m) : QString("0%1").arg(m);
     QString ss = s > 9 ? QString::number(s) : QString("0%1").arg(s);
 
-    switch (whichPeriod%7) {
+    switch (whichPeriod) {
     case 0:
         //进入第一个 休息时间段
-        numOfTomato++;
+        if (!oncePaused){
+            numOfTomato++;
+        }
         whichPeriod++;//1
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
@@ -77,6 +79,7 @@ void RunWindow::nextPeriod()
         break;
     case 1:
         //进入第二个 工作时间段
+        oncePaused = false;
         whichPeriod++;//2
         displayedTime = curMission.getWorkTime();
         ui->MissionNameLabel->setText(curMission.getName());
@@ -85,7 +88,9 @@ void RunWindow::nextPeriod()
         break;
     case 2:
         //进入第二个 休息时间段
-         numOfTomato++;
+        if (!oncePaused){
+            numOfTomato++;
+        }
         whichPeriod++;//3
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
@@ -94,6 +99,7 @@ void RunWindow::nextPeriod()
         break;
     case 3:
         //进入第三个 工作时间段
+        oncePaused = false;
         whichPeriod++;//4
         displayedTime = curMission.getWorkTime();
         ui->MissionNameLabel->setText(curMission.getName());
@@ -102,7 +108,9 @@ void RunWindow::nextPeriod()
         break;
     case 4:
         //进入第三个 休息时间段
-         numOfTomato++;
+        if (!oncePaused){
+            numOfTomato++;
+        }
         whichPeriod++;//5
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
@@ -111,6 +119,7 @@ void RunWindow::nextPeriod()
         break;
     case 5:
         //进入第四个 工作时间段
+        oncePaused = false;
         whichPeriod++;//6
         displayedTime = curMission.getWorkTime();
         ui->MissionNameLabel->setText(curMission.getName());
@@ -119,7 +128,9 @@ void RunWindow::nextPeriod()
         break;
     case 6:
         //进入第四个 长休息时间段
-         numOfTomato++;
+        if (!oncePaused){
+            numOfTomato++;
+        }
         whichPeriod++;//7
         displayedTime = QTime().fromString(QString("%1:%2:%3").arg(sh, sm, ss), "hh:mm:ss");
         ui->MissionNameLabel->setText(QString("长休息时间"));
@@ -127,24 +138,32 @@ void RunWindow::nextPeriod()
         update();
         break;
     case 7:
-        /*
-         * 此处由于Pologue对番茄的计数理解有误，应当做出修改
-        */
-        //整个任务结束
-        if (oncePaused){ //若曾经暂停过，则无番茄
-            emit noTomato();
-        }
-        else { //未暂停过，则番茄+1
-            emit oneMoreTomato();
-        }
-        //跳转回主窗口
+//        /*
+//         * 此处由于Pologue对番茄的计数理解有误，应当做出修改
+//        */
+//        //整个任务结束
+//        if (oncePaused){ //若曾经暂停过，则无番茄
+//            emit noTomato();
+//        }
+//        else { //未暂停过，则番茄+1
+//            emit oneMoreTomato();
+//        }
+//        //跳转回主窗口
 
-        secTimer->stop();
-        periodTimer->stop();
+//        secTimer->stop();
+//        periodTimer->stop();
 
 
-        emit JumptoMain();
-        this->close();
+//        emit JumptoMain();
+//        this->close();
+
+        //重新开始工作时间段
+        whichPeriod = 0;
+        oncePaused = false;
+        displayedTime = curMission.getWorkTime();
+        ui->MissionNameLabel->setText(curMission.getName());
+        periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()));
+        update();
         break;
     default:
         qDebug("whichPeriod error. Unknown state.");
@@ -171,11 +190,13 @@ void RunWindow::on_PauseResumeButton_clicked()
 void RunWindow::on_AbortButton_clicked()
 {
     //跳出确认提示框
-    //此时计时仍继续
+    //此时计时停止
+    secTimer->stop();
+    periodTimer->stop();
     QMessageBox *abortConfirmMsgBox = new QMessageBox(this);
     abortConfirmMsgBox->setWindowTitle("注意");
     abortConfirmMsgBox->setText("确定结束本次任务吗？");
-    //abortConfirmMsgBox->setInformativeText("终止任务将无法获得番茄");
+    abortConfirmMsgBox->setInformativeText(QString("本次任务获得番茄总数为%1").arg(numOfTomato));
     abortConfirmMsgBox->addButton(QMessageBox::Ok)->setText("确定");
     abortConfirmMsgBox->addButton(QMessageBox::Cancel)->setText("取消");
     abortConfirmMsgBox->setDefaultButton(QMessageBox::Cancel);
@@ -184,24 +205,24 @@ void RunWindow::on_AbortButton_clicked()
         //同closeEvent的情况
 //        delete secTimer;
 //        delete periodTimer;
-        secTimer->stop();
-        periodTimer->stop();
        // emit noTomato(); //无番茄
         //跳转到主窗口
         history.setDate(QDate::currentDate());
         history.setNumOfTomato(numOfTomato);
-
-        int s=60-displayedTime.second();
-         int m=curMission.getWorkTime().minute()*numOfTomato+(curMission.getWorkTime().minute()-displayedTime.minute()-1);
-        int h=m/60;
-         m=m%60;
+        int s = 60 - displayedTime.second();
+        int m = curMission.getWorkTime().minute() * numOfTomato + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
+        int h = m / 60;
+        m = m % 60;
         history.setTotalTime(QTime(h,m,s));
-         history.setName(curMission.getName());
+        history.setName(curMission.getName());
         emit sentHistory(history);
         emit JumptoMain();
         this->close();
     });
     connect(abortConfirmMsgBox, &QDialog::rejected, this, [=](){
+        //恢复计时
+        secTimer->start(1000);
+        periodTimer->start(whichPeriod%2==0 ? 1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()) : 1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
         abortConfirmMsgBox->close(); //无事发生，继续计时
     });
     abortConfirmMsgBox->exec();

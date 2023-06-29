@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "achievement.h"
 #include "history.h"
 #include <QMainWindow>
 #include <QFrame>
@@ -21,7 +22,7 @@ public:
     QWidget* widget;
 
 signals:
-    void JumptoAchievement();//跳转至成就界面
+    void JumptoAchievement(/*const QVector<Achievement> &newAchieveList*/);//跳转至成就界面
     void JumptoHistory(QVector<History> historyList);//跳转至历史记录界面
     //void JumptoMissionCreate();//跳转至创建任务界面
     void JumptoMissionList();//点击开始或者图标后跳转至任务列表界面

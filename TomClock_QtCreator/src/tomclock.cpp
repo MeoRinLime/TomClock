@@ -36,7 +36,7 @@ TomClock::TomClock()
 
     //各页面之间进行跳转的实现
     connect(mainW, SIGNAL(JumptoAchievement()), achievementW, SLOT(MaintoAchievement()));
-    connect(mainW, SIGNAL(JumptoHistory(const QVector<History> &)), historyW, SLOT(MaintoHistory(const QVector<History> &)));
+    connect(mainW, SIGNAL(JumptoHistory(QVector<History>)), historyW, SLOT(MaintoHistory(QVector<History>)));
 //    connect(&mainW, SIGNAL(JumptoMissionCreate()), &createW, SLOT(MaintoCreate()));
     connect(mainW, SIGNAL(JumptoMissionList()), missionListW, SLOT(MaintoList()));
     connect(mainW, SIGNAL(JumptoSettings()), settingW, SLOT(MaintoSettings()));
