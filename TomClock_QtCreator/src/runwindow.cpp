@@ -194,12 +194,11 @@ void RunWindow::on_AbortButton_clicked()
         //跳转到主窗口
         //记录保存
         history.setDate(QDate::currentDate());
-        history.setNumOfTomato(numOfTomato);
-        int s = 60 -displayedTime.second();
-        //只记录工作时长，休息时间不记录
-         int m=curMission.getWorkTime().minute()*numOfTomato+(curMission.getWorkTime().minute()-displayedTime.minute()-1);
-        int h=m/60;
-         m=m%60;
+        history.setNumOfTomato(addNumOfTomato);
+        int s = 60 - displayedTime.second();
+        int m = curMission.getWorkTime().minute() * addNumOfTomato + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
+        int h = m / 60;
+        m = m % 60;
         history.setTotalTime(QTime(h,m,s));
         history.setName(curMission.getName());
         //发送到历史记录
