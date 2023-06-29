@@ -7,6 +7,7 @@ OurTeam::OurTeam(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
 }
 
 OurTeam::~OurTeam()

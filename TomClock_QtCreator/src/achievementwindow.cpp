@@ -13,7 +13,7 @@ AchievementWindow::AchievementWindow(const QVector<Achievement> &achievementList
     ui(new Ui::AchievementWindow)
 {
     ui->setupUi(this);
-    this->setStyleSheet("AchievementWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 
     QWidget *backdrop = new QWidget;                     //创建滚动显示区域幕布
     QHBoxLayout *layout = new QHBoxLayout(backdrop);     //创建布局
