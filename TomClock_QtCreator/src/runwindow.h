@@ -5,6 +5,7 @@
 #include "history.h"
 #include <QMainWindow>
 
+#include"history.h"
 namespace Ui {
 class RunWindow;
 }
@@ -22,7 +23,7 @@ signals:
     void addNewHistory(History newHistory);
     void noTomato();      //告知控制模块 本次任务无番茄
     void oneMoreTomato(); //告知控制模块 本次任务有番茄
-
+    void sentHistory(History h);
 private:
     Ui::RunWindow *ui;
     Mission curMission;  //当前的任务
@@ -32,13 +33,15 @@ private:
     int whichPeriod;        //记录 当前处于哪一个番茄钟时间段 范围从0到7
     bool oncePaused;        //记录 曾经是否暂停过
     void closeEvent(QCloseEvent *event); //重写closeEvent，跳转回mainWindow
-
+    History history;
+    int numOfTomato;
 private slots:
     void ListtoRun(const Mission &mission);       //界面跳转
     void processTimeout();  //处理计时器信号
     void nextPeriod();      //进入下一个番茄钟时间段
     void on_PauseResumeButton_clicked();
     void on_AbortButton_clicked();
+
 };
 
 #endif // RUNWINDOW_H
