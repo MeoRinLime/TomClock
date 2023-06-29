@@ -13,7 +13,7 @@ AchievementWindow::AchievementWindow(const QVector<Achievement> &achievementList
     ui(new Ui::AchievementWindow)
 {
     ui->setupUi(this);
-    this->setStyleSheet("AchievementWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
     ui->backBtn->setStyleSheet("QPushButton{\
                                 background-color: rgb(225, 225, 225);\
                                 border:2px groove gray;\

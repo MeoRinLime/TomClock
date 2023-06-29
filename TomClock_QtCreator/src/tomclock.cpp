@@ -36,11 +36,11 @@ TomClock::TomClock()
 
 
 
-   // missionListW->initMissions(missionList);
+
     //各页面之间进行跳转的实现
     connect(mainW, SIGNAL(JumptoAchievement()), achievementW, SLOT(MaintoAchievement()));
     connect(mainW, SIGNAL(JumptoHistory(QVector<History>)), historyW, SLOT(MaintoHistory(QVector<History>)));
-//    connect(&mainW, SIGNAL(JumptoMissionCreate()), &createW, SLOT(MaintoCreate()));
+
     connect(mainW, SIGNAL(JumptoMissionList()), missionListW, SLOT(MaintoList()));
     connect(mainW, SIGNAL(JumptoSettings()), settingW, SLOT(MaintoSettings()));
     connect(mainW, SIGNAL(JumptoAbout()), aboutW, SLOT(MaintoAbout()));
@@ -58,10 +58,10 @@ TomClock::TomClock()
     connect(settingW, SIGNAL(BacktoMain()), mainW, SLOT(SettingstoMain()));
     connect(runW, SIGNAL(JumptoMain()), mainW, SLOT(RuntoMain()));
     connect(achievementW, SIGNAL(JumptoMain()), mainW, SLOT(AchievetoMain()));
-    //    connect(&createW,SIGNAL(sentAndJump(Mission)),&mainW,SLOT(othertoMain()));
+
     connect(createW,SIGNAL(sentAndJump(Mission)),missionListW,SLOT(recieveMission(Mission)));
     connect(missionListW,SIGNAL(updateDatabase()),this,SLOT(updataMissionDatabase()));
-
+    connect(runW,SIGNAL(sentHistory(History )),this,SLOT(updataHistoryDatabase(History)));
 }
 
 TomClock::~TomClock()
@@ -92,18 +92,7 @@ void TomClock::initMissionListWindow()
     missionListW = new MissionListWindow(missionList);
 }
 
-void TomClock::initHistoryWindow()
-{
-    tcDatabase->queryHistory(historyList);
-    //得到tomato数量，来自最后一个history
-    if (historyList.size() == 0){
-        numOfTomato = 0;
-    }else {
-        numOfTomato = historyList[historyList.size() - 1].getNumOfTomato();
-    }
-    //将historyList传给historyW
-    historyW = new HistoryWindow(historyList);
-}
+
 
 void TomClock::showWindow()
 {
@@ -115,4 +104,10 @@ void TomClock::updataMissionDatabase(){
     missionList=missionListW->getMission();
     qDebug()<<"hhhhhh";
     tcDatabase->updateMission(missionList);
+}
+
+void TomClock::updataHistoryDatabase(History h){
+    h.setId(historyList.size());
+    historyList.push_back(h);
+    tcDatabase->addHistory(h);
 }

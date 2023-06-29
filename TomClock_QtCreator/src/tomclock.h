@@ -25,7 +25,7 @@ public:
     //初始化任务列表窗口，并连接
     void initMissionListWindow();
     //初始化历史窗口，并连接
-    void initHistoryWindow();
+
     void showWindow(); //显示主窗口
     int numOfTomato;
 
@@ -47,6 +47,7 @@ private:
     QVector<Achievement> achieveList;
 private slots:
     void updataMissionDatabase();
+    void updataHistoryDatabase(History h);
 };
 
 #endif // TOMCLOCK_H

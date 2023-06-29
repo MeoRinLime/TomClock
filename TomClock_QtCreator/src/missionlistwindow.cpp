@@ -6,9 +6,7 @@ MissionListWindow::MissionListWindow(QVector<Mission>m,QWidget *parent) :
     ui(new Ui::MissionListWindow)
 {
     missions=m;
-    for(int i=0;i<missions.size();i++){
-        qDebug()<<missions[i].getId()<<"   "<<missions[i].getName();
-    }
+
     ui->setupUi(this);
     //设置界面布局和展示界面
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
@@ -22,6 +20,7 @@ MissionListWindow::MissionListWindow(QVector<Mission>m,QWidget *parent) :
         mpb->setNum(i);
 
         gL->addWidget(mpb);
+        //连接对应的信号和槽
         connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
         connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
         connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
@@ -93,10 +92,12 @@ void MissionListWindow::recieveMission(Mission mission){
     MissionPushButton *mpb = new MissionPushButton();
     mpb->getPBtn()->setText(m);
     mpb->setNum(missions.size()-1);
+
     connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
     connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
     connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
     connect(mpb,SIGNAL(sentChange(Mission)),this,SLOT(changeMission(Mission)));
+
     MPBTS.push_back(mpb);
     for(int i=0;i<missions.size();i++){
         missions[i].setId(i);

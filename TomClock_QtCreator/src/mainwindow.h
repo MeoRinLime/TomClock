@@ -21,6 +21,8 @@ public:
     void setRatio(int width, int height);
     QWidget* widget;
 
+
+
 signals:
     void JumptoAchievement(/*const QVector<Achievement> &newAchieveList*/);//跳转至成就界面
     void JumptoHistory(QVector<History> historyList);//跳转至历史记录界面

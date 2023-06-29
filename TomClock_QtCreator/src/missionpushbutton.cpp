@@ -20,12 +20,15 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     mDelete=new QPushButton();
 
     QStringList sl1;
-    sl1<<tr("0")<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("40")<<tr("50");
+    //工作时间选项设置 1是测试用例，都是分钟
+    sl1<<tr("1")<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("40")<<tr("50");
     QStringList sl2;
-    sl2<<tr("0")<<tr("2")<<tr("3")<<tr("4")<<tr("6")<<tr("8")<<tr("10");
+    //休息时间选项设置
+    sl2<<tr("1")<<tr("2")<<tr("3")<<tr("4")<<tr("6")<<tr("8")<<tr("10");
     workTime->addItems(sl1);
      relaxTime->addItems(sl2);
     mChangeConfirm->setText("确定");
+
     mChangeConfirm->setStyleSheet(
         "QPushButton{"                             // 正常状态样式
         "background-color: rgb(0, 250, 154);"       // 背景色（也可以设置图片）
@@ -145,7 +148,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
         "}");
     mDelete->setMinimumSize(QSize(50,0));   //width height
     mDelete->setMaximumSize(QSize(50,100));
-    pBtn->setText("ooooo");
+
 
 
 
@@ -171,7 +174,7 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
         "}");
     pBtn->setMinimumSize(QSize(700,0));   //width height
     pBtn->setMaximumSize(QSize(750,100));
-    connect(pBtn,&QPushButton::clicked,this,&MissionPushButton::setAllNum);
+    connect(pBtn,&QPushButton::clicked,this,&MissionPushButton::setAllNum);//建立点击任务的效果
     hBlt->addWidget(pBtn);
     this->setLayout(hBlt);
     //建立信号与槽的连接
@@ -241,7 +244,7 @@ QPushButton* MissionPushButton::getPBtn(){
 }
 
 void MissionPushButton::sentDelete(){
-    qDebug()<<pBtn->text();
+
     this->hide();
     emit deleteMission();
 
@@ -258,11 +261,12 @@ void MissionPushButton::sentBegin(){
 }
 
 void MissionPushButton::change_clicked(){
+
     pBtn->hide();
     mBegin->hide();
     mChange->hide();
     mDelete->hide();
-
+    //显示修改窗口
     name.clear();
     name.setText("任务名:");
 
@@ -292,6 +296,7 @@ void MissionPushButton::change_clicked(){
 }
 
 void MissionPushButton::cancelChange(){
+     //点击取消按钮，选项消失
      mChangeConfirm->hide();
      mChangeCancel->hide();
     workTime->hide();
@@ -309,8 +314,10 @@ void MissionPushButton::cancelChange(){
 void MissionPushButton::confirmChange(){
       Mission mi;
       mi.setName(mName->text());
-      mi.setWorkTime(QTime(0,workTime->currentText().toInt(),10));
-      mi.setRelaxTime(QTime(0,relaxTime->currentText().toInt(),5));
+      //任务信息更改
+      //工作和休息时间重置
+      mi.setWorkTime(QTime(0,workTime->currentText().toInt(),0));
+      mi.setRelaxTime(QTime(0,relaxTime->currentText().toInt(),0));
 
       mChangeConfirm->hide();
       mChangeCancel->hide();
@@ -324,8 +331,9 @@ void MissionPushButton::confirmChange(){
       mBegin->show();
       mChange->show();
       mDelete->show();
+
        QString m=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
       pBtn->setText(m);
-
+    //发送修改任务的信息
       emit sentChange(mi);
 }
