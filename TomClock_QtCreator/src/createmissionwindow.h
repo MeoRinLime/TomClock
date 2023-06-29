@@ -22,7 +22,6 @@ signals:
 private:
     Ui::CreateMissionWindow *ui;
     Mission mi;//创建的任务
-    int countID = 0;//id
 
 private slots:
     void toCreate();//从其他界面来到创建任务界面

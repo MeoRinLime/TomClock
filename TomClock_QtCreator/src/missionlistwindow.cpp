@@ -20,6 +20,7 @@ MissionListWindow::MissionListWindow(QVector<Mission>m,QWidget *parent) :
         mpb->setNum(i);
 
         gL->addWidget(mpb);
+        //连接对应的信号和槽
         connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
         connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
         connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
@@ -77,8 +78,6 @@ void MissionListWindow::beginMission(){
     //发送开始信号和选中的任务
     emit jumpToRunWindows(missions[MissionPushButton::getallNum()]);
     this->hide();
-
-
 }
 
 void MissionListWindow::recieveMission(Mission mission){
@@ -93,10 +92,12 @@ void MissionListWindow::recieveMission(Mission mission){
     MissionPushButton *mpb = new MissionPushButton();
     mpb->getPBtn()->setText(m);
     mpb->setNum(missions.size()-1);
+
     connect(mpb->getPBtn(),&QPushButton::clicked,this,&MissionListWindow::disapearChoice);
     connect(mpb,&MissionPushButton::deleteMission,this,&MissionListWindow::deleteMission);
     connect(mpb,&MissionPushButton::beginMission,this,&MissionListWindow::beginMission);
     connect(mpb,SIGNAL(sentChange(Mission)),this,SLOT(changeMission(Mission)));
+
     MPBTS.push_back(mpb);
     for(int i=0;i<missions.size();i++){
         missions[i].setId(i);
@@ -107,7 +108,6 @@ void MissionListWindow::recieveMission(Mission mission){
     ui->scrollAreaWidgetContents->setFixedHeight(50*MPBTS.size());
     ui->scrollArea->widget()->setLayout(gL);
     emit updateDatabase();
-
 }
 
 
@@ -122,6 +122,7 @@ void MissionListWindow::on_create_clicked()
 {
     emit create();
 }
+
 void MissionListWindow::changeMission(Mission mi){
   //改变任务信息
     missions[MissionPushButton::getallNum()].setName(mi.getName());
@@ -130,8 +131,8 @@ void MissionListWindow::changeMission(Mission mi){
     QString m=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
     MPBTS[MissionPushButton::getallNum()]->getPBtn()->setText(m);
     emit updateDatabase();
-
 }
+
 QVector<Mission> MissionListWindow::getMission(){
     return missions;
 }

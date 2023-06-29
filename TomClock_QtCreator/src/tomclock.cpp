@@ -2,16 +2,10 @@
 
 TomClock::TomClock()
 {
-
-
-
     tcDatabase = new TomClockDatabase();
-    tcDatabase->queryMission(missionList);
-    tcDatabase->queryHistory(historyList);
 //    achievementW = new AchievementWindow();
     createW = new CreateMissionWindow();
-    missionListW = new MissionListWindow(missionList);
-    historyW=new HistoryWindow();
+    historyW= new HistoryWindow();
     runW = new RunWindow();
     settingW = new Settings();
     aboutW = new about();
@@ -33,17 +27,19 @@ TomClock::TomClock()
     //achieve test end
 
     initAchieveWindow();
+    initHistoryWindow();
+    initMissionListWindow();
+    //更新totalTime和totalTomato
+    totalTomato = historyW->caculateTotalTomato();
+    totalTime.fromString(historyW->caculateTotalTime());
 
-
-    mainW = new MainWindow(historyList);
+    mainW = new MainWindow(achieveList,historyList);
 
     qRegisterMetaType<QVector<History>>("QVector<History>");
-
-
-
+    qRegisterMetaType<QVector<Achievement>>("QVector<Achievement>");
 
     //各页面之间进行跳转的实现
-    connect(mainW, SIGNAL(JumptoAchievement()), achievementW, SLOT(MaintoAchievement()));
+    connect(mainW, SIGNAL(JumptoAchievement(QVector<Achievement>)), achievementW, SLOT(MaintoAchievement(QVector<Achievement>)));
     connect(mainW, SIGNAL(JumptoHistory(QVector<History>)), historyW, SLOT(MaintoHistory(QVector<History>)));
 
     connect(mainW, SIGNAL(JumptoMissionList()), missionListW, SLOT(MaintoList()));
@@ -65,8 +61,10 @@ TomClock::TomClock()
     connect(achievementW, SIGNAL(JumptoMain()), mainW, SLOT(AchievetoMain()));
 
     connect(createW,SIGNAL(sentAndJump(Mission)),missionListW,SLOT(recieveMission(Mission)));
+
     connect(missionListW,SIGNAL(updateDatabase()),this,SLOT(updataMissionDatabase()));
-    connect(runW,SIGNAL(sentHistory(History )),this,SLOT(updataHistoryDatabase(History)));
+    connect(runW,SIGNAL(sentHistory(History)),this,SLOT(updataHistoryDatabase(History)));
+    connect(runW, SIGNAL(toJudgeAchieve()), this, SLOT(judgeAchieve()));
 }
 
 TomClock::~TomClock()
@@ -87,26 +85,50 @@ void TomClock::initAchieveWindow()
 {
     tcDatabase->initAchievement(achieveList);       //若表为空则初始化，否则不做操作
     tcDatabase->queryAchievement(achieveList);      //从数据库获取成就数据
-    achievementW = new AchievementWindow(achieveList);
+    achievementW = new AchievementWindow();
 }
 
 void TomClock::initMissionListWindow()
 {
     tcDatabase->queryMission(missionList);
     //将missionList传给missionListW
+    missionListW = new MissionListWindow(missionList);
 }
 
-
+void TomClock::initHistoryWindow()
+{
+    tcDatabase->queryHistory(historyList);
+}
 
 void TomClock::showWindow()
 {
     mainW->show();
 }
 
+void TomClock::judgeAchieve()
+{
+    totalTomato = historyW->caculateTotalTomato();
+    achievementW->changeTomatoNum(totalTomato);
+    totalTime.fromString(historyW->caculateTotalTime());
+    /* if (成就1条件){
+     *  tcDatabase->updateAchievement(achieveList[0]);
+     * }
+     * if (成就2条件){
+     *  tcDatabase->updateAchievement(achieveList[1]);
+     * }
+     * ...
+     * ...
+    */
+    if (totalTime>QTime(0,0,1)){
+        tcDatabase->updateAchievement(achieveList[0]);//只能变成达成状态
+    }
+    tcDatabase->queryAchievement(achieveList);//更新程序中的achieveList
+}
+
 void TomClock::updataMissionDatabase(){
     missionList.clear();
-    missionList=missionListW->getMission();
-    qDebug()<<"hhhhhh";
+    missionList = missionListW->getMission();
+//    qDebug()<<"hhhhhh";
     tcDatabase->updateMission(missionList);
 }
 

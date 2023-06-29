@@ -30,9 +30,6 @@ int main(int argc, char *argv[])
 
 
     TomClock tomClock;
-//    tomClock.initAchieveWindow();
-//    tomClock.initHistoryWindow();
-//    tomClock.initMissionListWindow();
     tomClock.showWindow(); //显示主窗口
 
 //    //test

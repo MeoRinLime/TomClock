@@ -4,7 +4,7 @@
 #include <QResizeEvent>
 #include <QPalette>
 #include <QLabel>
-MainWindow::MainWindow(QVector<History> &historyList, QWidget *parent)
+MainWindow::MainWindow(QVector<Achievement> &achieveList, QVector<History> &historyList, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -13,6 +13,7 @@ MainWindow::MainWindow(QVector<History> &historyList, QWidget *parent)
     this->setStyleSheet("MainWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
     //bg3是浅色，bg2是深色
 
+    achieveListPtr = &achieveList;
     historyListPtr = &historyList;
 }
 
@@ -35,7 +36,7 @@ void MainWindow::on_historyData_clicked()
 void MainWindow::on_personalAchievement_clicked()
 {
     this->hide();
-    emit JumptoAchievement();
+    emit JumptoAchievement(*achieveListPtr);
 }
 //点击跳转至个人成就界面
 

@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "achievement.h"
 #include "history.h"
 #include <QMainWindow>
 #include <QFrame>
@@ -14,7 +15,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QVector<History> &historyList, QWidget *parent = nullptr);
+    MainWindow(QVector<Achievement> &achieveList, QVector<History> &historyList, QWidget *parent = nullptr);
     ~MainWindow();
 
     void setRatio(int width, int height);
@@ -24,7 +25,7 @@ public:
 
 
 signals:
-    void JumptoAchievement();//跳转至成就界面
+    void JumptoAchievement(QVector<Achievement> newAchieveList);//跳转至成就界面
     void JumptoHistory(QVector<History> historyList);//跳转至历史记录界面
     //void JumptoMissionCreate();//跳转至创建任务界面
     void JumptoMissionList();//点击开始或者图标后跳转至任务列表界面
@@ -36,6 +37,7 @@ private:
     int width_ratio;
     int height_ratio;
     QWidget* center_widget;
+    QVector<Achievement> *achieveListPtr;
     QVector<History> *historyListPtr;
 
 private slots:

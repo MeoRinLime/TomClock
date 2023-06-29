@@ -41,8 +41,6 @@ private:
     QVector<Mission>missions;//任务容器
     QGridLayout* gL;//网格布局
     QVector<MissionPushButton*>MPBTS;//任务选项容器
-
-
 };
 
 

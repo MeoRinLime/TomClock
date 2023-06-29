@@ -44,7 +44,15 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>799</width>
+      <height>500</height>
+     </rect>
+    </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -164,7 +172,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="widget" native="true">
+          <widget class="QWidget" name="widget1" native="true">
            <property name="minimumSize">
             <size>
              <width>380</width>
