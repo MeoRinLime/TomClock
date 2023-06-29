@@ -6,7 +6,7 @@ HistoryWindow::HistoryWindow( QWidget *parent) :
     ui(new Ui::HistoryWindow)
 {
     ui->setupUi(this);
-   ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
+    ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
     pLayout = new QGridLayout();//网格布局
 
    this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
