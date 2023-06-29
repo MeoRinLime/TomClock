@@ -33,7 +33,7 @@ signals:
 private slots:
     void MaintoHistory(QVector<History> histories);//从主界面到历史界面
     void on_backToMain_clicked();//回到主界面
-    void createHistory(History history);//获取新历史记录添加到容器中
+
 };
 
 #endif // HISTORYWINDOW_H
