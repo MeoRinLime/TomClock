@@ -5,5 +5,23 @@
         <file>resourse/images/background/bg1.png</file>
         <file>resourse/images/background/bg2.png</file>
         <file>resourse/images/background/bg3.png</file>
+        <file>resourse/images/Icons/Github/github-mark.png</file>
+        <file>resourse/images/Icons/Github/github-mark-white.png</file>
+        <file>resourse/images/Icons/Team/mingyu.jpg</file>
+        <file>resourse/images/Icons/Team/weilei.png</file>
+        <file>resourse/images/Icons/Team/xiaolei.jpg</file>
+        <file>resourse/images/Icons/Team/zonghan.jpg</file>
+        <file>resourse/images/Icons/Team/ruofeng.jpg</file>
+        <file>resourse/images/Icons/Team/TeamLogo.png</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file>resourse/sounds/achievement.wav</file>
+        <file>resourse/sounds/back.wav</file>
+        <file>resourse/sounds/daijobu.wav</file>
+        <file>resourse/sounds/finish.wav</file>
+        <file>resourse/sounds/pause1.wav</file>
+        <file>resourse/sounds/pause2.wav</file>
+        <file>resourse/sounds/settings.wav</file>
+        <file>resourse/sounds/stop.wav</file>
     </qresource>
 </RCC>

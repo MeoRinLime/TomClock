@@ -4,6 +4,7 @@
 #include <QResizeEvent>
 #include <QPalette>
 #include <QLabel>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -12,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setStyleSheet("MainWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
     //bg3是浅色，bg2是深色
+
 }
 
 //:/images/resourse/images/background/bg1.png

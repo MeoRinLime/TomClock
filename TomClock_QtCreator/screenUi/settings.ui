@@ -119,6 +119,25 @@
                   <pointsize>20</pointsize>
                  </font>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">.QPushButton,.QToolButton{
+border-style:none;
+border:1px solid #242424;
+color:#DCDCDC;
+padding:5px;
+min-height:15px;
+border-radius:5px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
+}
+
+.QPushButton:hover,.QToolButton:hover{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);
+}
+
+.QPushButton:pressed,.QToolButton:pressed{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
+}</string>
+                </property>
                 <property name="text">
                  <string>返回</string>
                 </property>
@@ -284,6 +303,30 @@
                       <pointsize>15</pointsize>
                      </font>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">QComboBox::down-arrow,QDateEdit[calendarPopup=&quot;true&quot;]::down-arrow,QTimeEdit[calendarPopup=&quot;true&quot;]::down-arrow,QDateTimeEdit[calendarPopup=&quot;true&quot;]::down-arrow{
+image:url(:/qss/lightblue/add_bottom.png);
+width:10px;
+height:10px;
+right:2px;
+}
+
+QComboBox::drop-down,QDateEdit::drop-down,QTimeEdit::drop-down,QDateTimeEdit::drop-down{
+subcontrol-origin:padding;
+subcontrol-position:top right;
+width:15px;
+border-left-width:0px;
+border-left-style:solid;
+border-top-right-radius:3px;
+border-bottom-right-radius:3px;
+border-left-color:#C0DCF2;
+}
+
+QComboBox::drop-down:on{
+top:1px;
+}
+</string>
+                    </property>
                     <item>
                      <property name="text">
                       <string extracomment="dawn’s gentle glow">晨曦微光</string>
@@ -425,6 +468,30 @@
                      <font>
                       <pointsize>15</pointsize>
                      </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QComboBox::down-arrow,QDateEdit[calendarPopup=&quot;true&quot;]::down-arrow,QTimeEdit[calendarPopup=&quot;true&quot;]::down-arrow,QDateTimeEdit[calendarPopup=&quot;true&quot;]::down-arrow{
+image:url(:/qss/lightblue/add_bottom.png);
+width:10px;
+height:10px;
+right:2px;
+}
+
+QComboBox::drop-down,QDateEdit::drop-down,QTimeEdit::drop-down,QDateTimeEdit::drop-down{
+subcontrol-origin:padding;
+subcontrol-position:top right;
+width:15px;
+border-left-width:0px;
+border-left-style:solid;
+border-top-right-radius:3px;
+border-bottom-right-radius:3px;
+border-left-color:#C0DCF2;
+}
+
+QComboBox::drop-down:on{
+top:1px;
+}
+</string>
                     </property>
                     <item>
                      <property name="text">

@@ -3,6 +3,7 @@
 
 #include <QLabel>
 #include <QPalette>
+#include <QFile>
 
 Settings::Settings(QWidget *parent) :
     QWidget(parent),
@@ -14,7 +15,7 @@ Settings::Settings(QWidget *parent) :
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 
     connect(ui->themeChange, SIGNAL(currentIndexChanged(int)), this, SLOT(on_themeChange_currentIndexChanged(int)));
-
+    //更换主题
 }
 
 Settings::~Settings()
@@ -68,7 +69,7 @@ void Settings::on_themeChange_currentIndexChanged(int index)
         }
     }
 /* 有一个问题就是切换背景图片的时候会提示“Could not parse stylesheet of object QComboBoxPrivateContainer”
- * 同时需要加载2-3秒钟才可以完成切换，我暂时还没有找到解决办法。好像可以自定义事件，如果时间充裕再考虑写一下
+ * 同时需要加载8-10秒钟才可以完成切换，我暂时还没有找到解决办法。好像可以自定义事件，如果时间充裕再考虑写一下
  */
 //    this->setStyleSheet("Settings {border-image:url(:/images/resourse/images/background/bg2.png);}");
 //    "Data { background-image: url(/path/to/background/image.jpg);}"

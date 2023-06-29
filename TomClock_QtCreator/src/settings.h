@@ -22,6 +22,7 @@ signals:
     void currentIndexChanged(int);
     void BacktoMain();
 
+
 private slots:
     void MaintoSettings();
     void on_backToMain_clicked();
