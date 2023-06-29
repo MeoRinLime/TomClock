@@ -6,6 +6,8 @@ CreateMissionWindow::CreateMissionWindow(QWidget *parent) :
     ui(new Ui::CreateMissionWindow)
 {
     ui->setupUi(this);
+
+    //设置窗口样式
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
 }
 

@@ -72,6 +72,7 @@ void HistoryWindow::MaintoHistory()
 }
 
 QString HistoryWindow::caculateTotalTime(){
+    //计算总时长
     int h=0 ;
     int m=0;
     int s=0;
@@ -102,6 +103,8 @@ void HistoryWindow::on_backToMain_clicked()
 }
 void HistoryWindow::createHistory(History history){
         histories.push_back(history);
+
+        //刷新历史界面
         qDebug()<<"接到历史数据"<<historyRecord(histories[0]);
         delete pLayout;
         pLayout = new QGridLayout();//网格布局
