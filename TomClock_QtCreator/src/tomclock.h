@@ -40,6 +40,10 @@ private:
     Settings *settingW;
     about *aboutW;
     OurTeam *teamW;
+
+    QVector<Mission> missionList;
+    QVector<History> historyList;
+    QVector<Achievement> achieveList;
 };
 
 #endif // TOMCLOCK_H

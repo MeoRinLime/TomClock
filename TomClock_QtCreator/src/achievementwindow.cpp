@@ -8,7 +8,7 @@
 #include <QPixmap>
 #include <QImage>
 
-AchievementWindow::AchievementWindow(QVector<Achievement> achievementList, QWidget *parent) :
+AchievementWindow::AchievementWindow(const QVector<Achievement> &achievementList, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AchievementWindow)
 {
@@ -23,13 +23,17 @@ AchievementWindow::AchievementWindow(QVector<Achievement> achievementList, QWidg
     imageList << QString("MainIcon.png")   //0
               << QString("resourse/images/Icons/Main_Color/tomato1.png") //1
               << QString("MainIcon.png")   //2
-              << QString("resourse/images/Icons/Main_Color/tomato1.png");
+              << QString("resourse/images/Icons/Main_Color/tomato1.png")
+              << QString("MainIcon.png")
+              << QString("MainIcon.png")
+              << QString("MainIcon.png");
 
     //进行界面的布局
     for(int i = 0; i < achievementList.size(); i++){
         QWidget *tmpWidgetPtr = new QWidget();                                                                //当前的成就的widget
         tmpWidgetPtr->setObjectName("tmpWidget");                                                             //设置ui对象名
         tmpWidgetPtr->setStyleSheet(QString("QWidget#tmpWidget{border:1px solid black;border-radius:15px}")); //边框设置为黑色，圆角
+//        tmpWidgetPtr->setFixedWidth(300);
         QVBoxLayout *tmpLayout = new QVBoxLayout(tmpWidgetPtr);                                               //每个成就内部的布局
 
         QLabel *imageLabel = new QLabel();                                        //当前成就的图片的标签
@@ -114,11 +118,11 @@ void AchievementWindow::changeTomatoNum(int tomatoNum)
 
 void AchievementWindow::resizeEvent(QResizeEvent *event)
 {
-//    float width = this->width() * 1.0 / 600;
-//    float height = this->height() * 1.0 / 400;
-//    for (auto i = allWidgetRect.begin(); i != allWidgetRect.end(); i++){
-//        i.key()->setGeometry(i.value().x() * width, i.value().y() *height, i.value().width() * width, i.value().height() * height);
-//    }
+    float width = this->width() * 1.0 / 800;
+    float height = this->height() * 1.0 / 500;
+    for (auto i = allWidgetRect.begin(); i != allWidgetRect.end(); i++){
+        i.key()->setGeometry(i.value().x() * width, i.value().y() *height, i.value().width() * width, i.value().height() * height);
+    }
     QWidget::resizeEvent(event);
 }
 
