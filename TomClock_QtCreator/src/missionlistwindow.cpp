@@ -136,3 +136,15 @@ QVector<Mission> MissionListWindow::getMission(){
     return missions;
 }
 
+void MissionListWindow::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+
+    }
+}

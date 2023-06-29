@@ -19,6 +19,7 @@ public:
 
     void setRatio(int width, int height);
     QWidget* widget;
+    void changeEvent(QEvent *event);
 
 
 

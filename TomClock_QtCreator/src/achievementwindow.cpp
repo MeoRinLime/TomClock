@@ -131,3 +131,16 @@ void AchievementWindow::closeEvent(QCloseEvent *event)
     emit JumptoMain();
     QMainWindow::closeEvent(event);
 }
+
+void AchievementWindow::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+
+    }
+}

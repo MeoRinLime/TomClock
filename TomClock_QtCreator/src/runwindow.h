@@ -17,6 +17,7 @@ class RunWindow : public QMainWindow
 public:
     explicit RunWindow(QWidget *parent = nullptr);
     ~RunWindow();
+    void changeEvent(QEvent *event);
 
 signals:
     void JumptoMain();   //界面跳转

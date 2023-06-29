@@ -112,3 +112,16 @@ void MainWindow::ListtoMain()
 {
     this->show();
 }
+
+void MainWindow::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+
+    }
+}

@@ -1,9 +1,11 @@
 #include "settings.h"
 #include "ui_settings.h"
+#include "ui_about.h"
 
 #include <QLabel>
 #include <QPalette>
 #include <QFile>
+#include <QTranslator>
 
 Settings::Settings(QWidget *parent) :
     QWidget(parent),
@@ -13,9 +15,12 @@ Settings::Settings(QWidget *parent) :
 
     setAttribute(Qt::WA_StyledBackground);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    languageComboBox = ui->languageChange;
 
-    connect(ui->themeChange, SIGNAL(currentIndexChanged(int)), this, SLOT(on_themeChange_currentIndexChanged(int)));
+    connect(ui->themeChange, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &Settings::on_themeChange_currentIndexChanged);
     //更换主题
+    connect(languageComboBox, QOverload<const QString&>::of(&QComboBox::currentTextChanged), this, &Settings::on_languageChange_currentTextChanged);
+    //更换语言
 }
 
 Settings::~Settings()
@@ -80,5 +85,45 @@ void Settings::on_themeChange_currentIndexChanged(int index)
 //    this->setStyleSheet("Settings {border-image:url(:/images/resourse/images/background/bg2.png);}");
 //    "Data { background-image: url(/path/to/background/image.jpg);}"
 }
+
+
+void Settings::on_languageChange_currentTextChanged(const QString &languageText)
+{
+    QString languageCode;
+    QString languageCountry;
+    if (languageText == "English")
+    {
+        languageCode = "en";
+        languageCountry = "EN";
+    }
+    else if (languageText == "简体中文")
+    {
+        languageCode = "zh";
+        languageCountry = "CN";
+    }
+
+    QTranslator *translator = new QTranslator(this);
+
+    // 拼接翻译文件路径
+    QString translationPath = ":/TomClock_" + languageCode + "_" + languageCountry + ".qm";
+
+    // 移除之前的翻译器
+    qApp->removeTranslator(translator);
+
+    // 加载新的翻译文件
+    if (translator->load(translationPath))
+        qApp->installTranslator(translator);
+
+    ui->retranslateUi(this);
+
+
+    //文件路径的检查
+//    QFile file(translationPath);
+//    if (!file.exists()) {
+//        qDebug() << "Translation file not found: " << translationPath;
+//        return;
+//    }
+}
+
 
 

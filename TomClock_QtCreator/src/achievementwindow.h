@@ -18,7 +18,7 @@ public:
     ~AchievementWindow();
     void changeTomatoNum(int tomatoNum);                                //改变番茄数
     void updateAchievementState(int indexOfAchievement, bool newState); //更新成就的状态
-
+    void changeEvent(QEvent *event);
 signals:
     void JumptoMain();
 

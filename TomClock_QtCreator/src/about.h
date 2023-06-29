@@ -2,6 +2,7 @@
 #define ABOUT_H
 
 #include <QWidget>
+#include <QEvent>
 
 namespace Ui {
 class about;
@@ -14,6 +15,7 @@ class about : public QWidget
 public:
     explicit about(QWidget *parent = nullptr);
     ~about();
+    void changeEvent(QEvent *event);
 
 private:
     Ui::about *ui;

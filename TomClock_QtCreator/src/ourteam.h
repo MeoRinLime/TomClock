@@ -14,6 +14,7 @@ class OurTeam : public QWidget
 public:
     explicit OurTeam(QWidget *parent = nullptr);
     ~OurTeam();
+    void changeEvent(QEvent *event);
 
 signals:
     void BacktoAbout();

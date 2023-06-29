@@ -33,3 +33,15 @@ void OurTeam::on_backToAbout_clicked()
     emit BacktoAbout();
 }
 
+void OurTeam::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+
+    }
+}

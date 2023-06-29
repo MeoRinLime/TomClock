@@ -207,3 +207,16 @@ void RunWindow::on_AbortButton_clicked()
     });
     abortConfirmMsgBox->exec();
 }
+
+void RunWindow::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+
+    }
+}

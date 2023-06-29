@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<TS version="2.1" language="en">
 <context>
     <name>AchievementWindow</name>
     <message>
@@ -11,12 +11,12 @@
     <message>
         <location filename="../../screenUi/achievementwindow.ui" line="36"/>
         <source>已有番茄数</source>
-        <translation>已有番茄数</translation>
+        <translation>Already had number of tomatoes</translation>
     </message>
     <message>
         <location filename="../../screenUi/achievementwindow.ui" line="49"/>
         <source>0</source>
-        <translation></translation>
+        <translation>0</translation>
     </message>
 </context>
 <context>
@@ -24,17 +24,17 @@
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="32"/>
         <source>TomClock</source>
-        <translation></translation>
+        <translation>TomClock</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="199"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;任务名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Mission Name：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="236"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;休息时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;休息时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Rest Time：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="254"/>
@@ -70,22 +70,22 @@
         <location filename="../../screenUi/createmissionwindow.ui" line="296"/>
         <location filename="../../screenUi/createmissionwindow.ui" line="496"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;分钟&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;分钟&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Minutes&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="335"/>
         <source>取消</source>
-        <translation>取消</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="391"/>
         <source>添加到任务列表</source>
-        <translation>添加到任务列表</translation>
+        <translation>Adding To Mission List</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="436"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;工作时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;工作时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Working Time：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="454"/>
@@ -128,12 +128,12 @@
     <message>
         <location filename="../../screenUi/historywindow.ui" line="90"/>
         <source>返回</source>
-        <translation>返回</translation>
+        <translation>Back</translation>
     </message>
     <message>
         <location filename="../../screenUi/historywindow.ui" line="113"/>
         <source>总番茄数：</source>
-        <translation>总番茄数：</translation>
+        <translation>The Number of tomatoes:</translation>
     </message>
     <message>
         <location filename="../../screenUi/historywindow.ui" line="122"/>
@@ -145,12 +145,12 @@
     <message>
         <location filename="../../screenUi/historywindow.ui" line="131"/>
         <source>          总时长：</source>
-        <translation>          总时长：</translation>
+        <translation>          Total Working Time：</translation>
     </message>
     <message>
         <location filename="../../screenUi/historywindow.ui" line="161"/>
         <source>总任务记录数：</source>
-        <translation>总任务记录数：</translation>
+        <translation>Total Finished Missions：</translation>
     </message>
 </context>
 <context>
@@ -163,32 +163,32 @@
     <message>
         <location filename="../../screenUi/mainwindow.ui" line="85"/>
         <source>历史数据</source>
-        <translation>历史数据</translation>
+        <translation>History Data</translation>
     </message>
     <message>
         <location filename="../../screenUi/mainwindow.ui" line="98"/>
         <source>个人成就</source>
-        <translation>个人成就</translation>
+        <translation>Achievement</translation>
     </message>
     <message>
         <location filename="../../screenUi/mainwindow.ui" line="130"/>
         <source>任务列表</source>
-        <translation>任务列表</translation>
+        <translation>Mission List</translation>
     </message>
     <message>
         <location filename="../../screenUi/mainwindow.ui" line="356"/>
         <source>开始</source>
-        <translation>开始</translation>
+        <translation>START</translation>
     </message>
     <message>
         <location filename="../../screenUi/mainwindow.ui" line="491"/>
         <source>设置</source>
-        <translation>设置</translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <location filename="../../screenUi/mainwindow.ui" line="504"/>
         <source>关于</source>
-        <translation>关于</translation>
+        <translation>About</translation>
     </message>
 </context>
 <context>
@@ -201,17 +201,17 @@
     <message>
         <location filename="../../screenUi/missionlistwindow.ui" line="129"/>
         <source>返回</source>
-        <translation>返回</translation>
+        <translation>Back</translation>
     </message>
     <message>
         <location filename="../../screenUi/missionlistwindow.ui" line="184"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;任务列表&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;任务列表&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;Mission List&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/missionlistwindow.ui" line="342"/>
         <source>创建新任务</source>
-        <translation>创建新任务</translation>
+        <translation>Create a New Mission</translation>
     </message>
 </context>
 <context>
@@ -298,17 +298,17 @@
     <message>
         <location filename="../../screenUi/ourteam.ui" line="135"/>
         <source>返回</source>
-        <translation>返回</translation>
+        <translation>Back</translation>
     </message>
     <message>
         <location filename="../../screenUi/ourteam.ui" line="180"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;   你想问我们是谁？ &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;既然你诚心诚意的发问了&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;我们便大发慈悲的告诉你&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;为了防止世界被破坏&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;为了维护世界的和平&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;贯彻爱与真实的&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;PROGRAMMING&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;可爱又迷人的&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;软工&lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;角色 ~&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;我们是穿梭在&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;武汉测绘学院&lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;的&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;心跳编程社 !&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;烤地瓜，光明的未来在等着我们 !&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;就是这样 ~&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;   你想问我们是谁？ &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;既然你诚心诚意的发问了&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;我们便大发慈悲的告诉你&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;为了防止世界被破坏&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;为了维护世界的和平&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;贯彻爱与真实的&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;PROGRAMMING&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;可爱又迷人的&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;软工&lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;角色 ~&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;我们是穿梭在&lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;武汉测绘学院&lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;的&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;心跳编程社 !&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;烤地瓜，光明的未来在等着我们 !&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;就是这样 ~&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;   Who are us？ &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Since you asked sincerely&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;We mercifully tell you&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;To keep the world from being destroyed&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;To maintain world peace&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Carry out lovly and truely &lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;PROGRAMMING&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Adorable and charming &lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;SOFTWARE ENGINEER &lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;character ~&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Shuttling in &lt;/span&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Wuhan University&apos;s&lt;/span&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;DokiDoki Programing Club !&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Oishi food and Bright future is waiting for us!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;That&apos;s all ~&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/ourteam.ui" line="267"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700;&quot;&gt;成员&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700;&quot;&gt;成员&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700;&quot;&gt;Members&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/ourteam.ui" line="344"/>
@@ -346,7 +346,7 @@
     <message>
         <location filename="../../screenUi/runwindow.ui" line="101"/>
         <source>学习XXX</source>
-        <translation>学习XXX</translation>
+        <translation>StudyingXXX</translation>
     </message>
     <message>
         <location filename="../../screenUi/runwindow.ui" line="156"/>
@@ -356,12 +356,12 @@
     <message>
         <location filename="../../screenUi/runwindow.ui" line="197"/>
         <source>暂停</source>
-        <translation>暂停</translation>
+        <translation>Pause</translation>
     </message>
     <message>
         <location filename="../../screenUi/runwindow.ui" line="223"/>
         <source>终止</source>
-        <translation>终止</translation>
+        <translation>Stop</translation>
     </message>
 </context>
 <context>
@@ -374,29 +374,29 @@
     <message>
         <location filename="../../screenUi/settings.ui" line="142"/>
         <source>返回</source>
-        <translation>返回</translation>
+        <translation>Back</translation>
     </message>
     <message>
         <location filename="../../screenUi/settings.ui" line="247"/>
         <source>主题：</source>
-        <translation>主题：</translation>
+        <translation>Theme：</translation>
     </message>
     <message>
         <location filename="../../screenUi/settings.ui" line="332"/>
         <source>晨曦微光</source>
         <extracomment>dawn’s gentle glow</extracomment>
-        <translation>晨曦微光</translation>
+        <translation>Dawn’s Gentle Glow</translation>
     </message>
     <message>
         <location filename="../../screenUi/settings.ui" line="337"/>
         <source>夜色如墨</source>
         <extracomment>nightfall’s descent</extracomment>
-        <translation>夜色如墨</translation>
+        <translation>Nightfall’s Descent</translation>
     </message>
     <message>
         <location filename="../../screenUi/settings.ui" line="413"/>
         <source>语言：</source>
-        <translation>语言：</translation>
+        <translation>Language：</translation>
     </message>
     <message>
         <location filename="../../screenUi/settings.ui" line="498"/>
@@ -421,27 +421,27 @@
     <message>
         <location filename="../../screenUi/about.ui" line="99"/>
         <source>返回</source>
-        <translation>返回</translation>
+        <translation>Back</translation>
     </message>
     <message>
         <location filename="../../screenUi/about.ui" line="145"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;关于我们...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;关于我们...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;About us...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/about.ui" line="179"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;欢迎来到番茄钟！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;我们一直梦想着，&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;可以为我们热爱的事物做些特别的事情。&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;既然你成为了自律的一员，那么...&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;你就可以在我们这个可爱的番茄钟里实现梦想！ &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;欢迎来到番茄钟！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;我们一直梦想着，&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;可以为我们热爱的事物做些特别的事情。&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;既然你成为了自律的一员，那么...&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;你就可以在我们这个可爱的番茄钟里实现梦想！ &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;Welcome to TomClock！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;We are dreaming that...，&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;We can do some special changes for our beloved things&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;Since you become the person who is self-discipline....Then&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;You can achieve your dream in the application！ &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/about.ui" line="249"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;想了解更多细节？&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;点击左侧按钮访问GitHub！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;想了解更多细节？&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;点击左侧按钮访问GitHub！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;More details？&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:700;&quot;&gt;Press the button left to see in GitHub！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/about.ui" line="302"/>
         <source>我们的团队</source>
-        <translation>我们的团队</translation>
+        <translation>Our Team</translation>
     </message>
 </context>
 </TS>

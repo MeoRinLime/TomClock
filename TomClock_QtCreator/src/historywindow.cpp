@@ -157,3 +157,16 @@ void HistoryWindow::closeEvent(QCloseEvent *event)
     emit BacktoMain();
     QWidget::closeEvent(event);
 }
+
+void HistoryWindow::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+
+    }
+}

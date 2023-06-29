@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QLibraryInfo>
 
 int main(int argc, char *argv[])
 {
@@ -10,13 +11,23 @@ int main(int argc, char *argv[])
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
+    bool translationLoaded = false;
+
     for (const QString &locale : uiLanguages) {
         const QString baseName = "TomClock_" + QLocale(locale).name();
-        if (translator.load(":/i18n/" + baseName)) {
+        if (translator.load(":/" + baseName)) {
             a.installTranslator(&translator);
+            translationLoaded = true;
             break;
         }
     }
+
+    if (!translationLoaded) {
+        // 如果无法加载系统UI语言对应的翻译文件，使用默认的Qt翻译文件
+        translator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+        a.installTranslator(&translator);
+    }
+
 
     TomClock tomClock;
 //    tomClock.initAchieveWindow();

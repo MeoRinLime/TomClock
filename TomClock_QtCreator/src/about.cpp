@@ -51,3 +51,16 @@ void about::closeEvent(QCloseEvent *event)
     emit BacktoMain();
     QWidget::closeEvent(event);
 }
+
+void about::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+
+    }
+}

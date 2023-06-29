@@ -19,7 +19,7 @@ class MissionListWindow : public QWidget
 public:
     explicit MissionListWindow(QVector<Mission>m,QWidget *parent = nullptr);
     ~MissionListWindow();
-
+    void changeEvent(QEvent *event);
     QVector<Mission> getMission();
 signals:
     void jumpToRunWindows(Mission mission);//传送任务信息并前往计时界面

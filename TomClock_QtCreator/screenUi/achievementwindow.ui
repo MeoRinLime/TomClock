@@ -28,7 +28,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>61</width>
+     <width>211</width>
      <height>20</height>
     </rect>
    </property>
@@ -39,7 +39,7 @@
   <widget class="QLabel" name="numOfTomato">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>240</x>
      <y>20</y>
      <width>131</width>
      <height>21</height>

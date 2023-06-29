@@ -49,4 +49,15 @@ void CreateMissionWindow::on_comfirm_clicked()
     this->close();
 }
 
+void CreateMissionWindow::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
 
+    }
+}

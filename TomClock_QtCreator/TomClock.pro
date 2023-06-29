@@ -58,7 +58,9 @@ FORMS += \
     src/missionpushbutton.ui
 
 TRANSLATIONS += \
-    src\lang\TomClock_zh_CN.ts
+    src/lang/TomClock_zh_CN.ts \
+    src/lang/TomClock_en_EN.ts
+
 CONFIG += lrelease
 CONFIG += embed_translations
 
@@ -68,4 +70,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    res.qrc
+    res.qrc \
+    src/lang/language.qrc
