@@ -19,9 +19,9 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
     mDelete=new QPushButton();
 
     QStringList sl1;
-    sl1<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("40")<<tr("50");
+    sl1<<tr("0")<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("40")<<tr("50");
     QStringList sl2;
-    sl2<<tr("2")<<tr("3")<<tr("4")<<tr("6")<<tr("8")<<tr("10");
+    sl2<<tr("0")<<tr("2")<<tr("3")<<tr("4")<<tr("6")<<tr("8")<<tr("10");
     workTime->addItems(sl1);
      relaxTime->addItems(sl2);
     mChangeConfirm->setText("确定");

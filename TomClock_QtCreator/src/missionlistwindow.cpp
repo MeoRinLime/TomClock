@@ -75,6 +75,7 @@ void MissionListWindow::beginMission(){
 
 void MissionListWindow::recieveMission(Mission mission){
     missions.push_back(mission);
+
     delete gL;
     gL = new  QGridLayout();
 
@@ -116,6 +117,6 @@ void MissionListWindow::changeMission(Mission mi){
     missions[MissionPushButton::getallNum()].setRelaxTime(mi.getRelaxTime());
     QString mmmmm=mi.getName()+"   "+mi.getWorkTime().toString()+"  "+mi.getRelaxTime().toString();
     MPBTS[MissionPushButton::getallNum()]->getPBtn()->setText(mmmmm);
-    qDebug()<<"执行"<<"hh";
+
 
 }

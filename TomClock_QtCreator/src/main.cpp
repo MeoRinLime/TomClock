@@ -86,6 +86,7 @@ int main(int argc, char *argv[])
     QObject::connect(&runW, SIGNAL(JumptoMain()), &mainW, SLOT(RuntoMain()));
     QObject::connect(&achievementW, SIGNAL(JumptoMain()), &mainW, SLOT(AchievetoMain()));
     QObject::connect(&listW, SIGNAL(BacktoMain()), &mainW, SLOT(ListtoMain()));
+    QObject::connect(&runW, SIGNAL(sentHistory(History)), &historyW, SLOT(createHistory(History)));
     //我尝试了在各个页面的cpp文件下写页面跳转，但是好像先创建所有窗口方法的跳转不支持，你们有解决办法可以重写一下
 
     return a.exec();
