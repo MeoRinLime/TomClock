@@ -2,6 +2,7 @@
 #define RUNWINDOW_H
 
 #include "mission.h"
+#include "history.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -18,6 +19,7 @@ public:
 
 signals:
     void JumptoMain();   //界面跳转
+    void addNewHistory(History newHistory);
     void noTomato();      //告知控制模块 本次任务无番茄
     void oneMoreTomato(); //告知控制模块 本次任务有番茄
 
@@ -29,7 +31,6 @@ private:
     QTimer *periodTimer;    //计时器 每段workTime/relaxTime一次 用于切换工作休息
     int whichPeriod;        //记录 当前处于哪一个番茄钟时间段 范围从0到7
     bool oncePaused;        //记录 曾经是否暂停过
-
     void closeEvent(QCloseEvent *event); //重写closeEvent，跳转回mainWindow
 
 private slots:

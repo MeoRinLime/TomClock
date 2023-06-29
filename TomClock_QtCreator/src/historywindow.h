@@ -16,17 +16,17 @@ class HistoryWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit HistoryWindow(QWidget *parent = nullptr);
+    explicit HistoryWindow(const QVector<History> &histories, QWidget *parent = nullptr);
     ~HistoryWindow();
     QString caculateTotalTime();//计算总时长
     QString historyRecord(History h);//获取历史纪录
 private:
     Ui::HistoryWindow *ui;
-    QVector<History>histories;
+    QVector<History> histories;
 signals:
     void BacktoMain();
 private slots:
-    void MaintoHistory();
+    void MaintoHistory(QVector<History> histories);
     void on_backToMain_clicked();
 };
 

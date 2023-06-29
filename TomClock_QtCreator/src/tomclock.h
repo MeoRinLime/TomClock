@@ -27,6 +27,7 @@ public:
     //初始化历史窗口，并连接
     void initHistoryWindow();
     void showWindow(); //显示主窗口
+    int numOfTomato;
 
 private:
     TomClockDatabase *tcDatabase;

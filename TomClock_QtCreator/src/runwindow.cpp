@@ -1,5 +1,6 @@
 #include "runwindow.h"
 #include "ui_runwindow.h"
+#include "tomclock.h"
 #include <QTimer>
 #include <QMessageBox>
 
@@ -121,6 +122,9 @@ void RunWindow::nextPeriod()
         update();
         break;
     case 7:
+        /*
+         * 此处由于Pologue对番茄的计数理解有误，应当做出修改
+        */
         //整个任务结束
         if (oncePaused){ //若曾经暂停过，则无番茄
             emit noTomato();
@@ -176,7 +180,17 @@ void RunWindow::on_AbortButton_clicked()
 //        delete periodTimer;
         secTimer->stop();
         periodTimer->stop();
-        emit noTomato(); //无番茄
+
+        /*
+         * 此处由于Pologue对番茄的计数理解有误，应当做出修改
+        */
+        //创建一个历史对象
+        QTime totalTime = QTime(0,0,0).addSecs(4 * QTime(0,0,0).secsTo(curMission.getWorkTime()) + 7 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
+        History newHistory(100, QDate::currentDate(), curMission.getName(), 0, totalTime);
+        emit addNewHistory(newHistory);
+//        emit noTomato(); //无番茄
+
+
         //跳转到主窗口
         emit JumptoMain();
         this->close();

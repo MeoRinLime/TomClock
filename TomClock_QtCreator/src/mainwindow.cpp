@@ -4,7 +4,7 @@
 #include <QResizeEvent>
 #include <QPalette>
 #include <QLabel>
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QVector<History> &historyList, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->setStyleSheet("MainWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
     //bg3是浅色，bg2是深色
+
+    historyListPtr = &historyList;
 }
 
 //:/images/resourse/images/background/bg1.png
@@ -25,7 +27,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_historyData_clicked()
 {
     this->hide();
-    emit JumptoHistory();
+    emit JumptoHistory(*historyListPtr);
 }
 
 //点击跳转至历史数据界面

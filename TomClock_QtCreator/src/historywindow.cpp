@@ -1,25 +1,28 @@
 #include "historywindow.h"
 #include "ui_historywindow.h"
 
-HistoryWindow::HistoryWindow(QWidget *parent) :
+HistoryWindow::HistoryWindow(const QVector<History> &histories, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::HistoryWindow)
 {
     ui->setupUi(this);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
     ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
+
     //数据是否可以导入测试部分
-    History h;
-    QDate q(QDate::currentDate());
-    h.setDate(q);
-    h.setName("aaa");
-    h.setNumOfTomato(5);
-    QTime tt(QTime::currentTime());
-    h.setTotalTime(tt);
-    for(int i=0;i<100;i++){
-        histories.push_back(h);
-    }
+//    History h;
+//    QDate q(QDate::currentDate());
+//    h.setDate(q);
+//    h.setName("aaa");
+//    h.setNumOfTomato(5);
+//    QTime tt(QTime::currentTime());
+//    h.setTotalTime(tt);
+//    for(int i=0;i<100;i++){
+//        histories.push_back(h);
+//    }
+    this->histories = histories;
     //测试部分结束
+
     ui->numOfTotal->clear();//清空numOfTotal显示的字
     ui->numOfTotal->setText(QString::number(histories.size()));//把任务记录数显示出来
     ui->totalTime->clear();//清空totalTime显示的字
@@ -65,8 +68,9 @@ HistoryWindow::~HistoryWindow()
     delete ui;
 }
 
-void HistoryWindow::MaintoHistory()
+void HistoryWindow::MaintoHistory(QVector<History> histories)
 {
+    this->histories = histories;
     this->show();
 }
 
@@ -74,10 +78,10 @@ QString HistoryWindow::caculateTotalTime(){
     int h=0 ;
     int m=0;
     int s=0;
-    for(int i=0;i<histories.size();i++){
-        h+= histories[i].getTotalTime().hour();
-        m+=histories[i].getTotalTime().minute();
-        s+=histories[i].getTotalTime().msec();
+    for(int i = 0; i < histories.size(); i++){
+        h += histories[i].getTotalTime().hour();
+        m += histories[i].getTotalTime().minute();
+        s += histories[i].getTotalTime().msec();
     }
     m+=s/60;
     s=s%60;
@@ -85,18 +89,18 @@ QString HistoryWindow::caculateTotalTime(){
     m=m%60;
 
     QString t=QString::number(h)+"小时"+QString::number(m)+"分钟"+QString::number(s)+"秒";
-                return t;
+    return t;
 }
 
 QString HistoryWindow::historyRecord(History h){
-                QString hi=h.getDate().toString("dd.MM.yyyy")+"              "+h.getName()+"                  番茄数："+QString::number(h.getNumOfTomato())
+    QString hi=h.getDate().toString("dd.MM.yyyy")+"              "+h.getName()+"                  番茄数："+QString::number(h.getNumOfTomato())
 +"        学习时长"+h.getTotalTime().toString();
-        return hi;
+    return hi;
 }
 
 void HistoryWindow::on_backToMain_clicked()
 {
-        this->hide();
-        emit BacktoMain();
+    this->hide();
+    emit BacktoMain();
 }
 
