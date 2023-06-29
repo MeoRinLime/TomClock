@@ -34,7 +34,7 @@ private:
     bool oncePaused;        //记录 曾经是否暂停过
     void closeEvent(QCloseEvent *event); //重写closeEvent，跳转回mainWindow
     History history;
-    int numOfTomato;
+    int addNumOfTomato;
 private slots:
     void ListtoRun(const Mission &mission);       //界面跳转
     void processTimeout();  //处理计时器信号

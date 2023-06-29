@@ -29,9 +29,10 @@ public slots:
     void updateMission(const QVector<Mission> &missionList);
     void queryMission(QVector<Mission> &missioinList);
 
-    //历史记录的增加和查询
+    //历史记录的增加,查询,删除
     void addHistory(const History &history);
     void queryHistory(QVector<History> &historyList);
+    void deleteAllHistory();
 
     //成就的更新和查询
     void initAchievement(const QVector<Achievement> &achievementList);

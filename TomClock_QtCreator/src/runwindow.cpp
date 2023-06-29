@@ -1,6 +1,5 @@
 #include "runwindow.h"
 #include "ui_runwindow.h"
-#include "tomclock.h"
 #include <QTimer>
 #include <QMessageBox>
 
@@ -30,7 +29,7 @@ void RunWindow::closeEvent(QCloseEvent *event)
 
 void RunWindow::ListtoRun(const Mission &mission)
 {
-    numOfTomato=0;
+    addNumOfTomato=0;
     curMission=mission;
         //参数初始化
     displayedTime = curMission.getWorkTime();            //显示的时间 工作时间
@@ -69,7 +68,7 @@ void RunWindow::nextPeriod()
     case 0:
         //进入第一个 休息时间段
         if (!oncePaused){
-            numOfTomato++;
+            addNumOfTomato++;
         }
         whichPeriod++;//1
         displayedTime = curMission.getRelaxTime();
@@ -89,7 +88,7 @@ void RunWindow::nextPeriod()
     case 2:
         //进入第二个 休息时间段
         if (!oncePaused){
-            numOfTomato++;
+            addNumOfTomato++;
         }
         whichPeriod++;//3
         displayedTime = curMission.getRelaxTime();
@@ -109,7 +108,7 @@ void RunWindow::nextPeriod()
     case 4:
         //进入第三个 休息时间段
         if (!oncePaused){
-            numOfTomato++;
+            addNumOfTomato++;
         }
         whichPeriod++;//5
         displayedTime = curMission.getRelaxTime();
@@ -129,7 +128,7 @@ void RunWindow::nextPeriod()
     case 6:
         //进入第四个 长休息时间段
         if (!oncePaused){
-            numOfTomato++;
+            addNumOfTomato++;
         }
         whichPeriod++;//7
         displayedTime = QTime().fromString(QString("%1:%2:%3").arg(sh, sm, ss), "hh:mm:ss");
@@ -196,7 +195,7 @@ void RunWindow::on_AbortButton_clicked()
     QMessageBox *abortConfirmMsgBox = new QMessageBox(this);
     abortConfirmMsgBox->setWindowTitle("注意");
     abortConfirmMsgBox->setText("确定结束本次任务吗？");
-    abortConfirmMsgBox->setInformativeText(QString("本次任务获得番茄总数为%1").arg(numOfTomato));
+    abortConfirmMsgBox->setInformativeText(QString("本次任务获得番茄总数为%1").arg(addNumOfTomato));
     abortConfirmMsgBox->addButton(QMessageBox::Ok)->setText("确定");
     abortConfirmMsgBox->addButton(QMessageBox::Cancel)->setText("取消");
     abortConfirmMsgBox->setDefaultButton(QMessageBox::Cancel);
@@ -208,9 +207,9 @@ void RunWindow::on_AbortButton_clicked()
        // emit noTomato(); //无番茄
         //跳转到主窗口
         history.setDate(QDate::currentDate());
-        history.setNumOfTomato(numOfTomato);
+        history.setNumOfTomato(addNumOfTomato);
         int s = 60 - displayedTime.second();
-        int m = curMission.getWorkTime().minute() * numOfTomato + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
+        int m = curMission.getWorkTime().minute() * addNumOfTomato + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
         int h = m / 60;
         m = m % 60;
         history.setTotalTime(QTime(h,m,s));

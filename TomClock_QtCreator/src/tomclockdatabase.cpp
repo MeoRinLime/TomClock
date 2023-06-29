@@ -289,6 +289,23 @@ void TomClockDatabase::queryHistory(QVector<History> &historyList)
     query.clear();
 }
 
+void TomClockDatabase::deleteAllHistory()
+{
+    sqlStr = QString("delete from HistoryTable;");
+    try {
+        if (!query.exec(sqlStr)){
+            throw SqlDeleteError;
+        }
+        else {
+            qDebug("Successfully delete all history.");
+        }
+    } catch (SqlError e) {
+        if (e == SqlDeleteError){
+            qDebug("Failed to delete all history.");
+        }
+    }
+}
+
 void TomClockDatabase::initAchievement(const QVector<Achievement> &achievementList)
 {
     //判断是否为空

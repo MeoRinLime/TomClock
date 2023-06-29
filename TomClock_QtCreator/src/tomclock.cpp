@@ -2,14 +2,9 @@
 
 TomClock::TomClock()
 {
-
-
-
     tcDatabase = new TomClockDatabase();
-    tcDatabase->queryMission(missionList);
 //    achievementW = new AchievementWindow();
     createW = new CreateMissionWindow();
-    missionListW = new MissionListWindow(missionList);
 
     runW = new RunWindow();
     settingW = new Settings();
@@ -33,6 +28,7 @@ TomClock::TomClock()
 
     initAchieveWindow();
     initHistoryWindow();
+    initMissionListWindow();
 
     mainW = new MainWindow(historyList);
 
@@ -93,6 +89,7 @@ void TomClock::initMissionListWindow()
 {
     tcDatabase->queryMission(missionList);
     //将missionList传给missionListW
+    missionListW = new MissionListWindow(missionList);
 }
 
 void TomClock::initHistoryWindow()
