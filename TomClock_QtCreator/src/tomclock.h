@@ -56,6 +56,7 @@ private:
 
 private slots:
     void judgeAchieve();
+    void judgeAchieve(bool);
     void updataMissionDatabase();
     void updataHistoryDatabase(History h);
 };

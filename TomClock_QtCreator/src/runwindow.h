@@ -19,6 +19,9 @@ public:
     ~RunWindow();
     void changeEvent(QEvent *event);
 
+    Mission getCurMission() const;
+    void setCurMission(const Mission &newCurMission);
+
 signals:
     void JumptoMain();   //界面跳转
 //    void addNewHistory(History newHistory);
@@ -26,7 +29,8 @@ signals:
 //    void oneMoreTomato(); //告知控制模块 本次任务有番茄
     void sentHistory(History h);
     void toJudgeAchieve();     //告知tomclock判断达成状态
-//    void isPaused(bool);       //告知tomclock是否暂停
+    void toJudgeAchieve(bool);
+    void isPaused();       //告知tomclock是否暂停
 
 private:
     Ui::RunWindow *ui;
@@ -37,6 +41,7 @@ private:
 
     int whichPeriod;        //记录 当前处于哪一个番茄钟时间段 范围从0到7
     bool oncePaused;        //记录 曾经是否暂停过
+    bool isPausedForAchieve = false;//对应世界成就,记录整个过程是否暂停
 
     void closeEvent(QCloseEvent *event); //重写closeEvent，跳转回mainWindow
     History history;

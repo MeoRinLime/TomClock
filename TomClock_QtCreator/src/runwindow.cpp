@@ -43,6 +43,9 @@ RunWindow::RunWindow(QWidget *parent) :
                                         background-color:rgb(204, 228, 247);\
                                         border-style: inset;\
                                         }");
+    connect(this, &RunWindow::isPaused, this, [=](){
+        isPausedForAchieve = true;
+    });
 }
 
 RunWindow::~RunWindow()
@@ -273,16 +276,19 @@ void RunWindow::nextPeriod()
 
 void RunWindow::on_PauseResumeButton_clicked()
 {
+    emit isPaused();
     oncePaused = true; //表示 曾经暂停过
     //停止/继续计时器
     if (secTimer->isActive()){
         secTimer->stop();
-        ui->PauseResumeButton->setText(tr("继续"));
+        periodTimer->stop();
+        ui->PauseResumeButton->setText("继续");
         update();
     }
     else {
         secTimer->start(1000);
-        ui->PauseResumeButton->setText(tr("暂停"));
+        periodTimer->start(whichPeriod%2==0 ? 1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()) : 1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
+        ui->PauseResumeButton->setText("暂停");
         update();
     }
 }
@@ -327,6 +333,7 @@ void RunWindow::on_AbortButton_clicked()
         //发送到历史记录
         emit sentHistory(history);
         emit toJudgeAchieve();
+        emit toJudgeAchieve(isPausedForAchieve);
         emit JumptoMain();
         this->close();
     });
@@ -350,4 +357,14 @@ void RunWindow::changeEvent(QEvent *event)
         break;
 
     }
+}
+
+Mission RunWindow::getCurMission() const
+{
+    return curMission;
+}
+
+void RunWindow::setCurMission(const Mission &newCurMission)
+{
+    curMission = newCurMission;
 }

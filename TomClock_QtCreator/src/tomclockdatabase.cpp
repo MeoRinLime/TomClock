@@ -46,16 +46,26 @@ TomClockDatabase::TomClockDatabase()
         qDebug("Tables already exist.");
     }
     //achieve test
-    Achievement a1("大于1毫秒", 0, "获得你的第1个番茄");
-    Achievement a2("第5个番茄", 0, "累计获得5个番茄");
-    Achievement a3("第10个番茄", 0, "累计获得10个番茄");
-    Achievement a4("第100个番茄", 0, "累计获得100个番茄");
-    Achievement a5("第150个番茄", 0, "累计获得150个番茄");
+    Achievement a1("番茄小子", 0, "获得你的第1个番茄");
+    Achievement a2("番茄达人", 0, "累计获得10个番茄");
+    Achievement a3("番茄狂魔", 0, "累计获得100个番茄");
+    Achievement a4("速战速决", 0, "设置1个工作时间短的任务");
+    Achievement a5("长线作战", 0, "设置1个工作时间长的任务");
+    Achievement a6("世界", 0, "暂停1次时间");
+    Achievement a7("就到这里吧", 0, "终止1次任务");
+    Achievement a8("偷个小懒", 0, "1天没有开始任务");
+    Achievement a9("浑水摸鱼", 0, "5天没有开始任务");
+    Achievement a10("我就是咸鱼", 0, "15天没有开始任务");
     achievementList.append(a1);
     achievementList.append(a2);
     achievementList.append(a3);
     achievementList.append(a4);
     achievementList.append(a5);
+    achievementList.append(a6);
+    achievementList.append(a7);
+    achievementList.append(a8);
+    achievementList.append(a9);
+    achievementList.append(a10);
     //    a1.setState(1);
     //    tcDatabase->updateAchievement(a1);
     //achieve test end
