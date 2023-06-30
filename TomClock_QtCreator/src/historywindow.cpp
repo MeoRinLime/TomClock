@@ -20,6 +20,12 @@ HistoryWindow::~HistoryWindow()
 
 void HistoryWindow::MaintoHistory(QVector<History> histories)
 {
+
+    for(int i=hPbts.size()-1;i>=0;i--){
+        delete hPbts[i];
+
+    }
+    hPbts.clear();
     this->histories = histories;
     delete pLayout;
     pLayout = new QGridLayout();//网格布局
@@ -49,7 +55,7 @@ void HistoryWindow::MaintoHistory(QVector<History> histories)
             "}");
         pBtn->setMinimumSize(QSize(750,40));   //width height
         pBtn->setMaximumSize(QSize(750,50));
-
+        hPbts.push_back(pBtn);
         pLayout->addWidget(pBtn);//把按钮添加到布局控件中
         pLayout->setRowStretch(i+1,1);
     }
