@@ -41,6 +41,10 @@ RunWindow::RunWindow(QWidget *parent) :
                                     .QPushButton:pressed,.QToolButton:pressed{\
                                     background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\
                                     }");
+                                    
+    connect(this, &RunWindow::isPaused, this, [=](){
+        isPausedForAchieve = true;
+    });
 }
 
 RunWindow::~RunWindow()
@@ -149,9 +153,9 @@ void RunWindow::nextPeriod()
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
             msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -178,10 +182,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -208,10 +212,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -238,10 +242,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -271,15 +275,18 @@ void RunWindow::nextPeriod()
 
 void RunWindow::on_PauseResumeButton_clicked()
 {
+    emit isPaused();
     oncePaused = true; //表示 曾经暂停过
     //停止/继续计时器
     if (secTimer->isActive()){
         secTimer->stop();
+        periodTimer->stop();
         ui->PauseResumeButton->setText(tr("继续"));
         update();
     }
     else {
         secTimer->start(1000);
+        periodTimer->start(1000 * QTime(0,0,0).secsTo(displayedTime));
         ui->PauseResumeButton->setText(tr("暂停"));
         update();
     }
@@ -325,13 +332,14 @@ void RunWindow::on_AbortButton_clicked()
         //发送到历史记录
         emit sentHistory(history);
         emit toJudgeAchieve();
+        emit toJudgeAchieve(isPausedForAchieve);
         emit JumptoMain();
         this->close();
     });
     connect(abortConfirmMsgBox, &QDialog::rejected, this, [=](){
         //恢复计时
         secTimer->start(1000);
-        periodTimer->start(whichPeriod%2==0 ? 1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()) : 1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
+        periodTimer->start(1000 * QTime(0,0,0).secsTo(displayedTime));
         abortConfirmMsgBox->close(); //无事发生，继续计时
     });
     abortConfirmMsgBox->exec();
@@ -348,4 +356,14 @@ void RunWindow::changeEvent(QEvent *event)
         break;
 
     }
+}
+
+Mission RunWindow::getCurMission() const
+{
+    return curMission;
+}
+
+void RunWindow::setCurMission(const Mission &newCurMission)
+{
+    curMission = newCurMission;
 }

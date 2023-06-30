@@ -52,6 +52,7 @@ TomClock::TomClock()
     connect(runW,SIGNAL(sentHistory(History)),this,SLOT(updataHistoryDatabase(History)));
     connect(runW, SIGNAL(toJudgeAchieve()), this, SLOT(judgeAchieve()));
     connect(this, SIGNAL(updateHistory(QVector<History>)), historyW, SLOT(MaintoHistory(QVector<History>)));
+    connect(runW, SIGNAL(toJudgeAchieve(bool)), this, SLOT(judgeAchieve(bool)));
 }
 
 TomClock::~TomClock()
@@ -92,6 +93,32 @@ void TomClock::showWindow()
     mainW->show();
 }
 
+void TomClock::judgeAchieve(bool paused){
+    emit updateHistory(historyList);
+    historyW->hide();
+    totalTomato = historyW->caculateTotalTomato();
+    achievementW->changeTomatoNum(totalTomato);
+    totalTime = historyW->calculateNumTotalTime();
+    if (paused){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[5].getState();
+        tcDatabase->updateAchievement(achieveList[5]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：世界"));
+            msgBox->setInformativeText(tr("暂停1次时间"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+    tcDatabase->queryAchievement(achieveList);//更新程序中的achieveList
+}
+
 void TomClock::judgeAchieve()
 {
     emit updateHistory(historyList);
@@ -108,24 +135,179 @@ void TomClock::judgeAchieve()
      * ...
      * ...
     */
-    //下面是示例
-    if (totalTime > QTime(0,0,0,1)){ //历史总时长大于1毫秒
+    if (totalTomato >= 1){
         //记录原先的成就状态
         bool originAchieveState = achieveList[0].getState();
         tcDatabase->updateAchievement(achieveList[0]);//只能变成达成状态
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：聊胜于无");
-            msgBox->setInformativeText("你开始了一个任务，尽管时间可能很短");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：番茄小子"));
+            msgBox->setInformativeText(tr("获得你的第1个番茄"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
             msgBox->exec();
         }
     }
+    if (totalTomato >= 10){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[1].getState();
+        tcDatabase->updateAchievement(achieveList[1]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：番茄达人"));
+            msgBox->setInformativeText(tr("累计获得10个番茄"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+    if (totalTomato >= 100){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[2].getState();
+        tcDatabase->updateAchievement(achieveList[2]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：番茄狂魔"));
+            msgBox->setInformativeText(tr("累计获得100个番茄"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+    if (runW->getCurMission().getWorkTime() <= QTime(0,15,0)){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[3].getState();
+        tcDatabase->updateAchievement(achieveList[3]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：速战速决"));
+            msgBox->setInformativeText(tr("设置1个工作时间短的任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+    if (runW->getCurMission().getWorkTime() >= QTime(0,50,0)){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[4].getState();
+        tcDatabase->updateAchievement(achieveList[4]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：长线作战"));
+            msgBox->setInformativeText(tr("设置1个工作时间长的任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+
+    if (true){ //必定触发
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[6].getState();
+        tcDatabase->updateAchievement(achieveList[6]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：就到这里吧"));
+            msgBox->setInformativeText(tr("终止1次任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+    if (historyList[historyList.size() == 0 ? 0 : historyList.size() - 1].getDate().daysTo(QDate::currentDate()) >= 1){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[7].getState();
+        tcDatabase->updateAchievement(achieveList[7]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：偷个小懒"));
+            msgBox->setInformativeText(tr("1天没有开始任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+    if (historyList[historyList.size() == 0 ? 0 : historyList.size() - 1].getDate().daysTo(QDate::currentDate()) >= 5){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[8].getState();
+        tcDatabase->updateAchievement(achieveList[8]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：浑水摸鱼"));
+            msgBox->setInformativeText(tr("5天没有开始任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+    if (historyList[historyList.size() == 0 ? 0 : historyList.size() - 1].getDate().daysTo(QDate::currentDate()) >= 15){
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[9].getState();
+        tcDatabase->updateAchievement(achieveList[9]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：我就是咸鱼"));
+            msgBox->setInformativeText(tr("15天没有开始任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
+    }
+
+    //下面是示例
+//    if (totalTime > QTime(0,0,0,1)){ //历史总时长大于1毫秒
+//        //记录原先的成就状态
+//        bool originAchieveState = achieveList[0].getState();
+//        tcDatabase->updateAchievement(achieveList[0]);//只能变成达成状态
+//        //应当只有原本成就状态是未达成时才exec以下消息
+//        if (!originAchieveState){
+//            QMessageBox *msgBox = new QMessageBox(mainW);
+//            msgBox->setWindowTitle("恭喜！");
+//            msgBox->setText("达成成就：聊胜于无");
+//            msgBox->setInformativeText("你开始了一个任务，尽管时间可能很短");
+//            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+//            connect(msgBox, &QDialog::accepted, this, [=](){
+//                msgBox->close();
+//            });
+//            msgBox->exec();
+//        }
+//    }
     //示例结束
     tcDatabase->queryAchievement(achieveList);//更新程序中的achieveList
 }
