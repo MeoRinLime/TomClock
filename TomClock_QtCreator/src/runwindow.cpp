@@ -287,7 +287,7 @@ void RunWindow::on_PauseResumeButton_clicked()
     }
     else {
         secTimer->start(1000);
-        periodTimer->start(whichPeriod%2==0 ? 1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()) : 1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
+        periodTimer->start(1000 * QTime(0,0,0).secsTo(displayedTime));
         ui->PauseResumeButton->setText("暂停");
         update();
     }
@@ -340,7 +340,7 @@ void RunWindow::on_AbortButton_clicked()
     connect(abortConfirmMsgBox, &QDialog::rejected, this, [=](){
         //恢复计时
         secTimer->start(1000);
-        periodTimer->start(whichPeriod%2==0 ? 1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()) : 1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
+        periodTimer->start(1000 * QTime(0,0,0).secsTo(displayedTime));
         abortConfirmMsgBox->close(); //无事发生，继续计时
     });
     abortConfirmMsgBox->exec();
