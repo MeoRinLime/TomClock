@@ -42,6 +42,7 @@ void RunWindow::ListtoRun(const Mission &mission)
     this->show();
     addNumOfTomato=0;//    番茄数重零计时
     whichPeriod = 0;    //表示处于 第一个工作时间
+    numOfRelax=0;
     oncePaused = false; //表示 从未暂停过
     secTimer = new QTimer(this);                            //创建 每秒计时器
     periodTimer = new QTimer(this);                         //创建 每段计时器
@@ -74,6 +75,7 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
         }
+        numOfRelax++;
         whichPeriod++;//1
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
@@ -94,6 +96,7 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
         }
+        numOfRelax++;
         whichPeriod++;//3
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
@@ -114,6 +117,7 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
         }
+        numOfRelax++;
         whichPeriod++;//5
         displayedTime = curMission.getRelaxTime();
         ui->MissionNameLabel->setText(QString("休息时间"));
@@ -134,6 +138,7 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
         }
+        numOfRelax++;
         whichPeriod++;//7
         displayedTime = QTime().fromString(QString("%1:%2:%3").arg(sh, sm, ss), "hh:mm:ss");
         ui->MissionNameLabel->setText(QString("长休息时间"));
@@ -195,7 +200,7 @@ void RunWindow::on_AbortButton_clicked()
         history.setDate(QDate::currentDate());
         history.setNumOfTomato(addNumOfTomato);
         int s = 60 - displayedTime.second();
-        int m = curMission.getWorkTime().minute() * addNumOfTomato + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
+        int m = curMission.getWorkTime().minute() * numOfRelax + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
         int h = m / 60;
         m = m % 60;
         history.setTotalTime(QTime(h,m,s));
