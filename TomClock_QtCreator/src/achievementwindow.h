@@ -29,6 +29,11 @@ private:
                                     "MainIcon.png", \
                                     "MainIcon.png", \
                                     "MainIcon.png", \
+                                    "MainIcon.png", \
+                                    "MainIcon.png", \
+                                    "MainIcon.png", \
+                                    "MainIcon.png", \
+                                    "MainIcon.png", \
                                     "MainIcon.png"};
 
     //实现自适应窗口大小
