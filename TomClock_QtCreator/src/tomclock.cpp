@@ -108,9 +108,25 @@ void TomClock::judgeAchieve()
      * ...
      * ...
     */
-    if (totalTime > QTime(0,0,0,1)){ //历史总时长大于1秒
+    //下面是示例
+    if (totalTime > QTime(0,0,0,1)){ //历史总时长大于1毫秒
+        //记录原先的成就状态
+        bool originAchieveState = achieveList[0].getState();
         tcDatabase->updateAchievement(achieveList[0]);//只能变成达成状态
+        //应当只有原本成就状态是未达成时才exec以下消息
+        if (!originAchieveState){
+            QMessageBox *msgBox = new QMessageBox(mainW);
+            msgBox->setWindowTitle("恭喜！");
+            msgBox->setText("达成成就：聊胜于无");
+            msgBox->setInformativeText("你开始了一个任务，尽管时间可能很短");
+            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
+        }
     }
+    //示例结束
     tcDatabase->queryAchievement(achieveList);//更新程序中的achieveList
 }
 

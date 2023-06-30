@@ -149,6 +149,15 @@ void RunWindow::nextPeriod()
         //进入第一个 休息时间段
         if (!oncePaused){
             addNumOfTomato++;
+            QMessageBox *msgBox = new QMessageBox(this);
+            msgBox->setWindowTitle("恭喜！");
+            msgBox->setText("获得一个番茄");
+            msgBox->setInformativeText("");
+            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
         }
         numOfRelax++;
         whichPeriod++;//1
@@ -170,6 +179,15 @@ void RunWindow::nextPeriod()
         //进入第二个 休息时间段
         if (!oncePaused){
             addNumOfTomato++;
+            QMessageBox *msgBox = new QMessageBox(this);
+            msgBox->setWindowTitle("恭喜！");
+            msgBox->setText("获得一个番茄");
+            msgBox->setInformativeText("");
+            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
         }
         numOfRelax++;
         whichPeriod++;//3
@@ -191,6 +209,15 @@ void RunWindow::nextPeriod()
         //进入第三个 休息时间段
         if (!oncePaused){
             addNumOfTomato++;
+            QMessageBox *msgBox = new QMessageBox(this);
+            msgBox->setWindowTitle("恭喜！");
+            msgBox->setText("获得一个番茄");
+            msgBox->setInformativeText("");
+            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
         }
         numOfRelax++;
         whichPeriod++;//5
@@ -212,6 +239,15 @@ void RunWindow::nextPeriod()
         //进入第四个 长休息时间段
         if (!oncePaused){
             addNumOfTomato++;
+            QMessageBox *msgBox = new QMessageBox(this);
+            msgBox->setWindowTitle("恭喜！");
+            msgBox->setText("获得一个番茄");
+            msgBox->setInformativeText("");
+            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            connect(msgBox, &QDialog::accepted, this, [=](){
+                msgBox->close();
+            });
+            msgBox->exec();
         }
         numOfRelax++;
         whichPeriod++;//7
