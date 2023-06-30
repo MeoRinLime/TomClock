@@ -25,16 +25,16 @@ signals:
 private:
     Ui::AchievementWindow *ui;
     //成就图片的路径，目前仅为示例
-    QList<QString> imagePathList = {"MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png", \
-                                    "MainIcon.png"};
+    QList<QString> imagePathList = {"resourse/images/achievement/a_tomato.png", \
+                                    "resourse/images/achievement/b_tomato.png", \
+                                    "resourse/images/achievement/c_tomato.png", \
+                                    "resourse/images/achievement/small.png", \
+                                    "resourse/images/achievement/big.png", \
+                                    "resourse/images/achievement/pause.png", \
+                                    "resourse/images/achievement/stop.png", \
+                                    "resourse/images/achievement/rest1.png", \
+                                    "resourse/images/achievement/rest2.png", \
+                                    "resourse/images/achievement/rest3.png"};
 
     //实现自适应窗口大小
     QList<QWidget*> allChildWidgets;       //储存所有子控件

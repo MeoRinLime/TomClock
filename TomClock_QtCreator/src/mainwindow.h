@@ -5,7 +5,6 @@
 #include "history.h"
 #include <QMainWindow>
 #include <QFrame>
-#include <QSoundEffect>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,7 +37,6 @@ private:
     int width_ratio;
     int height_ratio;
     QWidget* center_widget;
-    QSoundEffect startSound;
     QVector<Achievement> *achieveListPtr;
     QVector<History> *historyListPtr;
 

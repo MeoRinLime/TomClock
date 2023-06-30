@@ -21,10 +21,10 @@ MissionPushButton::MissionPushButton(QWidget *parent) :
 
     QStringList sl1;
     //工作时间选项设置 1是测试用例，都是分钟
-    sl1<<tr("1")<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("40")<<tr("50");
+    sl1<<tr("15")<<tr("20")<<tr("25")<<tr("30")<<tr("45")<<tr("50");
     QStringList sl2;
     //休息时间选项设置
-    sl2<<tr("1")<<tr("2")<<tr("3")<<tr("4")<<tr("6")<<tr("8")<<tr("10");
+    sl2<<tr("2")<<tr("3")<<tr("4")<<tr("5")<<tr("8")<<tr("10");
     workTime->addItems(sl1);
      relaxTime->addItems(sl2);
     mChangeConfirm->setText("确定");

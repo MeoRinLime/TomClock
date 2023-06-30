@@ -19,6 +19,16 @@
         <file>resourse/images/Icons/Default_Color/history.png</file>
         <file>resourse/images/Icons/Default_Color/list.png</file>
         <file>resourse/images/Icons/Default_Color/setting.png</file>
+        <file>resourse/images/achievement/a_tomato.png</file>
+        <file>resourse/images/achievement/b_tomato.png</file>
+        <file>resourse/images/achievement/big.png</file>
+        <file>resourse/images/achievement/c_tomato.png</file>
+        <file>resourse/images/achievement/pause.png</file>
+        <file>resourse/images/achievement/rest1.png</file>
+        <file>resourse/images/achievement/rest2.png</file>
+        <file>resourse/images/achievement/rest3.png</file>
+        <file>resourse/images/achievement/small.png</file>
+        <file>resourse/images/achievement/stop.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>resourse/sounds/achievement.wav</file>

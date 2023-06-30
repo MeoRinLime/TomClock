@@ -1,4 +1,5 @@
 #include "tomclockdatabase.h"
+#include "qcoreevent.h"
 #include <QSqlError>
 #include <QStringList>
 #include <QDebug>
@@ -436,3 +437,4 @@ void TomClockDatabase::queryAchievement(QVector<Achievement> &achievementList)
     }
     query.clear();
 }
+
