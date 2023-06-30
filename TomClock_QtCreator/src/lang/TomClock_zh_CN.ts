@@ -48,77 +48,83 @@
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="259"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="464"/>
+        <source>1</source>
+        <translation>1</translation>
+    </message>
+    <message>
+        <location filename="../../screenUi/createmissionwindow.ui" line="264"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="264"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="269"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="269"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="274"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="274"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="279"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="279"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="284"/>
         <source>10</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="296"/>
-        <location filename="../../screenUi/createmissionwindow.ui" line="496"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="301"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="506"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;分钟&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;分钟&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="335"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="340"/>
         <source>取消</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="391"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="396"/>
         <source>添加到任务列表</source>
         <translation>添加到任务列表</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="436"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="441"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;工作时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;工作时间：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="454"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="459"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="459"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="469"/>
         <source>20</source>
         <translation>20</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="464"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="474"/>
         <source>25</source>
         <translation>25</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="469"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="479"/>
         <source>30</source>
         <translation>30</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="474"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="484"/>
         <source>40</source>
         <translation>40</translation>
     </message>
     <message>
-        <location filename="../../screenUi/createmissionwindow.ui" line="479"/>
+        <location filename="../../screenUi/createmissionwindow.ui" line="489"/>
         <source>50</source>
         <translation>50</translation>
     </message>
@@ -158,27 +164,27 @@
         <translation>总任务记录数：</translation>
     </message>
     <message>
-        <location filename="../historywindow.cpp" line="79"/>
+        <location filename="../historywindow.cpp" line="85"/>
         <source>小时</source>
         <translation>小时</translation>
     </message>
     <message>
-        <location filename="../historywindow.cpp" line="79"/>
+        <location filename="../historywindow.cpp" line="85"/>
         <source>分钟</source>
         <translation>分钟</translation>
     </message>
     <message>
-        <location filename="../historywindow.cpp" line="79"/>
+        <location filename="../historywindow.cpp" line="85"/>
         <source>秒</source>
         <translation>秒</translation>
     </message>
     <message>
-        <location filename="../historywindow.cpp" line="84"/>
+        <location filename="../historywindow.cpp" line="90"/>
         <source>                  番茄数：</source>
         <translation>                  番茄数：</translation>
     </message>
     <message>
-        <location filename="../historywindow.cpp" line="85"/>
+        <location filename="../historywindow.cpp" line="91"/>
         <source>        学习时长</source>
         <translation>        学习时长</translation>
     </message>
@@ -385,71 +391,71 @@
 <context>
     <name>RunWindow</name>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="20"/>
+        <location filename="../../screenUi/runwindow.ui" line="26"/>
         <source>TomClock</source>
         <translation>TomClock</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="109"/>
+        <location filename="../../screenUi/runwindow.ui" line="115"/>
         <source>学习XXX</source>
         <translation>学习XXX</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="164"/>
+        <location filename="../../screenUi/runwindow.ui" line="170"/>
         <source>XX:XX</source>
         <translation>XX:XX</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="205"/>
-        <location filename="../runwindow.cpp" line="34"/>
-        <location filename="../runwindow.cpp" line="169"/>
+        <location filename="../../screenUi/runwindow.ui" line="216"/>
+        <location filename="../runwindow.cpp" line="109"/>
+        <location filename="../runwindow.cpp" line="285"/>
         <source>暂停</source>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="231"/>
+        <location filename="../../screenUi/runwindow.ui" line="247"/>
         <source>终止</source>
         <translation>终止</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="79"/>
-        <location filename="../runwindow.cpp" line="99"/>
-        <location filename="../runwindow.cpp" line="119"/>
+        <location filename="../runwindow.cpp" line="165"/>
+        <location filename="../runwindow.cpp" line="195"/>
+        <location filename="../runwindow.cpp" line="225"/>
         <source>休息时间</source>
         <translation>休息时间</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="139"/>
+        <location filename="../runwindow.cpp" line="255"/>
         <source>长休息时间</source>
         <translation>长休息时间</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="164"/>
+        <location filename="../runwindow.cpp" line="280"/>
         <source>继续</source>
         <translation>继续</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="181"/>
+        <location filename="../runwindow.cpp" line="297"/>
         <source>注意</source>
         <translation>注意</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="182"/>
+        <location filename="../runwindow.cpp" line="298"/>
         <source>确定结束本次任务吗？</source>
         <translation>确定结束本次任务吗？</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="183"/>
+        <location filename="../runwindow.cpp" line="299"/>
         <source>本次任务获得番茄总数为%1</source>
         <translation>本次任务获得番茄总数为 %1</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="184"/>
+        <location filename="../runwindow.cpp" line="300"/>
         <source>确定</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../runwindow.cpp" line="185"/>
+        <location filename="../runwindow.cpp" line="301"/>
         <source>取消</source>
         <translation>取消</translation>
     </message>
@@ -504,54 +510,44 @@
 <context>
     <name>TomClock</name>
     <message>
-        <location filename="../tomclock.cpp" line="15"/>
         <source>第1个番茄</source>
-        <translation>第1个番茄</translation>
+        <translation type="vanished">第1个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="15"/>
         <source>获得你的第1个番茄</source>
-        <translation>获得你的第1个番茄</translation>
+        <translation type="vanished">获得你的第1个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="16"/>
         <source>第5个番茄</source>
-        <translation>第5个番茄</translation>
+        <translation type="vanished">第5个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="16"/>
         <source>累计获得5个番茄</source>
-        <translation>累计获得5个番茄</translation>
+        <translation type="vanished">累计获得5个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="17"/>
         <source>第10个番茄</source>
-        <translation>第10个番茄</translation>
+        <translation type="vanished">第10个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="17"/>
         <source>累计获得10个番茄</source>
-        <translation>累计获得10个番茄</translation>
+        <translation type="vanished">累计获得10个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="18"/>
         <source>第100个番茄</source>
-        <translation>第100个番茄</translation>
+        <translation type="vanished">第100个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="18"/>
         <source>累计获得100个番茄</source>
-        <translation>累计获得100个番茄</translation>
+        <translation type="vanished">累计获得100个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="19"/>
         <source>第150个番茄</source>
-        <translation>第150个番茄</translation>
+        <translation type="vanished">第150个番茄</translation>
     </message>
     <message>
-        <location filename="../tomclock.cpp" line="19"/>
         <source>累计获得150个番茄</source>
-        <translation>累计获得150个番茄</translation>
+        <translation type="vanished">累计获得150个番茄</translation>
     </message>
 </context>
 <context>
