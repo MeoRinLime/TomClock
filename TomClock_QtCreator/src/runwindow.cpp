@@ -154,9 +154,9 @@ void RunWindow::nextPeriod()
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
             msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -183,10 +183,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -213,10 +213,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -243,10 +243,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -282,13 +282,13 @@ void RunWindow::on_PauseResumeButton_clicked()
     if (secTimer->isActive()){
         secTimer->stop();
         periodTimer->stop();
-        ui->PauseResumeButton->setText("继续");
+        ui->PauseResumeButton->setText(tr("继续"));
         update();
     }
     else {
         secTimer->start(1000);
         periodTimer->start(1000 * QTime(0,0,0).secsTo(displayedTime));
-        ui->PauseResumeButton->setText("暂停");
+        ui->PauseResumeButton->setText(tr("暂停"));
         update();
     }
 }
