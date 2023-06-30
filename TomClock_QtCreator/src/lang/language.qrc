@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>TomClock_en_EN.qm</file>
         <file>TomClock_en_EN.ts</file>
-        <file>TomClock_zh_CN.qm</file>
         <file>TomClock_zh_CN.ts</file>
     </qresource>
 </RCC>

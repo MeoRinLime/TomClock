@@ -11,20 +11,6 @@ TomClock::TomClock()
     aboutW = new about();
     teamW = new OurTeam();
 
-    //achieve test
-    Achievement a1("第1个番茄", 0, "获得你的第1个番茄");
-    Achievement a2("第5个番茄", 0, "累计获得5个番茄");
-    Achievement a3("第10个番茄", 0, "累计获得10个番茄");
-    Achievement a4("第100个番茄", 0, "累计获得100个番茄");
-    Achievement a5("第150个番茄", 0, "累计获得150个番茄");
-    achieveList.append(a1);
-    achieveList.append(a2);
-    achieveList.append(a3);
-    achieveList.append(a4);
-    achieveList.append(a5);
-    a1.setState(1);
-    tcDatabase->updateAchievement(a1);
-    //achieve test end
 
     initAchieveWindow();
     initHistoryWindow();
@@ -65,6 +51,7 @@ TomClock::TomClock()
     connect(missionListW,SIGNAL(updateDatabase()),this,SLOT(updataMissionDatabase()));
     connect(runW,SIGNAL(sentHistory(History)),this,SLOT(updataHistoryDatabase(History)));
     connect(runW, SIGNAL(toJudgeAchieve()), this, SLOT(judgeAchieve()));
+    connect(this, SIGNAL(updateHistory(QVector<History>)), historyW, SLOT(MaintoHistory(QVector<History>)));
 }
 
 TomClock::~TomClock()
@@ -83,7 +70,7 @@ TomClock::~TomClock()
 
 void TomClock::initAchieveWindow()
 {
-    tcDatabase->initAchievement(achieveList);       //若表为空则初始化，否则不做操作
+    tcDatabase->initAchievement();       //若表为空则初始化，否则不做操作
     tcDatabase->queryAchievement(achieveList);      //从数据库获取成就数据
     achievementW = new AchievementWindow();
 }
@@ -107,9 +94,11 @@ void TomClock::showWindow()
 
 void TomClock::judgeAchieve()
 {
+    emit updateHistory(historyList);
+    historyW->hide();
     totalTomato = historyW->caculateTotalTomato();
     achievementW->changeTomatoNum(totalTomato);
-    totalTime.fromString(historyW->caculateTotalTime());
+    totalTime = historyW->calculateNumTotalTime();
     /* if (成就1条件){
      *  tcDatabase->updateAchievement(achieveList[0]);
      * }
@@ -119,7 +108,7 @@ void TomClock::judgeAchieve()
      * ...
      * ...
     */
-    if (totalTime>QTime(0,0,1)){
+    if (totalTime > QTime(0,0,0,1)){ //历史总时长大于1秒
         tcDatabase->updateAchievement(achieveList[0]);//只能变成达成状态
     }
     tcDatabase->queryAchievement(achieveList);//更新程序中的achieveList

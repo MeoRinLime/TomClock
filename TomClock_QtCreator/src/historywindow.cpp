@@ -89,7 +89,38 @@ QString HistoryWindow::caculateTotalTime(){
 QString HistoryWindow::historyRecord(History h){
     QString hi=h.getDate().toString("dd.MM.yyyy")+"              "+h.getName()+"                  番茄数："+QString::number(h.getNumOfTomato())
 +"        学习时长"+h.getTotalTime().toString();
-    return hi;
+                                        return hi;
+}
+
+QTime HistoryWindow::calculateNumTotalTime()
+{
+    //计算总时长
+    int h=0 ;
+    int m=0;
+    int s=0;
+    for(int i = 0; i < histories.size(); i++){
+        h += histories[i].getTotalTime().hour();
+        m += histories[i].getTotalTime().minute();
+        s += histories[i].getTotalTime().second();
+    }
+    m+=s/60;
+    s=s%60;
+    h+=m/60;
+    m=m%60;
+    QString sh = QString("%1").arg(h);
+    QString sm = QString("%1").arg(m);
+    QString ss = QString("%1").arg(s);
+
+    if (h < 10){
+        sh = QString("0%1").arg(h);
+    }
+    if (m < 10){
+        sm = QString("0%1").arg(m);
+    }
+    if (s < 10){
+        ss = QString("0%1").arg(s);
+    }
+    return QTime().fromString(sh+":"+sm+":"+ss, "hh:mm:ss");
 }
 
 void HistoryWindow::on_backToMain_clicked()

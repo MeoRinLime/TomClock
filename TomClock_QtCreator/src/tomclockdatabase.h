@@ -35,7 +35,7 @@ public slots:
     void deleteAllHistory();
 
     //成就的更新和查询
-    void initAchievement(const QVector<Achievement> &achievementList);
+    void initAchievement(/*const QVector<Achievement> &achievementList*/);
     void updateAchievement(const Achievement &achievement); //仅修改name对应的state，由0变1
     void queryAchievement(QVector<Achievement> &achievementList);
 
@@ -46,6 +46,7 @@ private:
     QSqlDatabase database;   //被封装了一层
     QSqlQuery query;         //用于操作数据库
     QString sqlStr;          //用于存放具体的sql语句
+    QVector<Achievement> achievementList;//用于init AchievementTable
 };
 
 #endif // TOMCLOCKDATABASE_H
