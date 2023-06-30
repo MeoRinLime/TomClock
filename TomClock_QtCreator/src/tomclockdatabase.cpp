@@ -46,7 +46,7 @@ TomClockDatabase::TomClockDatabase()
         qDebug("Tables already exist.");
     }
     //achieve test
-    Achievement a1("第1个番茄", 0, "获得你的第1个番茄");
+    Achievement a1("大于1毫秒", 0, "获得你的第1个番茄");
     Achievement a2("第5个番茄", 0, "累计获得5个番茄");
     Achievement a3("第10个番茄", 0, "累计获得10个番茄");
     Achievement a4("第100个番茄", 0, "累计获得100个番茄");
