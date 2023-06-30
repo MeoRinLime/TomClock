@@ -28,7 +28,9 @@ private:
     Ui::HistoryWindow *ui;
     QVector<History> histories;//历史数据容器
     QGridLayout *pLayout;//网格布局
+    QVector<QPushButton*>hPbts;
     void closeEvent(QCloseEvent *event);
+
 signals:
     void BacktoMain();//回到主页面
 

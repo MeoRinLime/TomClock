@@ -199,8 +199,16 @@ void RunWindow::on_AbortButton_clicked()
         //记录保存
         history.setDate(QDate::currentDate());
         history.setNumOfTomato(addNumOfTomato);
-        int s = 60 - displayedTime.second();
-        int m = curMission.getWorkTime().minute() * numOfRelax + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
+        int s ;
+        int m;
+        if( whichPeriod%2==0){
+         m = curMission.getWorkTime().minute() * numOfRelax + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
+          s = 60 - displayedTime.second();
+        }
+        else{
+         m = curMission.getWorkTime().minute() * numOfRelax ;
+         s = 0;
+        }
         int h = m / 60;
         m = m % 60;
         history.setTotalTime(QTime(h,m,s));
