@@ -73,7 +73,7 @@
        <widget class="QScrollArea" name="scrollArea">
         <property name="minimumSize">
          <size>
-          <width>1000</width>
+          <width>900</width>
           <height>500</height>
          </size>
         </property>
@@ -84,7 +84,7 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>0</y>
+           <y>-835</y>
            <width>1044</width>
            <height>1323</height>
           </rect>
@@ -341,7 +341,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;同样是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;产品经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;驰骋在赛马场上の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;鸽子&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
@@ -417,7 +417,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;仍然是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;技术经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;罗德岛の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;资深博士&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>
@@ -484,7 +484,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;编程社の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;社长&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;项目经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;肖磊&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(MeoRinLime)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;编程社の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;社长&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;爱酱の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;永远单推人&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;肖磊&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(MeoRinLime)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                </widget>
               </item>

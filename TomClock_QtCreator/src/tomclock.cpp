@@ -324,3 +324,16 @@ void TomClock::updataHistoryDatabase(History h){
     historyList.push_back(h);
     tcDatabase->addHistory(h);
 }
+
+void TomClock::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+
+        break;
+    default:
+        break;
+
+    }
+}

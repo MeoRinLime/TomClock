@@ -1,11 +1,11 @@
 #include "settings.h"
 #include "ui_settings.h"
-#include "ui_about.h"
 
 #include <QLabel>
 #include <QPalette>
-#include <QFile>
+//#include <QFile>
 #include <QTranslator>
+//#include <QDir>
 
 Settings::Settings(QWidget *parent) :
     QWidget(parent),
@@ -105,7 +105,7 @@ void Settings::on_languageChange_currentTextChanged(const QString &languageText)
     QTranslator *translator = new QTranslator(this);
 
     // 拼接翻译文件路径
-    QString translationPath = ":/TomClock_" + languageCode + "_" + languageCountry + ".qm";
+    QString translationPath =":/TomClock_" + languageCode + "_" + languageCountry + ".qm";
 
     // 移除之前的翻译器
     qApp->removeTranslator(translator);

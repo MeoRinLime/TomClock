@@ -82,14 +82,14 @@ QString HistoryWindow::caculateTotalTime(){
     h+=m/60;
     m=m%60;
 
-    QString t=QString::number(h)+"小时"+QString::number(m)+"分钟"+QString::number(s)+"秒";
+    QString t=(QString::number(h)+tr("小时")+QString::number(m)+tr("分钟")+QString::number(s)+tr("秒"));
     return t;
 }
 
 QString HistoryWindow::historyRecord(History h){
-    QString hi=h.getDate().toString("dd.MM.yyyy")+"              "+h.getName()+"                  番茄数："+QString::number(h.getNumOfTomato())
-+"        学习时长"+h.getTotalTime().toString();
-                                        return hi;
+    QString hi=(h.getDate().toString("dd.MM.yyyy")+"              "+h.getName()+tr("                  番茄数：")+QString::number(h.getNumOfTomato())
++tr("        学习时长")+h.getTotalTime().toString());
+    return hi;
 }
 
 QTime HistoryWindow::calculateNumTotalTime()

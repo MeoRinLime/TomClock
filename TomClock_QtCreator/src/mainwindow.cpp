@@ -4,6 +4,7 @@
 #include <QResizeEvent>
 #include <QPalette>
 #include <QLabel>
+#include <QFile>
 MainWindow::MainWindow(QVector<Achievement> &achieveList, QVector<History> &historyList, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -12,7 +13,6 @@ MainWindow::MainWindow(QVector<Achievement> &achieveList, QVector<History> &hist
 
     this->setStyleSheet("MainWindow {border-image:url(:/images/resourse/images/background/bg3.png);}");
     //bg3是浅色，bg2是深色
-
     achieveListPtr = &achieveList;
     historyListPtr = &historyList;
 }
