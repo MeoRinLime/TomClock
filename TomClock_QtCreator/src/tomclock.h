@@ -31,6 +31,9 @@ public:
     int numOfTomato;
     void changeEvent(QEvent *event);
 
+signals:
+    void updateHistory(QVector<History> historyList);
+
 private:
     TomClockDatabase *tcDatabase;
     //先创建所有窗口，跳转页面就是隐藏和显示不同的窗口

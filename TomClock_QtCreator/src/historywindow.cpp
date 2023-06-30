@@ -20,6 +20,12 @@ HistoryWindow::~HistoryWindow()
 
 void HistoryWindow::MaintoHistory(QVector<History> histories)
 {
+
+    for(int i=hPbts.size()-1;i>=0;i--){
+        delete hPbts[i];
+
+    }
+    hPbts.clear();
     this->histories = histories;
     delete pLayout;
     pLayout = new QGridLayout();//网格布局
@@ -49,7 +55,7 @@ void HistoryWindow::MaintoHistory(QVector<History> histories)
             "}");
         pBtn->setMinimumSize(QSize(750,40));   //width height
         pBtn->setMaximumSize(QSize(750,50));
-
+        hPbts.push_back(pBtn);
         pLayout->addWidget(pBtn);//把按钮添加到布局控件中
         pLayout->setRowStretch(i+1,1);
     }
@@ -84,6 +90,37 @@ QString HistoryWindow::historyRecord(History h){
     QString hi=(h.getDate().toString("dd.MM.yyyy")+"              "+h.getName()+tr("                  番茄数：")+QString::number(h.getNumOfTomato())
 +tr("        学习时长")+h.getTotalTime().toString());
     return hi;
+}
+
+QTime HistoryWindow::calculateNumTotalTime()
+{
+    //计算总时长
+    int h=0 ;
+    int m=0;
+    int s=0;
+    for(int i = 0; i < histories.size(); i++){
+        h += histories[i].getTotalTime().hour();
+        m += histories[i].getTotalTime().minute();
+        s += histories[i].getTotalTime().second();
+    }
+    m+=s/60;
+    s=s%60;
+    h+=m/60;
+    m=m%60;
+    QString sh = QString("%1").arg(h);
+    QString sm = QString("%1").arg(m);
+    QString ss = QString("%1").arg(s);
+
+    if (h < 10){
+        sh = QString("0%1").arg(h);
+    }
+    if (m < 10){
+        sm = QString("0%1").arg(m);
+    }
+    if (s < 10){
+        ss = QString("0%1").arg(s);
+    }
+    return QTime().fromString(sh+":"+sm+":"+ss, "hh:mm:ss");
 }
 
 void HistoryWindow::on_backToMain_clicked()

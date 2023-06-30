@@ -41,7 +41,7 @@ private:
     void closeEvent(QCloseEvent *event); //重写closeEvent，跳转回mainWindow
     History history;
     int addNumOfTomato;
-
+    int numOfRelax;
 private slots:
     void ListtoRun(const Mission &mission);       //界面跳转
     void processTimeout();  //处理计时器信号
