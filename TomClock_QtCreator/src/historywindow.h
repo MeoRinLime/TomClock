@@ -21,6 +21,7 @@ public:
     ~HistoryWindow();
     QString caculateTotalTime();//计算总时长
     QString historyRecord(History h);//历史纪录信息
+    QTime calculateNumTotalTime();
     int caculateTotalTomato();//计算总番茄数
     void changeEvent(QEvent *event);
 
