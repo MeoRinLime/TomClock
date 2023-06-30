@@ -207,6 +207,11 @@
                 <height>60</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+               </font>
+              </property>
               <property name="text">
                <string>暂停</string>
               </property>
@@ -232,6 +237,11 @@
                 <width>150</width>
                 <height>60</height>
                </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+               </font>
               </property>
               <property name="text">
                <string>终止</string>
