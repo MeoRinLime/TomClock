@@ -12,6 +12,7 @@
 #include "ourteam.h"
 #include "tomclockdatabase.h"
 #include <QString>
+#include <QTranslator>
 
 class TomClock : QObject
 {
@@ -28,6 +29,7 @@ public:
     void initHistoryWindow();
     void showWindow(); //显示主窗口
     int numOfTomato;
+    void changeEvent(QEvent *event);
 
 private:
     TomClockDatabase *tcDatabase;

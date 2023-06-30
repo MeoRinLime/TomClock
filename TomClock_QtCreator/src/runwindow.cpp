@@ -31,7 +31,7 @@ void RunWindow::ListtoRun(const Mission &mission)
 {
 
 
-     ui->PauseResumeButton->setText("暂停");
+    ui->PauseResumeButton->setText(tr("暂停"));
     addNumOfTomato=0;
     curMission=mission;
         //参数初始化
@@ -76,7 +76,7 @@ void RunWindow::nextPeriod()
         }
         whichPeriod++;//1
         displayedTime = curMission.getRelaxTime();
-        ui->MissionNameLabel->setText(QString("休息时间"));
+        ui->MissionNameLabel->setText(tr("休息时间"));
         periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
         update();
         break;
@@ -96,7 +96,7 @@ void RunWindow::nextPeriod()
         }
         whichPeriod++;//3
         displayedTime = curMission.getRelaxTime();
-        ui->MissionNameLabel->setText(QString("休息时间"));
+        ui->MissionNameLabel->setText(tr("休息时间"));
         periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
         update();
         break;
@@ -116,7 +116,7 @@ void RunWindow::nextPeriod()
         }
         whichPeriod++;//5
         displayedTime = curMission.getRelaxTime();
-        ui->MissionNameLabel->setText(QString("休息时间"));
+        ui->MissionNameLabel->setText(tr("休息时间"));
         periodTimer->setInterval(1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
         update();
         break;
@@ -136,7 +136,7 @@ void RunWindow::nextPeriod()
         }
         whichPeriod++;//7
         displayedTime = QTime().fromString(QString("%1:%2:%3").arg(sh, sm, ss), "hh:mm:ss");
-        ui->MissionNameLabel->setText(QString("长休息时间"));
+        ui->MissionNameLabel->setText(tr("长休息时间"));
         periodTimer->setInterval(1000 * 4 * secRelaxTime);
         update();
         break;
@@ -161,12 +161,12 @@ void RunWindow::on_PauseResumeButton_clicked()
     //停止/继续计时器
     if (secTimer->isActive()){
         secTimer->stop();
-        ui->PauseResumeButton->setText("继续");
+        ui->PauseResumeButton->setText(tr("继续"));
         update();
     }
     else {
         secTimer->start(1000);
-        ui->PauseResumeButton->setText("暂停");
+        ui->PauseResumeButton->setText(tr("暂停"));
         update();
     }
 }
@@ -178,11 +178,11 @@ void RunWindow::on_AbortButton_clicked()
     secTimer->stop();
     periodTimer->stop();
     QMessageBox *abortConfirmMsgBox = new QMessageBox(this);
-    abortConfirmMsgBox->setWindowTitle("注意");
-    abortConfirmMsgBox->setText("确定结束本次任务吗？");
-    abortConfirmMsgBox->setInformativeText(QString("本次任务获得番茄总数为%1").arg(addNumOfTomato));
-    abortConfirmMsgBox->addButton(QMessageBox::Ok)->setText("确定");
-    abortConfirmMsgBox->addButton(QMessageBox::Cancel)->setText("取消");
+    abortConfirmMsgBox->setWindowTitle(tr("注意"));
+    abortConfirmMsgBox->setText(tr("确定结束本次任务吗？"));
+    abortConfirmMsgBox->setInformativeText(tr("本次任务获得番茄总数为%1").arg(addNumOfTomato));
+    abortConfirmMsgBox->addButton(QMessageBox::Ok)->setText(tr("确定"));
+    abortConfirmMsgBox->addButton(QMessageBox::Cancel)->setText(tr("取消"));
     abortConfirmMsgBox->setDefaultButton(QMessageBox::Cancel);
 
     connect(abortConfirmMsgBox, &QDialog::accepted, this, [=](){

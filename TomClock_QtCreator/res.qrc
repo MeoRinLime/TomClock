@@ -23,5 +23,7 @@
         <file>resourse/sounds/pause2.wav</file>
         <file>resourse/sounds/settings.wav</file>
         <file>resourse/sounds/stop.wav</file>
+        <file>resourse/sounds/start.wav</file>
+        <file>resourse/sounds/start_01.wav</file>
     </qresource>
 </RCC>

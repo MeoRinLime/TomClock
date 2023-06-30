@@ -157,6 +157,31 @@
         <source>总任务记录数：</source>
         <translation>总任务记录数：</translation>
     </message>
+    <message>
+        <location filename="../historywindow.cpp" line="79"/>
+        <source>小时</source>
+        <translation>小时</translation>
+    </message>
+    <message>
+        <location filename="../historywindow.cpp" line="79"/>
+        <source>分钟</source>
+        <translation>分钟</translation>
+    </message>
+    <message>
+        <location filename="../historywindow.cpp" line="79"/>
+        <source>秒</source>
+        <translation>秒</translation>
+    </message>
+    <message>
+        <location filename="../historywindow.cpp" line="84"/>
+        <source>                  番茄数：</source>
+        <translation>                  番茄数：</translation>
+    </message>
+    <message>
+        <location filename="../historywindow.cpp" line="85"/>
+        <source>        学习时长</source>
+        <translation>        学习时长</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -321,18 +346,30 @@
     </message>
     <message>
         <location filename="../../screenUi/ourteam.ui" line="344"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;同样是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;产品经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;同样是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;产品经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;驰骋在赛马场上の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;鸽子&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;驰骋在赛马场上の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;鸽子&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/ourteam.ui" line="420"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;仍然是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;技术经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;仍然是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;技术经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;罗德岛の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;资深博士&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;罗德岛の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;资深博士&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/ourteam.ui" line="487"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;编程社の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;社长&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;爱酱の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;永远单推人&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;肖磊&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(MeoRinLime)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;编程社の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;社长&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;爱酱の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;永远单推人&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;肖磊&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(MeoRinLime)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;同样是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;产品经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;永远の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;rfgg&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;同样是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;产品经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;栗若风&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(ffukaNe)&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;仍然是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;技术经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;技术&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;强♂而有力&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;！！&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;仍然是亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;技术经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;谢明宇&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(Pologue)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;编程社の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;社长&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;项目经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;肖磊&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(MeoRinLime)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;编程社の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;社长&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;项目经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;肖磊&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(MeoRinLime)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;编程社の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;社长&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;亿伯昏の&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;项目经理&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;肖磊&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;(MeoRinLime)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/ourteam.ui" line="548"/>
@@ -364,6 +401,8 @@
     </message>
     <message>
         <location filename="../../screenUi/runwindow.ui" line="205"/>
+        <location filename="../runwindow.cpp" line="34"/>
+        <location filename="../runwindow.cpp" line="169"/>
         <source>暂停</source>
         <translation>暂停</translation>
     </message>
@@ -371,6 +410,48 @@
         <location filename="../../screenUi/runwindow.ui" line="231"/>
         <source>终止</source>
         <translation>终止</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="79"/>
+        <location filename="../runwindow.cpp" line="99"/>
+        <location filename="../runwindow.cpp" line="119"/>
+        <source>休息时间</source>
+        <translation>休息时间</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="139"/>
+        <source>长休息时间</source>
+        <translation>长休息时间</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="164"/>
+        <source>继续</source>
+        <translation>继续</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="181"/>
+        <source>注意</source>
+        <translation>注意</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="182"/>
+        <source>确定结束本次任务吗？</source>
+        <translation>确定结束本次任务吗？</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="183"/>
+        <source>本次任务获得番茄总数为%1</source>
+        <translation>本次任务获得番茄总数为 %1</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="184"/>
+        <source>确定</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../runwindow.cpp" line="185"/>
+        <source>取消</source>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -418,6 +499,59 @@
         <source>English</source>
         <extracomment>English</extracomment>
         <translation>English</translation>
+    </message>
+</context>
+<context>
+    <name>TomClock</name>
+    <message>
+        <location filename="../tomclock.cpp" line="15"/>
+        <source>第1个番茄</source>
+        <translation>第1个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="15"/>
+        <source>获得你的第1个番茄</source>
+        <translation>获得你的第1个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="16"/>
+        <source>第5个番茄</source>
+        <translation>第5个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="16"/>
+        <source>累计获得5个番茄</source>
+        <translation>累计获得5个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="17"/>
+        <source>第10个番茄</source>
+        <translation>第10个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="17"/>
+        <source>累计获得10个番茄</source>
+        <translation>累计获得10个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="18"/>
+        <source>第100个番茄</source>
+        <translation>第100个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="18"/>
+        <source>累计获得100个番茄</source>
+        <translation>累计获得100个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="19"/>
+        <source>第150个番茄</source>
+        <translation>第150个番茄</translation>
+    </message>
+    <message>
+        <location filename="../tomclock.cpp" line="19"/>
+        <source>累计获得150个番茄</source>
+        <translation>累计获得150个番茄</translation>
     </message>
 </context>
 <context>

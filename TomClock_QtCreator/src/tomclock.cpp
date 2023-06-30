@@ -12,11 +12,11 @@ TomClock::TomClock()
     teamW = new OurTeam();
 
     //achieve test
-    Achievement a1("第1个番茄", 0, "获得你的第1个番茄");
-    Achievement a2("第5个番茄", 0, "累计获得5个番茄");
-    Achievement a3("第10个番茄", 0, "累计获得10个番茄");
-    Achievement a4("第100个番茄", 0, "累计获得100个番茄");
-    Achievement a5("第150个番茄", 0, "累计获得150个番茄");
+    Achievement a1(tr("第1个番茄"), 0, tr("获得你的第1个番茄"));
+    Achievement a2(tr("第5个番茄"), 0, tr("累计获得5个番茄"));
+    Achievement a3(tr("第10个番茄"), 0, tr("累计获得10个番茄"));
+    Achievement a4(tr("第100个番茄"), 0, tr("累计获得100个番茄"));
+    Achievement a5(tr("第150个番茄"), 0, tr("累计获得150个番茄"));
     achieveList.append(a1);
     achieveList.append(a2);
     achieveList.append(a3);
@@ -136,4 +136,17 @@ void TomClock::updataHistoryDatabase(History h){
     h.setId(historyList.size());
     historyList.push_back(h);
     tcDatabase->addHistory(h);
+}
+
+void TomClock::changeEvent(QEvent *event)
+{
+    switch (event->type())
+    {
+    case QEvent::LanguageChange:
+
+        break;
+    default:
+        break;
+
+    }
 }
