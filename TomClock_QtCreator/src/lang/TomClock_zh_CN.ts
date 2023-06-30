@@ -9,14 +9,19 @@
         <translation>TomClock</translation>
     </message>
     <message>
-        <location filename="../../screenUi/achievementwindow.ui" line="36"/>
+        <location filename="../../screenUi/achievementwindow.ui" line="41"/>
         <source>已有番茄数</source>
         <translation>已有番茄数</translation>
     </message>
     <message>
-        <location filename="../../screenUi/achievementwindow.ui" line="49"/>
+        <location filename="../../screenUi/achievementwindow.ui" line="59"/>
         <source>0</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../../screenUi/achievementwindow.ui" line="115"/>
+        <source>返回</source>
+        <translation>返回</translation>
     </message>
 </context>
 <context>
@@ -29,7 +34,7 @@
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="199"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;任务名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;任务名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../screenUi/createmissionwindow.ui" line="236"/>
@@ -222,68 +227,72 @@
         <translation>Form</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="23"/>
-        <location filename="../missionpushbutton.cpp" line="25"/>
         <source>0</source>
-        <translation>0</translation>
+        <translation type="vanished">0</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="23"/>
+        <location filename="../missionpushbutton.cpp" line="24"/>
         <source>15</source>
         <translation>15</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="23"/>
+        <location filename="../missionpushbutton.cpp" line="24"/>
         <source>20</source>
         <translation>20</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="23"/>
+        <location filename="../missionpushbutton.cpp" line="24"/>
         <source>25</source>
         <translation>25</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="23"/>
+        <location filename="../missionpushbutton.cpp" line="24"/>
         <source>30</source>
         <translation>30</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="23"/>
+        <location filename="../missionpushbutton.cpp" line="24"/>
         <source>40</source>
         <translation>40</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="23"/>
+        <location filename="../missionpushbutton.cpp" line="24"/>
         <source>50</source>
         <translation>50</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="25"/>
+        <location filename="../missionpushbutton.cpp" line="24"/>
+        <location filename="../missionpushbutton.cpp" line="27"/>
+        <source>1</source>
+        <translation>1</translation>
+    </message>
+    <message>
+        <location filename="../missionpushbutton.cpp" line="27"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="25"/>
+        <location filename="../missionpushbutton.cpp" line="27"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="25"/>
+        <location filename="../missionpushbutton.cpp" line="27"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="25"/>
+        <location filename="../missionpushbutton.cpp" line="27"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="25"/>
+        <location filename="../missionpushbutton.cpp" line="27"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../missionpushbutton.cpp" line="25"/>
+        <location filename="../missionpushbutton.cpp" line="27"/>
         <source>10</source>
         <translation>10</translation>
     </message>
@@ -344,22 +353,22 @@
         <translation>TomClock</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="101"/>
+        <location filename="../../screenUi/runwindow.ui" line="109"/>
         <source>学习XXX</source>
         <translation>学习XXX</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="156"/>
+        <location filename="../../screenUi/runwindow.ui" line="164"/>
         <source>XX:XX</source>
         <translation>XX:XX</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="197"/>
+        <location filename="../../screenUi/runwindow.ui" line="205"/>
         <source>暂停</source>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="../../screenUi/runwindow.ui" line="223"/>
+        <location filename="../../screenUi/runwindow.ui" line="231"/>
         <source>终止</source>
         <translation>终止</translation>
     </message>
