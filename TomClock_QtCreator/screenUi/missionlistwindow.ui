@@ -102,28 +102,27 @@
              <widget class="QPushButton" name="backtoMain">
               <property name="font">
                <font>
-                <pointsize>17</pointsize>
+                <pointsize>14</pointsize>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QPushButton{
-background-color: rgb(225, 225, 225);
+               <string notr="true">.QPushButton,.QToolButton{
+color:#DCDCDC;
+min-height:15px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
 border:2px groove gray;
 border-radius:10px;
 padding:2px 4px;
 border-style: outset;
 }
 
-QPushButton:hover{
-background-color:rgb(229, 241, 251); 
-color: black;
+.QPushButton:hover,.QToolButton:hover{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);
 }
 
-QPushButton:pressed{
-background-color:rgb(204, 228, 247);
-border-style: inset;
-}
-</string>
+.QPushButton:pressed,.QToolButton:pressed{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
+}</string>
               </property>
               <property name="text">
                <string>返回</string>
@@ -314,28 +313,30 @@ border-style: inset;
             </property>
             <property name="font">
              <font>
-              <pointsize>21</pointsize>
+              <pointsize>-1</pointsize>
+              <italic>false</italic>
+              <bold>true</bold>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton{
-background-color: rgb(225, 225, 225);
-border:2px groove gray;
-border-radius:10px;
-padding:2px 4px;
-border-style: outset;
+             <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 20px;
+    min-width: 80px;
+    min-height: 30px;
 }
 
-QPushButton:hover{
-background-color:rgb(229, 241, 251); 
-color: black;
+QPushButton:hover {
+    background-color: #3e8e41;
 }
 
-QPushButton:pressed{
-background-color:rgb(204, 228, 247);
-border-style: inset;
+QPushButton:pressed {
+    background-color: #2e6b2e;
 }
-
 </string>
             </property>
             <property name="text">

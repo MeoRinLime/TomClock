@@ -9,40 +9,39 @@ RunWindow::RunWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
-    ui->PauseResumeButton->setStyleSheet("QPushButton{\
-                                        background-color: rgb(225, 225, 225);\
+    ui->PauseResumeButton->setStyleSheet(".QPushButton,.QToolButton{\
+                                        color:#000000;\
+                                        min-height:15px;\
+                                        background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\
+                                        background-color: rgb(255, 250, 240);\
                                         border:2px groove gray;\
                                         border-radius:10px;\
                                         padding:2px 4px;\
                                         border-style: outset;\
                                         }\
-                                        \
-                                        QPushButton:hover{\
-                                        background-color:rgb(229, 241, 251); \
-                                        color: black;\
+                                        .QPushButton:hover,.QToolButton:hover{\
+                                        background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);\
                                         }\
-                                        \
-                                        QPushButton:pressed{\
-                                        background-color:rgb(204, 228, 247);\
-                                        border-style: inset;\
+                                        .QPushButton:pressed,.QToolButton:pressed{\
+                                        background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\
                                         }");
-    ui->AbortButton->setStyleSheet("QPushButton{\
-                                        background-color: rgb(225, 225, 225);\
-                                        border:2px groove gray;\
-                                        border-radius:10px;\
-                                        padding:2px 4px;\
-                                        border-style: outset;\
-                                        }\
-                                        \
-                                        QPushButton:hover{\
-                                        background-color:rgb(229, 241, 251); \
-                                        color: black;\
-                                        }\
-                                        \
-                                        QPushButton:pressed{\
-                                        background-color:rgb(204, 228, 247);\
-                                        border-style: inset;\
-                                        }");
+    ui->AbortButton->setStyleSheet(".QPushButton,.QToolButton{\
+                                    color:#E1FFFF;\
+                                    min-height:15px;\
+                                    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\
+                                    background-color: rgb(220,20,60);\
+                                    border:2px groove gray;\
+                                    border-radius:10px;\
+                                    padding:2px 4px;\
+                                    border-style: outset;\
+                                    }\
+                                    .QPushButton:hover,.QToolButton:hover{\
+                                    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);\
+                                    }\
+                                    .QPushButton:pressed,.QToolButton:pressed{\
+                                    background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\
+                                    }");
+                                    
     connect(this, &RunWindow::isPaused, this, [=](){
         isPausedForAchieve = true;
     });
@@ -154,9 +153,9 @@ void RunWindow::nextPeriod()
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
             msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -183,10 +182,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -213,10 +212,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -243,10 +242,10 @@ void RunWindow::nextPeriod()
         if (!oncePaused){
             addNumOfTomato++;
             QMessageBox *msgBox = new QMessageBox(this);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("获得一个番茄");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("获得一个番茄"));
             msgBox->setInformativeText("");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -282,13 +281,13 @@ void RunWindow::on_PauseResumeButton_clicked()
     if (secTimer->isActive()){
         secTimer->stop();
         periodTimer->stop();
-        ui->PauseResumeButton->setText("继续");
+        ui->PauseResumeButton->setText(tr("继续"));
         update();
     }
     else {
         secTimer->start(1000);
         periodTimer->start(1000 * QTime(0,0,0).secsTo(displayedTime));
-        ui->PauseResumeButton->setText("暂停");
+        ui->PauseResumeButton->setText(tr("暂停"));
         update();
     }
 }

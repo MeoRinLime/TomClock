@@ -14,22 +14,21 @@ AchievementWindow::AchievementWindow(/*const QVector<Achievement> &achievementLi
 {
     ui->setupUi(this);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
-    ui->backBtn->setStyleSheet("QPushButton{\
-                                background-color: rgb(225, 225, 225);\
+    ui->scrollArea->viewport()->setStyleSheet(".QWidget{background-color:transparent;}");
+    ui->backBtn->setStyleSheet(".QPushButton,.QToolButton{\
+                                color:#DCDCDC;\
+                                min-height:15px;\
+                                background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);\
                                 border:2px groove gray;\
                                 border-radius:10px;\
                                 padding:2px 4px;\
                                 border-style: outset;\
                                 }\
-                                \
-                                QPushButton:hover{\
-                                background-color:rgb(229, 241, 251);\
-                                color: black;\
+                                .QPushButton:hover,.QToolButton:hover{\
+                                background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);\
                                 }\
-                                \
-                                QPushButton:pressed{\
-                                background-color:rgb(204, 228, 247);\
-                                border-style: inset;\
+                                .QPushButton:pressed,.QToolButton:pressed{\
+                                background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);\
                                 }");
 
 //    QWidget *backdrop = new QWidget;                     //创建滚动显示区域幕布

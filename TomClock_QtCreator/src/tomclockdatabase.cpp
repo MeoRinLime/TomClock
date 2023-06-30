@@ -46,16 +46,16 @@ TomClockDatabase::TomClockDatabase()
         qDebug("Tables already exist.");
     }
     //achieve test
-    Achievement a1("番茄小子", 0, "获得你的第1个番茄");
-    Achievement a2("番茄达人", 0, "累计获得10个番茄");
-    Achievement a3("番茄狂魔", 0, "累计获得100个番茄");
-    Achievement a4("速战速决", 0, "设置1个工作时间短的任务");
-    Achievement a5("长线作战", 0, "设置1个工作时间长的任务");
-    Achievement a6("世界", 0, "暂停1次时间");
-    Achievement a7("就到这里吧", 0, "终止1次任务");
-    Achievement a8("偷个小懒", 0, "1天没有开始任务");
-    Achievement a9("浑水摸鱼", 0, "5天没有开始任务");
-    Achievement a10("我就是咸鱼", 0, "15天没有开始任务");
+    Achievement a1(tr("番茄小子"), 0, tr("获得你的第1个番茄"));
+    Achievement a2(tr("番茄达人"), 0, tr("累计获得10个番茄"));
+    Achievement a3(tr("番茄狂魔"), 0, tr("累计获得100个番茄"));
+    Achievement a4(tr("速战速决"), 0, tr("设置1个工作时间短的任务"));
+    Achievement a5(tr("长线作战"), 0, tr("设置1个工作时间长的任务"));
+    Achievement a6(tr("世界"), 0, tr("暂停1次时间"));
+    Achievement a7(tr("就到这里吧"), 0, tr("终止1次任务"));
+    Achievement a8(tr("偷个小懒"), 0, tr("1天没有开始任务"));
+    Achievement a9(tr("浑水摸鱼"), 0, tr("5天没有开始任务"));
+    Achievement a10(tr("我就是咸鱼"), 0, tr("15天没有开始任务"));
     achievementList.append(a1);
     achievementList.append(a2);
     achievementList.append(a3);

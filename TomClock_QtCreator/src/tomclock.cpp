@@ -106,10 +106,10 @@ void TomClock::judgeAchieve(bool paused){
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：世界");
-            msgBox->setInformativeText("暂停1次时间");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：世界"));
+            msgBox->setInformativeText(tr("暂停1次时间"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -142,10 +142,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：番茄小子");
-            msgBox->setInformativeText("获得你的第1个番茄");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：番茄小子"));
+            msgBox->setInformativeText(tr("获得你的第1个番茄"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -159,10 +159,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：番茄达人");
-            msgBox->setInformativeText("累计获得10个番茄");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：番茄达人"));
+            msgBox->setInformativeText(tr("累计获得10个番茄"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -176,10 +176,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：番茄狂魔");
-            msgBox->setInformativeText("累计获得100个番茄");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：番茄狂魔"));
+            msgBox->setInformativeText(tr("累计获得100个番茄"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -193,10 +193,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：速战速决");
-            msgBox->setInformativeText("设置1个工作时间短的任务");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：速战速决"));
+            msgBox->setInformativeText(tr("设置1个工作时间短的任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -210,10 +210,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：长线作战");
-            msgBox->setInformativeText("设置1个工作时间长的任务");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：长线作战"));
+            msgBox->setInformativeText(tr("设置1个工作时间长的任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -228,10 +228,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：就到这里吧");
-            msgBox->setInformativeText("终止1次任务");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：就到这里吧"));
+            msgBox->setInformativeText(tr("终止1次任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -245,10 +245,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：偷个小懒");
-            msgBox->setInformativeText("1天没有开始任务");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：偷个小懒"));
+            msgBox->setInformativeText(tr("1天没有开始任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -262,10 +262,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：浑水摸鱼");
-            msgBox->setInformativeText("5天没有开始任务");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：浑水摸鱼"));
+            msgBox->setInformativeText(tr("5天没有开始任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });
@@ -279,10 +279,10 @@ void TomClock::judgeAchieve()
         //应当只有原本成就状态是未达成时才exec以下消息
         if (!originAchieveState){
             QMessageBox *msgBox = new QMessageBox(mainW);
-            msgBox->setWindowTitle("恭喜！");
-            msgBox->setText("达成成就：我就是咸鱼");
-            msgBox->setInformativeText("15天没有开始任务");
-            msgBox->addButton(QMessageBox::Ok)->setText("好的");
+            msgBox->setWindowTitle(tr("恭喜！"));
+            msgBox->setText(tr("达成成就：我就是咸鱼"));
+            msgBox->setInformativeText(tr("15天没有开始任务"));
+            msgBox->addButton(QMessageBox::Ok)->setText(tr("好的"));
             connect(msgBox, &QDialog::accepted, this, [=](){
                 msgBox->close();
             });

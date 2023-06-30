@@ -13,6 +13,12 @@
         <file>resourse/images/Icons/Team/zonghan.jpg</file>
         <file>resourse/images/Icons/Team/ruofeng.jpg</file>
         <file>resourse/images/Icons/Team/TeamLogo.png</file>
+        <file>resourse/images/Icons/Default_Color/about.png</file>
+        <file>resourse/images/Icons/Default_Color/achievement.png</file>
+        <file>resourse/images/Icons/Default_Color/back.png</file>
+        <file>resourse/images/Icons/Default_Color/history.png</file>
+        <file>resourse/images/Icons/Default_Color/list.png</file>
+        <file>resourse/images/Icons/Default_Color/setting.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>resourse/sounds/achievement.wav</file>
