@@ -29,6 +29,9 @@ public:
     void showWindow(); //显示主窗口
     int numOfTomato;
 
+signals:
+    void updateHistory(QVector<History> historyList);
+
 private:
     TomClockDatabase *tcDatabase;
     //先创建所有窗口，跳转页面就是隐藏和显示不同的窗口

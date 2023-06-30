@@ -9,6 +9,40 @@ RunWindow::RunWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setStyleSheet("#frame {border-image:url(:/images/resourse/images/background/bg3.png);}");
+    ui->PauseResumeButton->setStyleSheet("QPushButton{\
+                                        background-color: rgb(225, 225, 225);\
+                                        border:2px groove gray;\
+                                        border-radius:10px;\
+                                        padding:2px 4px;\
+                                        border-style: outset;\
+                                        }\
+                                        \
+                                        QPushButton:hover{\
+                                        background-color:rgb(229, 241, 251); \
+                                        color: black;\
+                                        }\
+                                        \
+                                        QPushButton:pressed{\
+                                        background-color:rgb(204, 228, 247);\
+                                        border-style: inset;\
+                                        }");
+    ui->AbortButton->setStyleSheet("QPushButton{\
+                                        background-color: rgb(225, 225, 225);\
+                                        border:2px groove gray;\
+                                        border-radius:10px;\
+                                        padding:2px 4px;\
+                                        border-style: outset;\
+                                        }\
+                                        \
+                                        QPushButton:hover{\
+                                        background-color:rgb(229, 241, 251); \
+                                        color: black;\
+                                        }\
+                                        \
+                                        QPushButton:pressed{\
+                                        background-color:rgb(204, 228, 247);\
+                                        border-style: inset;\
+                                        }");
 }
 
 RunWindow::~RunWindow()
@@ -25,6 +59,47 @@ void RunWindow::closeEvent(QCloseEvent *event)
     periodTimer->stop();
     emit JumptoMain();
     QMainWindow::closeEvent(event);
+    //下面会导致重复调用closeEvent，重复弹出提示框
+//    //跳出确认提示框
+//    //此时计时停止
+//    secTimer->stop();
+//    periodTimer->stop();
+//    QMessageBox *abortConfirmMsgBox = new QMessageBox(this);
+//    abortConfirmMsgBox->setWindowTitle("注意");
+//    abortConfirmMsgBox->setText("确定结束本次任务吗？");
+//    abortConfirmMsgBox->setInformativeText(QString("本次任务获得番茄总数为%1").arg(addNumOfTomato));
+//    abortConfirmMsgBox->addButton(QMessageBox::Ok)->setText("确定");
+//    abortConfirmMsgBox->addButton(QMessageBox::Cancel)->setText("取消");
+//    abortConfirmMsgBox->setDefaultButton(QMessageBox::Cancel);
+
+//    connect(abortConfirmMsgBox, &QDialog::accepted, this, [=](){
+//        //同closeEvent的情况
+////        delete secTimer;
+////        delete periodTimer;
+//       // emit noTomato(); //无番茄
+//        //跳转到主窗口
+//        //记录保存
+//        history.setDate(QDate::currentDate());
+//        history.setNumOfTomato(addNumOfTomato);
+//        int s = 60 - displayedTime.second();
+//        int m = curMission.getWorkTime().minute() * addNumOfTomato + (curMission.getWorkTime().minute() - displayedTime.minute() - 1);
+//        int h = m / 60;
+//        m = m % 60;
+//        history.setTotalTime(QTime(h,m,s));
+//        history.setName(curMission.getName());
+//        //发送到历史记录
+//        emit sentHistory(history);
+//        emit toJudgeAchieve();
+//        emit JumptoMain();
+//        this->close();
+//    });
+//    connect(abortConfirmMsgBox, &QDialog::rejected, this, [=](){
+//        //恢复计时
+//        secTimer->start(1000);
+//        periodTimer->start(whichPeriod%2==0 ? 1000 * QTime(0,0,0).secsTo(curMission.getWorkTime()) : 1000 * QTime(0,0,0).secsTo(curMission.getRelaxTime()));
+//        abortConfirmMsgBox->close(); //无事发生，继续计时
+//    });
+//    abortConfirmMsgBox->exec();
 }
 
 void RunWindow::ListtoRun(const Mission &mission)

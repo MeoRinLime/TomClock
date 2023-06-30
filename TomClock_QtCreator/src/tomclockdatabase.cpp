@@ -45,6 +45,21 @@ TomClockDatabase::TomClockDatabase()
     else {
         qDebug("Tables already exist.");
     }
+    //achieve test
+    Achievement a1("第1个番茄", 0, "获得你的第1个番茄");
+    Achievement a2("第5个番茄", 0, "累计获得5个番茄");
+    Achievement a3("第10个番茄", 0, "累计获得10个番茄");
+    Achievement a4("第100个番茄", 0, "累计获得100个番茄");
+    Achievement a5("第150个番茄", 0, "累计获得150个番茄");
+    achievementList.append(a1);
+    achievementList.append(a2);
+    achievementList.append(a3);
+    achievementList.append(a4);
+    achievementList.append(a5);
+    //    a1.setState(1);
+    //    tcDatabase->updateAchievement(a1);
+    //achieve test end
+
 }
 
 bool TomClockDatabase::tablesExist()
@@ -306,7 +321,7 @@ void TomClockDatabase::deleteAllHistory()
     }
 }
 
-void TomClockDatabase::initAchievement(const QVector<Achievement> &achievementList)
+void TomClockDatabase::initAchievement(/*const QVector<Achievement> &achievementList*/)
 {
     //判断是否为空
     //若无内容，则插入整个achievement数组
