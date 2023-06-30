@@ -193,7 +193,8 @@
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: transparent;</string>
+           <string notr="true">background-color: transparent;
+font-size: 14px</string>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;任务名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -209,8 +210,19 @@
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;
-background-color: rgb(255, 255, 255);</string>
+           <string notr="true">QLineEdit {
+	/* 外边框 */
+	border:2px solid red;
+	/* 倒角 */
+	border-radius: 10px;
+	/*  内边框:上下和左右的距离*/
+	padding: 10 8px;
+	/* 选中高亮背色 */
+	selection-background-color:blue;
+	min-width:150px;
+	min-height:17px;
+}
+</string>
           </property>
           <property name="text">
            <string/>
@@ -229,6 +241,11 @@ background-color: rgb(255, 255, 255);</string>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: transparent;</string>
           </property>
@@ -246,17 +263,30 @@ background-color: rgb(255, 255, 255);</string>
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;
-background-color: rgb(255, 255, 255);</string>
+           <string notr="true">QComboBox {
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    padding-left: 30px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #B0E0E6;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 13px;
+}
+QComboBox::drop-down {
+    border: null;
+}
+QComboBox::down-arrow {
+    border: null;
+}</string>
           </property>
           <item>
            <property name="text">
             <string>2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>1</string>
            </property>
           </item>
           <item>
@@ -271,7 +301,7 @@ background-color: rgb(255, 255, 255);</string>
           </item>
           <item>
            <property name="text">
-            <string>6</string>
+            <string>5</string>
            </property>
           </item>
           <item>
@@ -314,26 +344,26 @@ background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>14</pointsize>
+          <pointsize>15</pointsize>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton{
-background-color: rgb(255, 255, 255);
+         <string notr="true">.QPushButton,.QToolButton{
+color:#DCDCDC;
+min-height:15px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
 border:2px groove gray;
 border-radius:10px;
 padding:2px 4px;
 border-style: outset;
 }
 
-QPushButton:hover{
-background-color:rgb(229, 241, 251); 
-color: black;
+.QPushButton:hover,.QToolButton:hover{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #646464,stop:1 #525252);
 }
 
-QPushButton:pressed{
-background-color:rgb(204, 228, 247);
-border-style: inset;
+.QPushButton:pressed,.QToolButton:pressed{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);
 }</string>
         </property>
         <property name="text">
@@ -368,28 +398,29 @@ border-style: inset;
          </property>
          <property name="font">
           <font>
-           <pointsize>18</pointsize>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">
-
-QPushButton{
-background-color: rgb(255, 255, 255);
-border:2px groove gray;
-border-radius:10px;
-padding:2px 4px;
-border-style: outset;
+          <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 20px;
+    min-width: 80px;
+    min-height: 30px;
 }
 
-QPushButton:hover{
-background-color:rgb(229, 241, 251); 
-color: black;
+QPushButton:hover {
+    background-color: #3e8e41;
 }
 
-QPushButton:pressed{
-background-color:rgb(204, 228, 247);
-border-style: inset;
+QPushButton:pressed {
+    background-color: #2e6b2e;
 }</string>
          </property>
          <property name="text">
@@ -434,6 +465,11 @@ border-style: inset;
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: transparent;</string>
           </property>
@@ -451,17 +487,30 @@ border-style: inset;
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">font: 290 18pt &quot;微软雅黑 Light&quot;;
-background-color: rgb(255, 255, 255);</string>
+           <string notr="true">QComboBox {
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    padding-left: 30px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #B0E0E6;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 13px;
+}
+QComboBox::drop-down {
+    border: null;
+}
+QComboBox::down-arrow {
+    border: null;
+}</string>
           </property>
           <item>
            <property name="text">
             <string>15</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>1</string>
            </property>
           </item>
           <item>
@@ -481,12 +530,12 @@ background-color: rgb(255, 255, 255);</string>
           </item>
           <item>
            <property name="text">
-            <string>40</string>
+            <string>45</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>50</string>
+            <string>60</string>
            </property>
           </item>
          </widget>

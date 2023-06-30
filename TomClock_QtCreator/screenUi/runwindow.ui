@@ -108,7 +108,8 @@
              </property>
              <property name="font">
               <font>
-               <pointsize>20</pointsize>
+               <family>Lucida Fax</family>
+               <pointsize>25</pointsize>
               </font>
              </property>
              <property name="text">
@@ -162,8 +163,8 @@
               </property>
               <property name="font">
                <font>
-                <family>OPPOSans B</family>
-                <pointsize>40</pointsize>
+                <family>OPPOSans H</family>
+                <pointsize>55</pointsize>
                </font>
               </property>
               <property name="text">
@@ -204,13 +205,33 @@
               <property name="minimumSize">
                <size>
                 <width>150</width>
-                <height>60</height>
+                <height>23</height>
                </size>
               </property>
               <property name="font">
                <font>
-                <pointsize>20</pointsize>
+                <pointsize>22</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">.QPushButton,.QToolButton{
+color:#000000;
+min-height:15px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);
+background-color: rgb(255,250,240);
+border:2px groove gray;
+border-radius:10px;
+padding:2px 4px;
+border-style: outset;
+}
+
+.QPushButton:hover,.QToolButton:hover{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);
+}
+
+.QPushButton:pressed,.QToolButton:pressed{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);
+}</string>
               </property>
               <property name="text">
                <string>暂停</string>
@@ -235,13 +256,33 @@
               <property name="minimumSize">
                <size>
                 <width>150</width>
-                <height>60</height>
+                <height>23</height>
                </size>
               </property>
               <property name="font">
                <font>
-                <pointsize>20</pointsize>
+                <pointsize>22</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">.QPushButton,.QToolButton{
+color:#E1FFFF;
+min-height:15px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);
+background-color: rgb(220,20,60);
+border:2px groove gray;
+border-radius:10px;
+padding:2px 4px;
+border-style: outset;
+}
+
+.QPushButton:hover,.QToolButton:hover{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);
+}
+
+.QPushButton:pressed,.QToolButton:pressed{
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);
+}</string>
               </property>
               <property name="text">
                <string>终止</string>
